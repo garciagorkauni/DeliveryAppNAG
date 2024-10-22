@@ -3,3 +3,6 @@
 NAGWeb/pyvenv.cfg
 /NAGWeb/Scripts
 /NAGWeb/nag/nag/__pycache__
+/NAGWeb/nag/nag_web/__pycache__
+/NAGWeb/nag/nag_web/migrations/__pycache__
+NAGWeb/nag/nag/local_settings.py
