@@ -2,3 +2,4 @@
 /NAGWeb/Lib
 NAGWeb/pyvenv.cfg
 /NAGWeb/Scripts
+/NAGWeb/nag/nag/__pycache__
