@@ -260,3 +260,7 @@ class Allergen(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=75)
     description = models.TextField()
+
+class ProductAllergen(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    allergen = models.ForeignKey(Allergen, on_delete=models.CASCADE) 
