@@ -248,7 +248,7 @@ class Cart(models.Model):
         ("Pending", "Pending"),
         ("Bought", "Bought")
     )
-    state = models.CharField(choices=STATE_CHOICES)
+    state = models.CharField(max_length=10, choices=STATE_CHOICES)
 
 class Image(models.Model):
     image_id = models.AutoField(primary_key=True)
