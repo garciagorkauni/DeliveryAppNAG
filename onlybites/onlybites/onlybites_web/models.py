@@ -249,3 +249,10 @@ class Cart(models.Model):
         ("Bought", "Bought")
     )
     state = models.CharField(choices=STATE_CHOICES)
+
+class Image(models.Model):
+    id = models.AutoField(primary_key=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    path = models.CharField(max_length=100)
+    alt = models.CharField(max_length=75)
+
