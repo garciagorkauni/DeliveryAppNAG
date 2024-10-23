@@ -239,3 +239,13 @@ class Valoration(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     value = models.IntegerField()
     message = models.TextField()
+
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    STATE_CHOICES =(
+        ("Pending", "Pending"),
+        ("Bought", "Bought")
+    )
+    state = models.CharField(choices=STATE_CHOICES)
