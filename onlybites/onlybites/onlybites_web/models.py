@@ -256,3 +256,7 @@ class Image(models.Model):
     path = models.CharField(max_length=100)
     alt = models.CharField(max_length=75)
 
+class Allergen(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=75)
+    description = models.TextField()
