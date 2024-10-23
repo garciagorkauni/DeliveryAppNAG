@@ -1,7 +1,7 @@
 from django.db import models
 
 class User(models.Model):
-    id = models.AutoField(primary_key=True)
+    user_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=75)
     surname = models.CharField(max_length=75)
     birthdate = models.DateTimeField()
@@ -9,7 +9,7 @@ class User(models.Model):
     telephone = models.CharField(max_length=75)
 
 class Address(models.Model):
-    id = models.AutoField(primary_key=True)
+    address_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=75)
     surname = models.CharField(max_length=75)
@@ -223,7 +223,7 @@ class Address(models.Model):
     address2 = models.CharField(max_length=200, blank=True)
 
 class Product(models.Model):
-    id = models.AutoField(primary_key=True)
+    product_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=75)
     description = models.TextField()
     stock = models.IntegerField()
@@ -234,7 +234,7 @@ class Product(models.Model):
     price = models.FloatField()
 
 class Valoration(models.Model):
-    id = models.AutoField(primary_key=True)
+    valoration_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     value = models.IntegerField()
@@ -251,13 +251,13 @@ class Cart(models.Model):
     state = models.CharField(choices=STATE_CHOICES)
 
 class Image(models.Model):
-    id = models.AutoField(primary_key=True)
+    image_id = models.AutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     path = models.CharField(max_length=100)
     alt = models.CharField(max_length=75)
 
 class Allergen(models.Model):
-    id = models.AutoField(primary_key=True)
+    allergen_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=75)
     description = models.TextField()
 
