@@ -221,3 +221,14 @@ class Address(models.Model):
     city = models.CharField(max_length=75)
     address1 = models.CharField(max_length=200)
     address2 = models.CharField(max_length=200, blank=True)
+
+class Product(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=75)
+    description = models.TextField()
+    stock = models.IntegerField()
+    vegan = models.BooleanField()
+    celiac = models.BooleanField()
+    calories = models.IntegerField()
+    valoration_avg = models.FloatField()
+    price = models.FloatField()
