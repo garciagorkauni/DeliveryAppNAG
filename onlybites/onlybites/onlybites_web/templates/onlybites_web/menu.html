@@ -3,6 +3,9 @@
 
 <h1>Here will be the menu content</h1>
 
-<a href="{% url 'product' %}">Supose this is a product</a>
+{% for product in allProducts %}
+    <h4><a href="{% url 'product' %}">{{ product.name }}</a></h4>
+    <br>
+{% endfor %}
 
 {% endblock %}

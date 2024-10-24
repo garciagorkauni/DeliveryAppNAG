@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import User, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
 
 # View for home
 def home(request):
@@ -6,6 +7,7 @@ def home(request):
 
 # View for menu
 def menu(request):
+    allProducts = Product.objects.all()
     return render(request, 'onlybites_web/menu.html', locals())
 
 # View for product
