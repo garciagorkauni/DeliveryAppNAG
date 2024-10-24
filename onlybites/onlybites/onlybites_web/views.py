@@ -14,7 +14,11 @@ def menu(request):
 def product(request, product_id):
     product = Product.objects.get(product_id=product_id)
     images = Image.objects.filter(product=product)
-    # allergens of product
+    allergen_ids = ProductAllergen.objects.filter(product=product).values_list('allergen')
+    allergens = []
+    for allergen_id in allergen_ids:
+        allergens.append(Allergen.objects.get(allergen_id=allergen_id[0]))
+
     # valorations of product
     return render(request, 'onlybites_web/product.html', locals())
 

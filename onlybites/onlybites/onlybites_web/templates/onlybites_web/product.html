@@ -21,4 +21,11 @@
         {% endfor %}
     </ul>
 
+<h3>Product allergens:</h4>
+    <ul>
+        {% for allergen in allergens %}
+        <li><strong> {{ allergen.name }}:</strong> {{ allergen.description }}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
