@@ -14,5 +14,11 @@
     <li><strong>Price: </strong> {{ product.price }}</li>
 </ul>
 
+<h3>Product images:</h4>
+    <ul>
+        {% for image in images %}
+        <li> {{ image.path }} ({{image.alt}})</li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}

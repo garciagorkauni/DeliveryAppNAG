@@ -13,6 +13,9 @@ def menu(request):
 # View for product
 def product(request, product_id):
     product = Product.objects.get(product_id=product_id)
+    images = Image.objects.filter(product=product)
+    # allergens of product
+    # valorations of product
     return render(request, 'onlybites_web/product.html', locals())
 
 # View for cart
