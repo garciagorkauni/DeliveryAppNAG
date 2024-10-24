@@ -42,4 +42,8 @@ def register(request):
 
 # View for profile
 def profile(request):
+    user = User.objects.get(user_id=1)
+
+    addresses = Address.objects.filter(user=user)
+
     return render(request, 'onlybites_web/profile.html', locals())

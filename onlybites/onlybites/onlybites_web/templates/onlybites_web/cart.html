@@ -1,7 +1,7 @@
 {% extends 'onlybites_web/base.html' %}
 {% block content %}
 
-<h1>{{ user.name }}</h1>
+<h1>Cart</h1>
 
 <h3>User cart products:</h3>
     <ul>
@@ -10,7 +10,7 @@
         {% endfor %}
     </ul>
 
-<h3>User addresses:</h3>
+<h3>Addresses:</h3>
     <ul>
         {% for address in addresses %}
         <li>{{ address.address1 }} ...</li>
