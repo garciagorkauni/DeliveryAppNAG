@@ -4,3 +4,4 @@ pyvenv.cfg
 /onlybites/onlybites/onlybites_web/migrations/__pycache__
 /onlybites/onlybites/onlybites_web/__pycache__
 /onlybites/onlybites/onlybites/__pycache__
+/onlybites/onlybites/onlybites/local_settings.py
