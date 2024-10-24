@@ -11,7 +11,8 @@ def menu(request):
     return render(request, 'onlybites_web/menu.html', locals())
 
 # View for product
-def product(request):
+def product(request, product_id):
+    product = Product.objects.get(product_id=product_id)
     return render(request, 'onlybites_web/product.html', locals())
 
 # View for cart

@@ -1,6 +1,18 @@
 {% extends 'onlybites_web/base.html' %}
 {% block content %}
 
-<h1>Here will be the content of a product</h1>
+<h1>{{ product.name }}</h1>
+
+<h3>Product information:</h4>
+<ul>
+    <li><strong>Description: </strong> {{ product.description }}</li>
+    <li><strong>Stock: </strong> {{ product.stock }}</li>
+    <li><strong>Vegan: </strong> {{ product.vegan }}</li>
+    <li><strong>Celiac: </strong> {{ product.celiac }}</li>
+    <li><strong>Calories: </strong> {{ product.calories }}</li>
+    <li><strong>Valoration avg: </strong> {{ product.valoration_avg }}</li>
+    <li><strong>Price: </strong> {{ product.price }}</li>
+</ul>
+
 
 {% endblock %}

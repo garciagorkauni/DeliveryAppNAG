@@ -4,7 +4,7 @@
 <h1>Here will be the menu content</h1>
 
 {% for product in allProducts %}
-    <h4><a href="{% url 'product' %}">{{ product.name }}</a></h4>
+    <h4><a href="{% url 'product' product_id=product.product_id %}">{{ product.name }}</a></h4>
     <br>
 {% endfor %}
 
