@@ -26,6 +26,14 @@ def product(request, product_id):
 
 # View for cart
 def cart(request):
+    user = User.objects.get(user_id=1)
+
+    products_id = Cart.objects.filter(user=user).values_list('product')
+    products = []
+    for product_id in products_id:
+        products.append(Product.objects.get(product_id=product_id[0]))
+
+    addresses = Address.objects.filter(user=user)
     return render(request, 'onlybites_web/cart.html', locals())
 
 # View for register
