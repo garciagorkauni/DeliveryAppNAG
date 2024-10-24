@@ -28,4 +28,11 @@
         {% endfor %}
     </ul>
 
+<h3>Product valorations:</h4>
+    <ul>
+        {% for valoration in valorations %}
+        <li><strong> {{ valoration.user.name }}:</strong> {{ valoration.value }}/5 - {{ valoration.message }}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
