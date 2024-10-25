@@ -2,8 +2,8 @@ name: Create Tag
 
 on:
   push:
-  branches:
-  - main
+    branches:
+      - main
   
 jobs:
   create-tag:
@@ -11,7 +11,7 @@ jobs:
     
     steps:
       - name: Checkout code
-      uses: actions/checkout@v2
+        uses: actions/checkout@v2
       
       - name: Get latest release tag
         id: get_tag
@@ -21,12 +21,12 @@ jobs:
       
       - name: Create Tag
         run: |
-        if [ -n "${{ env.TAG_NAME }}" ]; then
-          git tag "v${{ env.TAG_NAME }}"
-          git push origin "v${{ env.TAG_NAME }}"
-        else
-          echo "No valid tag found."
-          exit 1
-        fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          if [ -n "${{ env.TAG_NAME }}" ]; then
+            git tag "v${{ env.TAG_NAME }}"
+            git push origin "v${{ env.TAG_NAME }}"
+          else
+            echo "No valid tag found."
+            exit 1
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
