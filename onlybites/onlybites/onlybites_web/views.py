@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
 from django.contrib.auth import login, authenticate, logout
 from .forms import RegisterForm, AddressForm
@@ -62,6 +62,18 @@ def add_address(request):
         form = AddressForm()
 
     return render(request, 'onlybites_web/add-address.html', {'form': form})
+
+def edit_address(request, id):
+    address = get_object_or_404(Address, address_id=id)
+    if request.method == 'POST':
+        form = AddressForm(request.POST, instance=address)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = AddressForm(instance=address)
+
+    return render(request, 'onlybites_web/add-address.html', {'form': form, 'address': address})
 
 # View for profile session management
 def register(request):
