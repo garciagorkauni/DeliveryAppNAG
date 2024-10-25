@@ -1,21 +1,80 @@
-body{
+* {
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
     background-color: #c0a127;
 }
 
-
-.navbar-default{
+/* Estilos para la barra de navegación */
+.navbar-default {
     display: flex;
-    margin:3rem 2rem 3rem 2rem;
+    margin: 3rem 2rem;
     background-color: white;
     border-radius: 9rem;
     align-items: center;
-    height: 70px;
+    height: 90px;
 }
-.container-fluid{
-   width: 100%;
+
+.container-fluid {
+    width: 100%;
+    margin: auto 20px auto 20px ;
+}
+
+.navbar-header {
+    width: 90px;
+    padding-left: 10px;
+}
+
+.navbar-brand {
+    padding: 0;
+    width: 90px;
     
-   
+    height: 70px;
+    
 }
-.navbar-header img{
-    width: 60px;
+
+/* Estilo para el logo */
+.logo-img {
+    height: 70px; /* Ajusta según el tamaño de tu logo */
+    
 }
+
+/* Alineación del menú */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+/* Estilos para los enlaces del menú */
+.navbar-nav > li > a {
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+/* Botón de Login */
+.btn-login {
+    color: #000;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    margin-right: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Botón de Register */
+.btn-register {
+    color: white;
+    background-color: #6b8e23; /* Color del botón de Register */
+    padding: 10px 20px;
+    border-radius: 9rem;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hover en botones */

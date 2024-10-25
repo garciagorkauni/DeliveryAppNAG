@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -16,22 +18,26 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites"></a>
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites" class="logo-img"></a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{% url 'menu' %}">Menu</a></li>
+                </ul>
+    
+                <ul class="nav navbar-nav navbar-right">
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'cart' %}">Cart</a></li>
                         <li><a href="{% url 'profile' %}">Profile</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
-                        <li><a href="{% url 'login' %}">Login</a></li>
-                        <li><a href="{% url 'register' %}">Register</a></li>
+                        <li><a class="btn btn-login" href="{% url 'login' %}">Login</a></li>
+                        <li><a class="btn btn-register" href="{% url 'register' %}">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
+    
         </div>
     </nav>
 
