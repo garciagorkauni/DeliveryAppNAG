@@ -1,6 +1,14 @@
 {% extends 'onlybites_web/base.html' %}
+{% load static %}
 {% block content %}
-
+<div class="row">
+    <div class="col-lg-7 col-md-7">
+        <h1>Erraza, goxoa eta zuzenean zure mahira.</h1>
+    </div>
+    <div class="col-lg-5 col-md-5" id="home-image">
+        <img src="{% static 'img/home-image.jpg' %}" width="200px">
+    </div>
+</div>
 <h1>Here will be the home content</h1>
 
 {% endblock %}

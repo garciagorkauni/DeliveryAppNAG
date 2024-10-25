@@ -3,17 +3,19 @@
 }
 
 body {
-    background-color: #c0a127;
+    background-color: #FEFDF9;
+    
 }
 
 /* Estilos para la barra de navegación */
 .navbar-default {
     display: flex;
-    margin: 3rem 2rem;
+    margin: 1rem 2rem;
     background-color: white;
     border-radius: 9rem;
     align-items: center;
     height: 90px;
+    position:sticky;
 }
 
 .container-fluid {
@@ -78,3 +80,26 @@ body {
 }
 
 /* Hover en botones */
+.row {
+    position: relative; /* Para que los elementos absolutos se posicionen respecto a .row */
+    padding: 50px 30px;
+    overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+    /* Color de fondo para el área */
+}
+
+.col-lg-7, .col-md-7 {
+    z-index: 2; /* Asegura que el texto esté por encima de la imagen */
+}
+
+#home-image {
+    position: absolute;
+    top: -50px; /* Ajusta según necesites */
+    right: -50px; /* Ajusta según necesites */
+    z-index: 1; /* Asegura que la imagen esté detrás del texto */
+}
+
+#home-image img {
+    max-width: 500px; /* Ajusta el tamaño de la imagen */
+    border-radius: 20px; /* Para un diseño más suave */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar un poco de profundidad */
+}

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home-style.css' %}"/>
+    
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 </head>
@@ -42,9 +44,7 @@
     </nav>
 
     <div class="content container">
-        <div class="row">
-            <div class="col-md-8">{% block content %} {% endblock %}</div>
-        </div>
+        {% block content %} {% endblock %}
     </div>
 </body>
 
