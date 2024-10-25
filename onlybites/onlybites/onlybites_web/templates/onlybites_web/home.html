@@ -1,14 +1,40 @@
 {% extends 'onlybites_web/base.html' %}
 {% load static %}
 {% block content %}
-<div class="row">
-    <div class="col-lg-7 col-md-7">
-        <h1>Erraza, goxoa eta zuzenean zure mahira.</h1>
+
+<div class="content container">
+    <div class="blank-space">
+          
     </div>
-    <div class="col-lg-5 col-md-5" id="home-image">
+    <div class="row intro">
+       
+        <div class="col-lg-7 col-md-7">
+            <h1>Erraza, goxoa eta zuzenean zure mahira.</h1>
+            <h3 >Janari prestatu aberats eta osasungarria.</h3>
+        </div>
+        
+    </div>
+    <div class=" overflow" id="home-image">
         <img src="{% static 'img/home-image.jpg' %}" >
     </div>
 </div>
-<h1>Here will be the home content</h1>
+
+<div class=" platos">
+    <div class="content container center">
+        <div class="blank-space">
+          
+        </div>
+        <div class="row">
+            <h2>Bezeroen gustokoenak</h2>
+        </div>
+        <div class="row">
+            <h3>Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:</h3>
+        </div>
+       
+        
+   
+    </div>
+</div>
+<footer></footer>
 
 {% endblock %}

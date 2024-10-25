@@ -1,8 +1,22 @@
-h1{
+h1, h2{
     font-family: 'Hagrid Text Trial', sans-serif;
-    color: #F95C39;
+    
 }
-.row {
+h1{
+    color: #F95C39;
+    font-size: 40px;
+}
+h2{
+    color: #718238;
+    font-size: 36px;
+}
+h3{
+    color:#383A33;
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: bold;
+    margin-top: 30px;
+}
+.intro {
     display: flex;
     position: relative; /* Para que los elementos absolutos se posicionen respecto a .row */
    height: 250px;
@@ -12,21 +26,38 @@ h1{
 
 .col-lg-7, .col-md-7 {
     z-index: 2; /* Asegura que el texto esté por encima de la imagen */
+    
 }
 
 #home-image {
     position: absolute;
-    top: -200px; /* Ajusta según necesites */
-    right: -60px; /* Ajusta según necesites */
+    top: -180px; /* Ajusta según necesites */
+    right: -100px; /* Ajusta según necesites */
     z-index: 1; /* Asegura que la imagen esté detrás del texto */
    overflow-y: unset;
     transform: rotate(10deg);
     
 }
 
+
 #home-image img {
-   width: 600px; /* Ajusta el tamaño de la imagen */
+  
+   height: 730px;/* Ajusta el tamaño de la imagen */
     border-radius: 50px; /* Para un diseño más suave */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar un poco de profundidad */
    
+}
+.platos{
+    background: linear-gradient(180deg, #FEFDF9 10%, #FDF1EC 0);
+    height: 600px;
+}
+.blank-space{
+    padding-top: 19rem;
+    display: block;
+}
+.center{
+
+    display: flex;
+    text-align: center;
+    flex-direction: column;
 }

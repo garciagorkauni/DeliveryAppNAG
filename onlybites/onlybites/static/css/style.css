@@ -4,7 +4,7 @@
 
 body {
     background-color: #FEFDF9;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Estilos para la barra de navegación */
@@ -15,8 +15,9 @@ body {
     border-radius: 9rem;
     align-items: center;
     height: 90px;
-    position:sticky;
-    z-index: 2;
+    position:fixed;
+    width: 90%;
+    z-index: 3;/*navigatzaile barra irudian gainetik beti egoteko*/
 }
 
 .container-fluid {
