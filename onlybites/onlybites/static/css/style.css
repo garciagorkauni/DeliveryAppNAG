@@ -4,7 +4,7 @@
 
 body {
     background-color: #FEFDF9;
-    
+    overflow: hidden;
 }
 
 /* Estilos para la barra de navegación */
@@ -16,6 +16,7 @@ body {
     align-items: center;
     height: 90px;
     position:sticky;
+    z-index: 2;
 }
 
 .container-fluid {
@@ -49,10 +50,12 @@ body {
     display: flex;
     align-items: center;
     padding: 10px;
+   
     
 }
 .navbar-right{
     justify-content: flex-end;
+    gap:10px;
 }
 
 /* Estilos para los enlaces del menú */
@@ -64,12 +67,12 @@ body {
     text-decoration: none;
 }
 
-/* Botón de Login */
-.navbar-default .navbar-nav .btn-login:hover {
-    
-    background-color: #6b8e23;
-}
+/* Botón de Login hover*/
 
+/*para gente con problemas de vista, aumento de los botones del nav*/
+.navbar-default .navbar-nav> li > a:hover{
+    font-size: 20px;
+}
 /* Botón de Register */
 .navbar-default .navbar-nav .btn-register {
     color: white;
@@ -78,28 +81,9 @@ body {
     border-radius: 9rem;
    
 }
-
+.navbar-default .navbar-nav .btn-register:hover {
+    color: white;
+    background-color: #6b8e23; /* Color del botón de Register */
+   
+}
 /* Hover en botones */
-.row {
-    position: relative; /* Para que los elementos absolutos se posicionen respecto a .row */
-    padding: 50px 30px;
-    overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
-    /* Color de fondo para el área */
-}
-
-.col-lg-7, .col-md-7 {
-    z-index: 2; /* Asegura que el texto esté por encima de la imagen */
-}
-
-#home-image {
-    position: absolute;
-    top: -50px; /* Ajusta según necesites */
-    right: -50px; /* Ajusta según necesites */
-    z-index: 1; /* Asegura que la imagen esté detrás del texto */
-}
-
-#home-image img {
-    max-width: 500px; /* Ajusta el tamaño de la imagen */
-    border-radius: 20px; /* Para un diseño más suave */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar un poco de profundidad */
-}
