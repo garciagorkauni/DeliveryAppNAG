@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Profile, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
 from django.contrib.auth import login, authenticate, logout
-from .forms import RegisterForm
+from .forms import RegisterForm, AddressForm
 
 # View for home
 def home(request):
@@ -50,6 +50,20 @@ def profile(request):
 
     return render(request, 'onlybites_web/profile.html', locals())
 
+def add_address(request):
+    if request.method == 'POST':
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            address = form.save(commit=False)
+            address.profile = request.user
+            address.save()
+            return redirect('profile')
+    else:
+        form = AddressForm()
+
+    return render(request, 'onlybites_web/add-address.html', {'form': form})
+
+# View for profile session management
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
