@@ -1,0 +1,11 @@
+{% extends 'onlybites_web/base.html' %}
+{% block content %}
+
+<h1>Menu</h1>
+
+{% for product in allProducts %}
+    <h4><a href="{% url 'product' product_id=product.product_id %}">{{ product.name }}</a></h4>
+    <br>
+{% endfor %}
+
+{% endblock %}

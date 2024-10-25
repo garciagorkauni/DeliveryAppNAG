@@ -1,0 +1,20 @@
+{% extends 'onlybites_web/base.html' %}
+{% block content %}
+
+<h1>Cart</h1>
+
+<h3>Profile cart products:</h3>
+    <ul>
+        {% for product in products %}
+        <li>{{ product.name }}</li>
+        {% endfor %}
+    </ul>
+
+<h3>Addresses:</h3>
+    <ul>
+        {% for address in addresses %}
+        <li>{{ address.address1 }} ...</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

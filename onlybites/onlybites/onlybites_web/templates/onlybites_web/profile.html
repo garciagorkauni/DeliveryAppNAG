@@ -1,0 +1,27 @@
+{% extends 'onlybites_web/base.html' %}
+{% block content %}
+
+<h1>{{ profile.name }}</h1>
+
+<h3>Profile information:</h3>
+<ul>
+    <li><strong>Name: </strong> {{ profile.name }}</li>
+    <li><strong>Surname: </strong> {{ profile.surname }}</li>
+    <li><strong>Birthdate: </strong> {{ profile.birthdate }}</li>
+    <li><strong>Email: </strong> {{ profile.email }}</li>
+    <li><strong>Telephone: </strong> {{ profile.telephone }}</li>
+</ul>
+
+<h3>Profile addresses:</h3>
+    <ul>
+        {% for address in addresses %}
+            <li>
+                {{ address.address1 }} ...
+                <a class="btn btn-warning" href="{% url 'edit_address' id=address.address_id %}" role="button">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+<a class="btn btn-primary" href="{% url 'add_address' %}" role="button">Create address</a>
+
+{% endblock %}

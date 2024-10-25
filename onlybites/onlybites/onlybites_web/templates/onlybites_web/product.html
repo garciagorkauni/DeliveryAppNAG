@@ -1,0 +1,38 @@
+{% extends 'onlybites_web/base.html' %}
+{% block content %}
+
+<h1>{{ product.name }}</h1>
+
+<h3>Product information:</h3>
+<ul>
+    <li><strong>Description: </strong> {{ product.description }}</li>
+    <li><strong>Stock: </strong> {{ product.stock }}</li>
+    <li><strong>Vegan: </strong> {{ product.vegan }}</li>
+    <li><strong>Celiac: </strong> {{ product.celiac }}</li>
+    <li><strong>Calories: </strong> {{ product.calories }}</li>
+    <li><strong>Valoration avg: </strong> {{ product.valoration_avg }}</li>
+    <li><strong>Price: </strong> {{ product.price }}</li>
+</ul>
+
+<h3>Product images:</h3>
+    <ul>
+        {% for image in images %}
+        <li> {{ image.path }} ({{image.alt}})</li>
+        {% endfor %}
+    </ul>
+
+<h3>Product allergens:</h3>
+    <ul>
+        {% for allergen in allergens %}
+        <li><strong> {{ allergen.name }}:</strong> {{ allergen.description }}</li>
+        {% endfor %}
+    </ul>
+
+<h3>Product valorations:</h3>
+    <ul>
+        {% for valoration in valorations %}
+        <li><strong> {{ valoration.profile.name }}:</strong> {{ valoration.value }}/5 - {{ valoration.message }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
