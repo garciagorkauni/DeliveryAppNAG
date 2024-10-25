@@ -21,10 +21,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{% url 'menu' %}">Menu</a></li>
-                    <li><a href="{% url 'cart' %}">Cart</a></li>
-                    <li><strong>------------</strong></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                    <li><a href="{% url 'profile' %}">Profile</a></li>
+
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'cart' %}">Cart</a></li>
+                        <li><a href="{% url 'profile' %}">Profile</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
