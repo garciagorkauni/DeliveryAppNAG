@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from .models import User, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Profile, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
+from django.contrib.auth import login, authenticate, logout
+from .forms import RegisterForm, AddressForm
 
 # View for home
 def home(request):
@@ -26,14 +28,14 @@ def product(request, product_id):
 
 # View for cart
 def cart(request):
-    user = User.objects.get(user_id=1)
+    profile = Profile.objects.get(profile_id=1)
 
-    products_id = Cart.objects.filter(user=user).values_list('product')
+    products_id = Cart.objects.filter(profile=profile).values_list('product')
     products = []
     for product_id in products_id:
         products.append(Product.objects.get(product_id=product_id[0]))
 
-    addresses = Address.objects.filter(user=user)
+    addresses = Address.objects.filter(profile=profile)
     return render(request, 'onlybites_web/cart.html', locals())
 
 # View for register
@@ -42,8 +44,61 @@ def register(request):
 
 # View for profile
 def profile(request):
-    user = User.objects.get(user_id=1)
-
-    addresses = Address.objects.filter(user=user)
+    profile = Profile.objects.get(profile_id=1)
+    
+    addresses = Address.objects.filter(profile=profile)
 
     return render(request, 'onlybites_web/profile.html', locals())
+
+def add_address(request):
+    if request.method == 'POST':
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            address = form.save(commit=False)
+            address.profile = request.user
+            address.save()
+            return redirect('profile')
+    else:
+        form = AddressForm()
+
+    return render(request, 'onlybites_web/add-address.html', {'form': form})
+
+def edit_address(request, id):
+    address = get_object_or_404(Address, address_id=id)
+    if request.method == 'POST':
+        form = AddressForm(request.POST, instance=address)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = AddressForm(instance=address)
+
+    return render(request, 'onlybites_web/add-address.html', {'form': form, 'address': address})
+
+# View for profile session management
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            profile = form.save()
+            login(request, profile)
+            return redirect('home')
+    else:
+        form = RegisterForm()
+    return render(request, 'onlybites_web/register.html', {'form': form})
+
+def login_view(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        profile = authenticate(request, email=email, password=password)
+        if profile is not None:
+            login(request, profile)
+            return redirect('home')
+        else:
+            return render(request, 'onlybites_web/login.html', {'error': 'Invalid email or password'})
+    return render(request, 'onlybites_web/login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
