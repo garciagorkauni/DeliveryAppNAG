@@ -1,0 +1,21 @@
+body{
+    background-color: #c0a127;
+}
+
+
+.navbar-default{
+    display: flex;
+    margin:3rem 2rem 3rem 2rem;
+    background-color: white;
+    border-radius: 9rem;
+    align-items: center;
+    height: 70px;
+}
+.container-fluid{
+   width: 100%;
+    
+   
+}
+.navbar-header img{
+    width: 60px;
+}
