@@ -1,18 +1,18 @@
 {% extends 'onlybites_web/base.html' %}
 {% block content %}
 
-<h1>{{ user.name }}</h1>
+<h1>{{ profile.name }}</h1>
 
-<h3>User information:</h3>
+<h3>Profile information:</h3>
 <ul>
-    <li><strong>Name: </strong> {{ user.name }}</li>
-    <li><strong>Surname: </strong> {{ user.surname }}</li>
-    <li><strong>Birthdate: </strong> {{ user.birthdate }}</li>
-    <li><strong>Mail: </strong> {{ user.mail }}</li>
-    <li><strong>Telephone: </strong> {{ user.telephone }}</li>
+    <li><strong>Name: </strong> {{ profile.name }}</li>
+    <li><strong>Surname: </strong> {{ profile.surname }}</li>
+    <li><strong>Birthdate: </strong> {{ profile.birthdate }}</li>
+    <li><strong>Mail: </strong> {{ profile.mail }}</li>
+    <li><strong>Telephone: </strong> {{ profile.telephone }}</li>
 </ul>
 
-<h3>User addresses:</h3>
+<h3>Profile addresses:</h3>
     <ul>
         {% for address in addresses %}
         <li>{{ address.address1 }} ...</li>

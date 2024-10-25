@@ -31,7 +31,7 @@
 <h3>Product valorations:</h3>
     <ul>
         {% for valoration in valorations %}
-        <li><strong> {{ valoration.user.name }}:</strong> {{ valoration.value }}/5 - {{ valoration.message }}</li>
+        <li><strong> {{ valoration.profile.name }}:</strong> {{ valoration.value }}/5 - {{ valoration.message }}</li>
         {% endfor %}
     </ul>
 

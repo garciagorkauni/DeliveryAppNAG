@@ -1,7 +1,7 @@
 from django.db import models
 
-class User(models.Model):
-    user_id = models.AutoField(primary_key=True)
+class Profile(models.Model):
+    profile_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=75)
     surname = models.CharField(max_length=75)
     birthdate = models.DateTimeField()
@@ -10,7 +10,7 @@ class User(models.Model):
 
 class Address(models.Model):
     address_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     name = models.CharField(max_length=75)
     surname = models.CharField(max_length=75)
     telephone = models.CharField(max_length=75)
@@ -235,13 +235,13 @@ class Product(models.Model):
 
 class Valoration(models.Model):
     valoration_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     value = models.IntegerField()
     message = models.TextField()
 
 class Cart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     STATE_CHOICES =(
