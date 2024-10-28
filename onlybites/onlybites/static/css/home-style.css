@@ -1,8 +1,4 @@
-h1, h2{
-    font-family: 'Hagrid', sans-serif;
-    font-weight: bold;
-    
-}
+
 h1{
     color: #F95C39;
     font-size: 40px;
@@ -50,7 +46,7 @@ h3{
 }
 .platos{
     background: linear-gradient(180deg, #FEFDF9 10%, #FDF1EC 0);
-    height: 600px;
+    height: 1000px;
 }
 .blank-space{
     padding-top: 19rem;
@@ -61,4 +57,33 @@ h3{
     display: flex;
     text-align: center;
     flex-direction: column;
+}
+.popular-dish{
+    width: 250px;
+    height: 300px;
+   
+    
+    margin-top: 30px;
+}
+.popular-dish img{
+    width: 250px;
+    height: 300px;
+    border-radius: 20px;
+}
+.btn-green{
+    color: white;
+    background-color: #6b8e23; /* Color del botón de Register */
+    padding: 10px 20px;
+    border-radius: 9rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight:bold;
+    font-size: 18px;
+}
+.btn-green:hover{
+    color: white; 
+    font-size: 20px;
+}
+
+.mt-10{
+    margin-top: 30px;
 }
