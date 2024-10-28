@@ -1,7 +1,7 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nag',
+        'NAME': 'onlybitesdb',
         'USER': 'root',
         'PASSWORD': 'Admin123',
         'HOST': 'localhost',

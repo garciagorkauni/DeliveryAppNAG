@@ -29,14 +29,11 @@
                 </ul>
     
                 <ul class="nav navbar-nav navbar-right">
-                    {% if user.is_authenticated %}
                         <li><a href="{% url 'cart' %}">Cart</a></li>
                         <li><a href="{% url 'profile' %}">Profile</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
-                    {% else %}
                         <li><a class="btn btn-login" href="{% url 'login' %}">Login</a></li>
                         <li><a class="btn btn-register" href="{% url 'register' %}">Register</a></li>
-                    {% endif %}
                 </ul>
             </div>
     
