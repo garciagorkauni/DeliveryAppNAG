@@ -7,6 +7,11 @@ h1, h2{
     font-weight: bold;
     
 }
+h4{
+    font-family: 'Hagrid', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
 
 body {
     background-color: #FEFDF9;
@@ -87,7 +92,7 @@ body {
 /* Botón de Register */
 .navbar-default .navbar-nav .btn-register {
     color: white;
-    background-color: #6b8e23; /* Color del botón de Register */
+    background-color: #718238; /* Color del botón de Register */
     padding: 10px 20px;
     border-radius: 9rem;
     border: none;
@@ -95,14 +100,14 @@ body {
 }
 .navbar-default .navbar-nav .btn-register:hover {
     color: white;
-    background-color: #6b8e23; /* Color del botón de Register */
+    background-color: #718238; /* Color del botón de Register */
    
 }
 footer{
-    background-color: #6b8e23;
+    background-color: #718238;
     color: white;
     
-    height: 300px;
+    height: 200px;
     width: 100%;
    
 }
