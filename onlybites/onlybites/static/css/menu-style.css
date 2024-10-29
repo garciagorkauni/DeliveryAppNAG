@@ -10,3 +10,25 @@
 .dropdown{
     margin-top:90px;
 }
+.btn-dropdown{
+    color: white;
+    background-color:  #718238;
+    border-radius: 9rem;
+    font-size: 18px;
+   
+    font-weight: bold;
+}
+.btn-dropdown:hover{
+    color: white;
+}
+.dropdown-content {
+    display: none;  /* Ocultamos el contenido inicialmente */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+}

@@ -18,8 +18,13 @@
         <div class="row ">
             <div class="dropdown right">
                 <!--boton de filtro-->
-                <button class="btn btn-filter dropdown-button" id="dropdownbutton">Filtroak <img src="{% static 'img/icons/filtro.svg' %}"></button>
+                <button class="btn btn-dropdown" id="dropdownbutton">Filtroak <img src="{% static 'img/icons/filtro.svg' %}"></button>
                 <!--filtros-->
+                <div class="dropdown-content" id="dropdownContent">
+                    <label><input type="checkbox" name="vegan" value="vegan"> Vegan 1</label>
+                    <label><input type="checkbox" name="celiac" value="sin-gluten"> Gluten gabe</label>
+                </div>
+            </div>
             </div>
         </div>
     </div>
