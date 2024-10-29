@@ -30,6 +30,7 @@ body {
     width: 90%;
     z-index: 3;/*navigatzaile barra irudian gainetik beti egoteko*/
     justify-content: center;
+    margin-left: 71px;
 }
 
 .container-fluid {
