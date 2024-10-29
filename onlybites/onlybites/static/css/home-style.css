@@ -57,6 +57,7 @@ h3{
     display: flex;
     text-align: center;
     flex-direction: column;
+    
 }
 .popular-dish{
     width: 250px;
@@ -83,7 +84,8 @@ h3{
     color: white; 
     font-size: 20px;
 }
-
+/* etiketa margen*/
 .mt-10{
-    margin-top: 30px;
+    margin-top: 40px;
 }
+
