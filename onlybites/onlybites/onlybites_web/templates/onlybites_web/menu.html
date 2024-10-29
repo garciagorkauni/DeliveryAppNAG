@@ -1,5 +1,6 @@
 {% extends 'onlybites_web/base.html' %}
 {% block content %}
+{% load static %}
 
 
 
@@ -10,6 +11,20 @@
        
     </div>
     
+</div>
+</div>
+<div class="pink">
+    <div class=" container ">
+        <div class="row ">
+            <div class="dropdown right">
+                <!--boton de filtro-->
+                <button class="btn btn-filter dropdown-button" id="dropdownbutton">Filtroak <img src="{% static 'img/icons/filtro.svg' %}"></button>
+                <!--filtros-->
+            </div>
+        </div>
+    </div>
+
+   
 </div>
 
 {% for product in allProducts %}

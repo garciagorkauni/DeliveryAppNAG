@@ -3,3 +3,10 @@
     font-weight: bold;
     font-style: italic;
 }
+.right{
+    display: flex;
+    justify-content: end;
+}
+.dropdown{
+    margin-top:90px;
+}
