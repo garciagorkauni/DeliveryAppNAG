@@ -113,13 +113,36 @@ footer{
     width: 100%;
    
 }
-.contacto{
-    text-align: start;
-}
 
-.contacto>ul{
-   
-    list-style: none;
-   
+/*flex content center */
+.flex{
+    display: flex;
   
+    
+}
+.flex-center{
+    
+    justify-content: center;
+    
+}
+.fl-direc-colum{
+    flex-direction: column;
+}
+.fl-jc-end{
+    justify-content: end;
+}
+.f-zie-18{
+    font-size: 18px;
+}
+.f-w-bold{
+    font-weight: bold;
+}
+.wid-100{
+    width: 100%;
+}
+.padd-10{
+    padding: 10px;
+}
+.fl-justcon-sbetw{
+    justify-content: space-between;
 }

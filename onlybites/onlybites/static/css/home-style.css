@@ -14,7 +14,7 @@ h2{
     margin-top: 30px;
 } */
 .intro {
-    display: flex;
+   
     position: relative; /* Para que los elementos absolutos se posicionen respecto a .row */
    height: 250px;
     overflow: visible; 
@@ -47,7 +47,7 @@ h2{
 .pink{
     background: linear-gradient(180deg, #FEFDF9 10%, #FDF1EC 0);
     height: 1000px;
-    width: 100%;
+    width: fit-content;
 }
 .blank-space{
     padding-top: 19rem;
@@ -56,7 +56,7 @@ h2{
 
 .center{
 
-    display: flex;
+  
     text-align: center;
     flex-direction: column;
     
@@ -90,4 +90,5 @@ h2{
 .mt-10{
     margin-top: 40px;
 }
+
 

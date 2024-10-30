@@ -19,8 +19,8 @@
 
 <body>
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default flex flex-center">
+        <div class="container-fluid flex flex-center">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites" class="logo-img"></a>
             </div>
@@ -30,7 +30,7 @@
                     <li><a href="{% url 'menu' %}">Menu</a></li>
                 </ul>
     
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav flex navbar-right jstcont-end">
                         <li><a href="{% url 'cart' %}">Cart</a></li>
                         <li><a href="{% url 'profile' %}">Profile</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
