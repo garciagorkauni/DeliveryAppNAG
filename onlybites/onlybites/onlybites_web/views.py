@@ -44,7 +44,7 @@ def register(request):
 
 # View for profile
 def profile(request):
-    profile = Profile.objects.get(profile_id=1)
+    profile = Profile.objects.get(profile_id=request.user.profile_id)
     
     addresses = Address.objects.filter(profile=profile)
 
@@ -99,6 +99,19 @@ def login_view(request):
             return render(request, 'onlybites_web/login.html', {'error': 'Invalid email or password'})
     return render(request, 'onlybites_web/login.html')
 
+def custom_create_user(backend, response, *args, **kwargs):
+    if backend.name == 'google-oauth2':
+        # Obtén información del usuario
+        email = response.get('email')
+        name = email.split('@')[0]  # Usa la parte antes de @ como username
+
+        # Crea o recupera el usuario de Django
+        user, created = Profile.objects.get_or_create(name=name, email=email)
+
+        return {'user': user}
+
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    response = redirect('home')  # Redirigir a la página deseada
+    response.delete_cookie('sessionid')
+    return response

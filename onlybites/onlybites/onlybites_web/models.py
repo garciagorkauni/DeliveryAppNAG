@@ -30,7 +30,7 @@ class Profile(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=75)
     surname = models.CharField(max_length=75)
-    birthdate = models.DateField()
+    birthdate = models.DateField(null=True)
     telephone = models.CharField(max_length=75)
 
     is_active = models.BooleanField(default=True)
