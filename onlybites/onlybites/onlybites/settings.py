@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'social_django',
-    'onlybites_web'
+    'social_django', # asegúrate de tener esto
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',  # Asegúrate de que esta línea esté presente
+    'onlybites_web',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -55,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'onlybites.urls'
@@ -80,6 +85,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'onlybites.wsgi.application'
 
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '742616587558-r1e0s4lc6te9fsc69vpvs1d2pb909qho.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 

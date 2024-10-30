@@ -1,8 +1,9 @@
+from django.dispatch import receiver
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate, logout ,get_user_model
 from .forms import RegisterForm, AddressForm
-
+from django.contrib.auth.models import User
 # View for home
 def home(request):
     return render(request, 'onlybites_web/home.html', locals())
@@ -103,12 +104,47 @@ def custom_create_user(backend, response, *args, **kwargs):
     if backend.name == 'google-oauth2':
         # Obtén información del usuario
         email = response.get('email')
-        name = email.split('@')[0]  # Usa la parte antes de @ como username
+        name = response.get('name')  # Obtén el nombre completo
+        surname = response.get('family_name')  # Obtén el apellido
 
         # Crea o recupera el usuario de Django
-        user, created = Profile.objects.get_or_create(name=name, email=email)
+        user = Profile.objects.get_or_create(
+            email=email,
+            defaults={
+                'name': name,
+                'surname': surname,
+                # Puedes agregar otros campos aquí si es necesario
+            }
+        )
 
         return {'user': user}
+""" User = get_user_model()
+
+@receiver(post_save, sender=User)
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        try:
+            # Obtener la cuenta social asociada
+            social_account = SocialAccount.objects.get(user=instance)
+
+            # Obtener el correo y nombre del usuario de Google
+            email = social_account.extra_data.get('email')
+            name = social_account.extra_data.get('name')
+
+            # Crear el perfil usando el correo y nombre
+            Profile.objects.create(
+                email=email,
+                name=name,
+                surname='',  # Ajusta según tus necesidades
+                birthdate=None,  # Ajusta según tus necesidades
+                telephone='',  # Ajusta según tus necesidades
+                is_active=True,
+                is_staff=False,
+                is_superuser=False
+            )
+        except SocialAccount.DoesNotExist:
+            # Manejar el caso donde no hay cuenta social asociada
+            print("No se encontró una cuenta social para este usuario.") """
 
 def logout_view(request):
     logout(request)

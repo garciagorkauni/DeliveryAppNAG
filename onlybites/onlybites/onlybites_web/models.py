@@ -41,6 +41,7 @@ class Profile(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name', 'surname', 'birthdate', 'telephone']
+    
 
 
 class Address(models.Model):
