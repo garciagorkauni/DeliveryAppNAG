@@ -5,8 +5,8 @@
 
 <h3>Profile cart products:</h3>
     <ul>
-        {% for product in products %}
-        <li>{{ product.name }}</li>
+        {% for cart in carts %}
+        <li>{{ cart.product.name }} ---------------- x{{cart.quantity}}</li>
         {% endfor %}
     </ul>
 

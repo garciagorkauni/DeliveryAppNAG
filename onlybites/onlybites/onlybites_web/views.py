@@ -29,16 +29,26 @@ def product(request, product_id):
 
 # View for cart
 def cart(request):
-    profile = Profile.objects.get(profile_id=1)
+    profile = Profile.objects.get(profile_id=request.user.profile_id)
 
-    products_id = Cart.objects.filter(profile=profile).values_list('product')
-    products = []
-    for product_id in products_id:
-        products.append(Product.objects.get(product_id=product_id[0]))
-
+    carts = Cart.objects.filter(profile=profile)
     addresses = Address.objects.filter(profile=profile)
     return render(request, 'onlybites_web/cart.html', locals())
 
+def add_cart(request, product_id):
+    cart = Cart.objects.filter(profile_id=request.user.profile_id, product_id=product_id).first()
+    if cart:
+        cart.quantity += 1
+    else:
+        cart = Cart()
+        
+        cart.profile = Profile.objects.get(profile_id=request.user.profile_id)
+        cart.product = Product.objects.get(product_id=product_id)
+        # Default quantity = 1
+
+    cart.save()
+
+    return redirect('cart')
 # View for profile
 def profile(request):
     profile = Profile.objects.get(profile_id=request.user.profile_id)
