@@ -4,7 +4,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models
 
-from onlybites.settings import AUTH_USER_MODEL
+import datetime
 
 class ProfileManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -281,12 +281,13 @@ class Valoration(models.Model):
 class Cart(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+
+class Order(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
-    STATE_CHOICES =(
-        ("Pending", "Pending"),
-        ("Bought", "Bought")
-    )
-    state = models.CharField(max_length=10, choices=STATE_CHOICES)
+    date = models.DateField(default=datetime.date.today)
 
 class Image(models.Model):
     image_id = models.AutoField(primary_key=True)
