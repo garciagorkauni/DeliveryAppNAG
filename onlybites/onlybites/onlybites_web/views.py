@@ -56,6 +56,13 @@ def delete_cart(request, cart_id):
 
     return redirect('cart')
 
+def update_cart(request, cart_id, quantity):
+    cart = Cart.objects.filter(id=cart_id).first()
+    cart.quantity = quantity
+    cart.save()
+
+    return redirect('cart')
+
 # View for profile
 def profile(request):
     profile = Profile.objects.get(profile_id=request.user.profile_id)

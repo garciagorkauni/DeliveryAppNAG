@@ -6,8 +6,11 @@
 <h3>Profile cart products:</h3>
     <ul>
         {% for cart in carts %}
-        <li>{{ cart.product.name }} ---------------- x{{cart.quantity}}  <a class="btn btn-danger" href="{% url 'delete_cart' cart_id=cart.id %}" role="button">Quit</a>
+        <li>{{ cart.product.name }} ---------------- x<span id="cart-quantity">{{cart.quantity}}</span>
+            <a class="btn btn-danger" href="{% url 'delete_cart' cart_id=cart.id %}" role="button">Quit</a>
         </li>
+        <a class="btn btn-primary" onclick="minusCartQuantity('{{cart.quantity}}', '{{cart.id}}')" role="button">-</a>
+        <a class="btn btn-primary" onclick="plusCartQuantity('{{cart.quantity}}', '{{cart.id}}')" role="button">+</a>
         {% endfor %}
     </ul>
 

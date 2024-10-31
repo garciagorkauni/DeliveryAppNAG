@@ -15,11 +15,12 @@ urlpatterns = [
     path('cart/', views.cart, name='cart'),
     path('add-cart/<int:product_id>/', views.add_cart, name='add_cart'),
     path('delete-cart/<int:cart_id>/', views.delete_cart, name='delete_cart'),
+    path('update-cart/<int:cart_id>/<int:quantity>/', views.update_cart, name='update_cart'),
 
     # profile
     path('profile/', views.profile, name='profile'),
     path('add-address/', views.add_address, name='add_address'),
-    path('edit-address/<int:productid>/', views.edit_address, name='edit_address'),
+    path('edit-address/<int:id>/', views.edit_address, name='edit_address'),
 
     # Profile authentication management
     path('register/', views.register, name='register'),
