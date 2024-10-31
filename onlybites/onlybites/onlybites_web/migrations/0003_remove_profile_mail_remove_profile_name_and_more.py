@@ -8,15 +8,11 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('onlybites_web', '0002_profile_remove_cart_user_remove_address_user_and_more'),
+        ('onlybites_web', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='profile',
-            name='mail',
-        ),
         migrations.RemoveField(
             model_name='profile',
             name='name',

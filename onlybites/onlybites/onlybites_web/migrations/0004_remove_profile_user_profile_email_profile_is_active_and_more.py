@@ -10,16 +10,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='profile',
-            name='user',
-        ),
-        migrations.AddField(
-            model_name='profile',
-            name='email',
-            field=models.EmailField(default=2, max_length=254, unique=True),
-            preserve_default=False,
-        ),
         migrations.AddField(
             model_name='profile',
             name='is_active',

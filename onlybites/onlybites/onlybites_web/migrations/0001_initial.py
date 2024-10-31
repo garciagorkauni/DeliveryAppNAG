@@ -12,6 +12,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+
         migrations.CreateModel(
             name='Allergen',
             fields=[
@@ -35,13 +36,13 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='User',
+            name='Profile',
             fields=[
-                ('user_id', models.AutoField(primary_key=True, serialize=False)),
+                ('profile_id', models.AutoField(primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=75)),
                 ('surname', models.CharField(max_length=75)),
                 ('birthdate', models.DateTimeField()),
-                ('mail', models.CharField(max_length=75)),
+                ('email', models.CharField(max_length=75)),
                 ('telephone', models.CharField(max_length=75)),
             ],
         ),
@@ -69,7 +70,7 @@ class Migration(migrations.Migration):
                 ('quantity', models.IntegerField()),
                 ('state', models.CharField(choices=[('Pending', 'Pending'), ('Bought', 'Bought')], max_length=10)),
                 ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='onlybites_web.product')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='onlybites_web.user')),
+                ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='onlybites_web.profile')),
             ],
         ),
         migrations.CreateModel(
@@ -84,7 +85,7 @@ class Migration(migrations.Migration):
                 ('city', models.CharField(max_length=75)),
                 ('address1', models.CharField(max_length=200)),
                 ('address2', models.CharField(blank=True, max_length=200)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='onlybites_web.user')),
+                ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='onlybites_web.profile')),
             ],
         ),
         migrations.CreateModel(
@@ -94,7 +95,7 @@ class Migration(migrations.Migration):
                 ('value', models.IntegerField()),
                 ('message', models.TextField()),
                 ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='onlybites_web.product')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='onlybites_web.user')),
+                ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='onlybites_web.profile')),
             ],
         ),
     ]
