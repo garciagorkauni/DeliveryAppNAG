@@ -6,7 +6,8 @@
 <h3>Profile cart products:</h3>
     <ul>
         {% for cart in carts %}
-        <li>{{ cart.product.name }} ---------------- x{{cart.quantity}}</li>
+        <li>{{ cart.product.name }} ---------------- x{{cart.quantity}}  <a class="btn btn-danger" href="{% url 'delete_cart' cart_id=cart.id %}" role="button">Quit</a>
+        </li>
         {% endfor %}
     </ul>
 
