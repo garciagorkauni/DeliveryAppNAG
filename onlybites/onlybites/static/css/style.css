@@ -113,7 +113,10 @@ footer{
     width: 100%;
    
 }
-
+.bottom-page-space{
+    padding-bottom: 9rem;
+    display: block;
+}
 .blank-space{
     padding-top: 16rem;
     display: block;
