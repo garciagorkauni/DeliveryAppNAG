@@ -114,6 +114,11 @@ footer{
    
 }
 
+.blank-space{
+    padding-top: 16rem;
+    display: block;
+}
+
 /*flex content center */
 .flex{
     display: flex;
@@ -145,4 +150,9 @@ footer{
 }
 .fl-justcon-sbetw{
     justify-content: space-between;
+}
+a:hover{
+    text-decoration: none;
+    /*cambiar aparienca del curosr*/
+    cursor: pointer;
 }

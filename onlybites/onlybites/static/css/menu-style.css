@@ -8,7 +8,7 @@
     justify-content: end;
 }
 .dropdown{
-    margin-top:90px;
+    margin-top:40px;
 }
 .btn-dropdown{
     color: white;
@@ -33,8 +33,7 @@
     font-family: 'DM Sans', sans-serif;
 }
 .dish-menu{
-    display: flex;
-    flex-direction: column;
+  
     margin-top: 50px;
     background-color: white;
     border-radius: 20px;

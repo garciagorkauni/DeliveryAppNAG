@@ -45,14 +45,12 @@ h2{
    
 }
 .pink{
-    background: linear-gradient(180deg, #FEFDF9 10%, #FDF1EC 0);
-    height: 1000px;
-    width: fit-content;
+    background: linear-gradient(180deg, #FEFDF9 5%, #FDF1EC 0);
+   box-sizing: content-box;
+   padding-bottom: 9rem;
+   
 }
-.blank-space{
-    padding-top: 19rem;
-    display: block;
-}
+
 
 .center{
 
