@@ -133,6 +133,9 @@ footer{
 .fl-direc-colum{
     flex-direction: column;
 }
+.fl-direc-row{
+    flex-direction: row;
+}
 .fl-jc-end{
     justify-content: end;
 }
@@ -155,4 +158,8 @@ a:hover{
     text-decoration: none;
     /*cambiar aparienca del curosr*/
     cursor: pointer;
+}
+.alg-it-center{
+    
+    align-items: center;
 }

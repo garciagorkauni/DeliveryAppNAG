@@ -1,12 +1,19 @@
 {% extends 'onlybites_web/base.html' %}
+{% load static %}
 {% block content %}
 
-<h1>Register</h1>
+<div class="shadow radius flex fl-direc-colum form-block alg-it-center" > 
+    <h1 class="black">
+        Sortu saioa
+    </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+</div>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
+
+
 
 {% endblock %}
