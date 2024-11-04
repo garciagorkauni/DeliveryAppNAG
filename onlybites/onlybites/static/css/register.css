@@ -18,13 +18,23 @@ color: black;
 
 form label {
     display: block; /* Hace que el label ocupe toda la línea encima del input */
-    font-weight: bold;
+   
     margin-bottom: 5px; /* Espacio entre el label y el input */
-    color: #333; /* Cambia el color del label si quieres */
+    color: black; /* Cambia el color del label si quieres */
 }
-.mi-estilo-input-email{
-    width: 100%;
+label{
+    font-weight: lighter;
+    font-size: 16px;
+   
 }
-.mi-estilo-input{
+.mi-estilo-input-email,.mi-estilo-input {
     width: 100%;
+    border-radius: 15px;
+    border: #777 solid 1px;
+    padding: 4px;
+}
+.submit-form{
+    width: 200px;
+    align-self: center;
+    margin-top: 10px;
 }

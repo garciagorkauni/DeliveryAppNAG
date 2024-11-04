@@ -166,6 +166,12 @@ a:hover{
     
     align-items: center;
 }
-.mb-5{
+.mb-1{
     margin-bottom: 1rem;
+}
+.mb-5{
+    margin-bottom: 5rem;
+}
+.mt-10{
+    margin-top: 40px;
 }
