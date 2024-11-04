@@ -32,6 +32,7 @@
                 </ul>
     
                 <ul class="nav navbar-nav flex navbar-right jstcont-end">
+                    {% if user.is_authenticated %}
                         <li><a href="{% url 'cart' %}">Cart</a></li>
                         <li><a href="{% url 'profile' %}">Profile</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -48,10 +49,10 @@
     <div id="loginPopup" class="popup">
     </div>
 
-    <div class="content container">
-        <div class="row blank-space">
-            <div class="col-md-8">{% block content %} {% endblock %}</div>
+    <div class=" container">
+        <div class="blank-space">
         </div>
+        {% block content %} {% endblock %}
     </div>
 
 <footer>
