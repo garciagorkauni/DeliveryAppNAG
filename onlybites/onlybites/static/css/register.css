@@ -12,3 +12,19 @@
 .black{
 color: black;
 }
+.form-width{
+    width: 700px;
+}
+
+form label {
+    display: block; /* Hace que el label ocupe toda la línea encima del input */
+    font-weight: bold;
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+    color: #333; /* Cambia el color del label si quieres */
+}
+.mi-estilo-input-email{
+    width: 100%;
+}
+.mi-estilo-input{
+    width: 100%;
+}
