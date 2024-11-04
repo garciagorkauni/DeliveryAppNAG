@@ -27,3 +27,16 @@ function showNewAddressFrom(address_id){
         }
     });
 }
+
+function showPaymentForm() {
+    $.ajax({
+        url: "/payment/",
+        type: 'GET',
+        success: function (data) {
+            document.getElementById("paymentForm").innerHTML = data;
+        },
+        error: function () {
+            alert("Error loading payment form");
+        }
+    });
+}

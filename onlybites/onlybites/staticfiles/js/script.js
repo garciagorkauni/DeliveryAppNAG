@@ -27,17 +27,3 @@ function showNewAddressFrom(address_id){
         }
     });
 }
-
-function minusCartQuantity(quantity, cart_id){
-    quantity--
-    if(quantity <= 0){
-        window.location.href = "{% url 'delete_cart' cart_id=" + cart_id + " %}"
-    } else {
-        document.getElementById("cart-quantity").innerHTML = quantity;
-    }
-}
-
-function plusCartQuantity(quantity){
-    quantity++
-    document.getElementById("cart-quantity").innerHTML = quantity;
-}

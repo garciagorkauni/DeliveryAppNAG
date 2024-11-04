@@ -1,9 +1,11 @@
 from django.dispatch import receiver
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Profile, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
+from .models import Profile, Address, Product, Valoration, Cart, Order, Image, Allergen, ProductAllergen
 from django.contrib.auth import login, authenticate, logout ,get_user_model
-from .forms import RegisterForm, AddressForm
+from .forms import RegisterForm, AddressForm, PaymentForm
 from django.contrib.auth.models import User
+from django.utils import timezone
+
 # View for home
 def home(request):
     return render(request, 'onlybites_web/home.html', locals())
@@ -67,6 +69,31 @@ def reduce_cart(request, product_id):
     
     cart.save()
     return redirect('cart')
+
+def payment(request):
+    profile = request.user
+    if request.method == 'POST':
+        form = PaymentForm(request.POST, profile=profile)
+        if form.is_valid():
+            address_id = form.cleaned_data['address']
+            address = Address.objects.get(address_id=address_id)
+
+            carts = Cart.objects.filter(profile=profile)
+            for cart_item in carts:
+                Order.objects.create(
+                    profile=profile,
+                    product=cart_item.product,
+                    quantity=cart_item.quantity,
+                    date=timezone.now().date()
+                )
+            
+            carts.delete()
+            
+            return redirect('home')
+    else:
+        form = PaymentForm(profile=profile)
+    
+    return render(request, 'onlybites_web/payment.html', {'form': form})
 
 
 # View for profile

@@ -4,15 +4,20 @@
 <h1>Cart</h1>
 
 <h3>Profile cart products:</h3>
-    <ul>
-        {% for cart in carts %}
-        <li>{{ cart.product.name }} ---------------- x<span id="cart-quantity">{{cart.quantity}}</span>
-            <a class="btn btn-danger" href="{% url 'delete_cart' cart_id=cart.id %}" role="button">Quit</a>
-        </li>
-        <a class="btn btn-primary" href="{% url 'reduce_cart' product_id=cart.product.product_id %}" role="button">-</a>
-        <a class="btn btn-primary" href="{% url 'add_cart' product_id=cart.product.product_id %}" role="button">+</a>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for cart in carts %}
+    <li>{{ cart.product.name }} ---------------- x<span id="cart-quantity">{{cart.quantity}}</span>
+        <a class="btn btn-danger" href="{% url 'delete_cart' cart_id=cart.id %}" role="button">Quit</a>
+    </li>
+    <a class="btn btn-primary" href="{% url 'reduce_cart' product_id=cart.product.product_id %}" role="button">-</a>
+    <a class="btn btn-primary" href="{% url 'add_cart' product_id=cart.product.product_id %}" role="button">+</a>
+    {% endfor %}
+</ul>
 
+<div id="paymentForm" class="popup">
+</div>
+<br>
+<a class="btn btn-success" href="#" onclick="showPaymentForm()" role="button"><strong>PAY</strong></a>
+</div>
 
 {% endblock %}
