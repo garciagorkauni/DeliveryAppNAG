@@ -2,8 +2,9 @@ from django.dispatch import receiver
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
 from django.contrib.auth import login, authenticate, logout ,get_user_model
-from .forms import RegisterForm, AddressForm
+from .forms import RegisterForm, AddressForm, ValorationForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 # View for home
 def home(request):
     return render(request, 'onlybites_web/home.html', locals())
@@ -101,3 +102,42 @@ def logout_view(request):
     response = redirect('home')  # Redirigir a la página deseada
     response.delete_cookie('sessionid')
     return response
+  # Asegúrate de que el usuario esté autenticado
+def add_valoration(request, product_id):
+    producto = get_object_or_404(Product, product_id=product_id)
+    #perfil = get_object_or_404(Profile, user=request.user)  # Obtener el perfil del usuario autenticado
+
+    if request.method == 'POST':
+        form = ValorationForm(request.POST)
+        if form.is_valid():
+            valoracion = form.save(commit=False)  # No guardar todavía en la base de datos
+            valoracion.product = producto         # Asignar el producto actual
+            valoracion.profile = request.user           # Asignar el perfil del usuario autenticado
+            valoracion.save()                     # Guardar en la base de datos
+            return redirect('product', product_id=producto.product_id)
+    else:
+        form = ValorationForm()
+
+    return render(request, 'onlybites_web/add-address.html', {'form': form})
+def add_rating(request, product_id):
+    product = get_object_or_404(Product, product_id=product_id)  # Obtén el producto
+    if request.method == 'POST':
+        # Recoge el rating y el mensaje desde request.POST
+        rating_value = float(request.POST.get('rating', 0))  # Obtiene el valor de la valoración
+        message = request.POST.get('message', '')  # Obtiene el mensaje de la valoración
+        
+        # Crea la valoración
+        valoration = Valoration(
+            profile=request.user,  # Asumiendo que tienes una relación con Profile
+            product=product,
+            value=rating_value,
+            message=message
+        )
+        valoration.save()  # Guarda la valoración en la base de datos
+        
+        return redirect('product', product_id=product_id)  # Redirige al detalle del producto
+
+    # Renderiza el template con el formulario
+    return render(request, 'onlybites_web/add-rating.html', {
+        'product': product,
+    })

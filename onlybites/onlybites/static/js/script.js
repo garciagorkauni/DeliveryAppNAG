@@ -27,3 +27,16 @@ function showNewAddressFrom(address_id){
         }
     });
 }
+function showNewValorationFrom(valoration_id){
+    url = "/add-rating/" + valoration_id + "/"
+    $.ajax({
+        url: url,
+        type: 'GET',
+        success: function (data) {
+            document.getElementById("newValorationForm").innerHTML = data;
+        },
+        error: function () {
+            alert("Error adding the valoration");
+        }
+    });
+}

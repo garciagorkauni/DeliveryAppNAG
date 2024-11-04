@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile, Address
+from .models import Profile, Address,Valoration
 from django.contrib.auth.forms import UserCreationForm
 
 class RegisterForm(UserCreationForm):
@@ -11,3 +11,7 @@ class AddressForm(forms.ModelForm):
     class Meta:
         model=Address
         fields=['name','surname', 'telephone', 'country', 'postal_code', 'city', 'address1', 'address2']
+class ValorationForm(forms.ModelForm):
+    class Meta:
+        model=Valoration
+        fields=['value','message']
