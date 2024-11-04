@@ -286,6 +286,7 @@ class Cart(models.Model):
 class Order(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     date = models.DateField(default=datetime.date.today)
 

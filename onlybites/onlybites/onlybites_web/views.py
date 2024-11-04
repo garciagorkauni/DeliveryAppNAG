@@ -83,6 +83,7 @@ def payment(request):
                 Order.objects.create(
                     profile=profile,
                     product=cart_item.product,
+                    address=address,
                     quantity=cart_item.quantity,
                     date=timezone.now().date()
                 )
@@ -127,7 +128,7 @@ def edit_address(request, id):
     else:
         form = AddressForm(instance=address)
 
-    return render(request, 'onlybites_web/add-address.html', {'form': form, 'address': address})
+    return render(request, 'onlybites_web/edit-address.html', {'form': form, 'address': address})
 
 # View for profile session management
 def register(request):
