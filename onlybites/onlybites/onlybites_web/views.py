@@ -2,7 +2,7 @@ from django.dispatch import receiver
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
 from django.contrib.auth import login, authenticate, logout ,get_user_model
-from .forms import RegisterForm, AddressForm, ValorationForm
+from .forms import RegisterForm, AddressForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # View for home
@@ -103,22 +103,7 @@ def logout_view(request):
     response.delete_cookie('sessionid')
     return response
   # Asegúrate de que el usuario esté autenticado
-def add_valoration(request, product_id):
-    producto = get_object_or_404(Product, product_id=product_id)
-    #perfil = get_object_or_404(Profile, user=request.user)  # Obtener el perfil del usuario autenticado
 
-    if request.method == 'POST':
-        form = ValorationForm(request.POST)
-        if form.is_valid():
-            valoracion = form.save(commit=False)  # No guardar todavía en la base de datos
-            valoracion.product = producto         # Asignar el producto actual
-            valoracion.profile = request.user           # Asignar el perfil del usuario autenticado
-            valoracion.save()                     # Guardar en la base de datos
-            return redirect('product', product_id=producto.product_id)
-    else:
-        form = ValorationForm()
-
-    return render(request, 'onlybites_web/add-address.html', {'form': form})
 def add_rating(request, product_id):
     product = get_object_or_404(Product, product_id=product_id)  # Obtén el producto
     if request.method == 'POST':

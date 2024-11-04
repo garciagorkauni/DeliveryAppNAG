@@ -27,7 +27,7 @@ function showNewAddressFrom(address_id){
         }
     });
 }
-function showNewValorationFrom(valoration_id){
+function showNewValorationForm(valoration_id){
     url = "/add-rating/" + valoration_id + "/"
     $.ajax({
         url: url,

@@ -55,21 +55,12 @@
         box-sizing: border-box;
     }
 
-    body {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
     .rating > input {
         display: none;
     }
 
     .rating > label::before {
-        content: '\f005'; /* Icono de estrella completa */
+        content: '\f005'; 
         font-family: FontAwesome;
         margin: 5px;
         font-size: 1.5rem;
@@ -78,7 +69,7 @@
     }
 
     .rating > .half::before {
-        content: '\f089'; /* Icono de media estrella */
+        content: '\f089';
         position: absolute;
     }
 
@@ -91,6 +82,6 @@
     .rating > input:checked ~ label,
     .rating:not(:checked) > label:hover,
     .rating:not(:checked) > label:hover ~ label {
-        color: gold; /* Color de las estrellas seleccionadas */
+        color: gold;
     }
 </style>
