@@ -15,20 +15,22 @@ class RegisterForm(UserCreationForm):
           
 
         }
+        widgets = {
+            'email': forms.EmailInput(attrs={'class': 'mi-estilo-input-email', 'placeholder': 'Sartu zure helbide elektronikoa'}),
+            'name': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': 'Sartu zure izena'}),
+            'surname': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': 'Sartu zure abizena'}),
+            'birthdate': forms.DateInput(attrs={'class': 'mi-estilo-input', 'type': 'date', 'placeholder': 'Sartu jaiotze data'}),
+            'telephone': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '+34'}),
+        }
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
         self.fields['password1'].label = 'Pasahitza'
-        self.fields['password2'].label = 'Pasahitza Konfirmazioa'
+        self.fields['password2'].label = 'Pasahitza Baieztatu'
         # Añadir clases personalizadas a los campos del modelo Profile
         for field_name in self.fields:
-            if field_name == 'email':
-        # Personaliza solo el campo 'email'
-                self.fields['email'].widget.attrs.update({
-                    'class': 'mi-estilo-input-email',  # clase específica para email si deseas
-                    'placeholder': 'Sartu zure posta helbidea'  # placeholder específico para email
-                })
-            elif  field_name in ['password1', 'password2']:
+        
+            if  field_name in ['password1', 'password2']:
                 # Aplica clase y placeholder solo a password1 y password2
                 self.fields['password1'].widget.attrs.update({
                     'class': 'mi-estilo-input',
@@ -36,15 +38,9 @@ class RegisterForm(UserCreationForm):
                 })
                 self.fields['password2'].widget.attrs.update({
                     'class': 'mi-estilo-input',
-                    'placeholder': 'Pasahitza konfirmatu'
+                    'placeholder': 'Pasahitza baieztatu'
                 })
-            else:
-              
-                # Aplica clase a los otros campos
-                self.fields[field_name].widget.attrs.update({
-                    'class': 'mi-estilo-input',
-                    'placeholder': f'Sartu zure {self.fields[field_name].label.lower()}'
-                })
+         
     
 class AddressForm(forms.ModelForm):
     class Meta:
@@ -61,3 +57,4 @@ class AddressForm(forms.ModelForm):
             'address1': 'Helbidea',
             'address1': 'Helbidea 2',
         }
+        
