@@ -30,9 +30,19 @@
     </ul>
 
 <h3>Product valorations:</h3>
-    <ul>
+<ul>
         {% for valoration in valorations %}
-        <li><strong> {{ valoration.profile.name }}:</strong> {{ valoration.value }}/5 - {{ valoration.message }}</li>
+        <li>
+            <strong>{{ valoration.profile.name }}:</strong> 
+            {% for i in "*****" %}
+                {% if forloop.counter <= valoration.value %}
+                    ★
+                {% else %}
+                    ☆
+                {% endif %}
+            {% endfor %}
+            ({{ valoration.value }}/5) - {{ valoration.message }}
+        </li>
         {% endfor %}
         {% if user.is_authenticated %}
         <a class="btn btn-warning" href="#" onclick="showNewValorationForm('{{product.product_id}}')" role="button">Add</a>
