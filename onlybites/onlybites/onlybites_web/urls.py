@@ -13,7 +13,11 @@ urlpatterns = [
 
     # cart
     path('cart/', views.cart, name='cart'),
-
+    path('add-cart/<int:product_id>/', views.add_cart, name='add_cart'),
+    path('delete-cart/<int:cart_id>/', views.delete_cart, name='delete_cart'),
+    path('reduce-cart/<int:product_id>/', views.reduce_cart, name='reduce_cart'),
+    path('payment/', views.payment, name='payment'),
+    
     # profile
     path('profile/', views.profile, name='profile'),
     path('add-address/', views.add_address, name='add_address'),
