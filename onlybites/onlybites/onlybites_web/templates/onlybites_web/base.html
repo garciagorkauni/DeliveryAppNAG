@@ -1,5 +1,5 @@
-
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,26 +35,26 @@
                         <li><a href="{% url 'cart' %}">Cart</a></li>
                         <li><a href="{% url 'profile' %}">Profile</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
-                        <li><a class="btn btn-login" href="{% url 'login' %}">Login</a></li>
-                        <li><a class="btn btn-register" href="{% url 'register' %}">Register</a></li>
+                    {% else %}
+                        <li><a href="#" onclick="showLogin()">Login</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
                 </ul>
             </div>
     
         </div>
     </nav>
 
-    <div class=" container">
-        <div class="blank-space">
-              
-        </div>
-    
-        {% block content %} {% endblock %}
-
-        
-
+    <div id="loginPopup" class="popup">
     </div>
 
-   <footer>
+    <div class="content container">
+        <div class="row blank-space">
+            <div class="col-md-8">{% block content %} {% endblock %}</div>
+        </div>
+    </div>
+
+<footer>
     <div class="container center">
         <div class="row mt-10">
             <div class="col-lg-4 info">
@@ -82,15 +82,13 @@
             <!-- <div class="col-lg-4 contacto">
 
                 <p>Kontaktua</p>
-               
                     <ul>
                         <li>Tel: 943687207</li>
                         <li>Errebal Kalea 3</li>
-                       
                     </ul>
                 
             </div>
-       
+
             <div class="col-lg-4 contacto">
 
                 <p>Ordutegia</p>
@@ -114,14 +112,12 @@
                 
             </div> -->
         </div>
-            
-        
-        
-        
 
     </div>
-   </footer>
-   <script src="{% static 'js/filter.js' %}"></script>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/filter.js' %}"></script>
 </body>
 
 </html>

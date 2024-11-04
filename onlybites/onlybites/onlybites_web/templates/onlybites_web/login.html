@@ -1,17 +1,15 @@
-{% extends 'onlybites_web/base.html' %}
-{% block content %}
-
 <h1>Login</h1>
 
-<form method="post">
+<a href="" role="button">X</a>
+<form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <input type="email" name="email" placeholder="Email">
     <input type="password" name="password" placeholder="Password">
     <button type="submit">Login</button>
 </form>
+<h3>OR</h3>
+<a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
 {% if error %}
 <p>{{ error }}</p>
 {% endif %}
-
-{% endblock %}
 

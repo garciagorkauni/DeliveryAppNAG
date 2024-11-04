@@ -1,8 +1,9 @@
+from django.dispatch import receiver
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate, logout ,get_user_model
 from .forms import RegisterForm, AddressForm
-
+from django.contrib.auth.models import User
 # View for home
 def home(request):
     return render(request, 'onlybites_web/home.html', locals())
@@ -38,13 +39,9 @@ def cart(request):
     addresses = Address.objects.filter(profile=profile)
     return render(request, 'onlybites_web/cart.html', locals())
 
-# View for register
-def register(request):
-    return render(request, 'onlybites_web/register.html', locals())
-
 # View for profile
 def profile(request):
-    profile = Profile.objects.get(profile_id=1)
+    profile = Profile.objects.get(profile_id=request.user.profile_id)
     
     addresses = Address.objects.filter(profile=profile)
 
@@ -101,4 +98,6 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    response = redirect('home')  # Redirigir a la página deseada
+    response.delete_cookie('sessionid')
+    return response

@@ -4,6 +4,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models
 
+from onlybites.settings import AUTH_USER_MODEL
+
 class ProfileManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -30,9 +32,9 @@ class Profile(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=75)
     surname = models.CharField(max_length=75)
-    birthdate = models.DateField()
+    birthdate = models.DateField(null=True)
     telephone = models.CharField(max_length=75)
-
+    
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
@@ -41,6 +43,7 @@ class Profile(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name', 'surname', 'birthdate', 'telephone']
+    
 
 
 class Address(models.Model):
