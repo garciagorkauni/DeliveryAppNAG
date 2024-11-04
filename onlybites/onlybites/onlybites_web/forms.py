@@ -16,11 +16,11 @@ class RegisterForm(UserCreationForm):
 
         }
         widgets = {
-            'email': forms.EmailInput(attrs={'class': 'mi-estilo-input-email', 'placeholder': 'Sartu zure helbide elektronikoa'}),
-            'name': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': 'Sartu zure izena'}),
-            'surname': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': 'Sartu zure abizena'}),
-            'birthdate': forms.DateInput(attrs={'class': 'mi-estilo-input', 'type': 'date', 'placeholder': 'Sartu jaiotze data'}),
-            'telephone': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '+34'}),
+            'email': forms.EmailInput(attrs={'class': 'mi-estilo-input-email', 'placeholder': ' Sartu zure helbide elektronikoa'}),
+            'name': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '  Sartu zure izena'}),
+            'surname': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Sartu zure abizena'}),
+            'birthdate': forms.DateInput(attrs={'class': 'mi-estilo-input', 'type': 'date', 'placeholder': '    Sartu jaiotze data'}),
+            'telephone': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '  +34'}),
         }
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -34,11 +34,11 @@ class RegisterForm(UserCreationForm):
                 # Aplica clase y placeholder solo a password1 y password2
                 self.fields['password1'].widget.attrs.update({
                     'class': 'mi-estilo-input',
-                    'placeholder': 'Sartu zure pasahitza'
+                    'placeholder': '  Sartu zure pasahitza'
                 })
                 self.fields['password2'].widget.attrs.update({
                     'class': 'mi-estilo-input',
-                    'placeholder': 'Pasahitza baieztatu'
+                    'placeholder': '   Pasahitza baieztatu'
                 })
          
     
