@@ -38,3 +38,25 @@ label{
     align-self: center;
     margin-top: 10px;
 }
+/* style for login pop-up+*/
+.popup{
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);/*lo centra en mitad de la pantall*/
+    width: 80%;
+    max-width: 600px;
+    min-width: 300px;
+    height: auto;
+    max-height: 90vh;
+  
+    background-color: #FEFDF9;
+ 
+    
+   
+   
+}
+.width{
+    width: 300px;
+}
