@@ -1,4 +1,4 @@
-from django.dispatch import receiver
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Address, Product, Valoration, Cart, Order, Image, Allergen, ProductAllergen
 from django.contrib.auth import login, authenticate, logout ,get_user_model
@@ -156,6 +156,42 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    response = redirect('home')  # Redirigir a la página deseada
+    response = redirect('home')  
     response.delete_cookie('sessionid')
     return response
+ 
+
+def add_rating(request, product_id):
+    product = get_object_or_404(Product, product_id=product_id)
+
+    # Busca si ya existe una valoración de este usuario para este producto
+    valoration = Valoration.objects.filter(profile=request.user, product=product).first()
+
+    if request.method == 'POST':
+        rating_value = float(request.POST.get('rating', 0))
+        message = request.POST.get('message', '')
+
+        if valoration:
+            # Actualiza la valoración existente
+            valoration.value = rating_value
+            valoration.message = message
+            valoration.save()
+            messages.success(request, 'Tu valoración ha sido actualizada con éxito.')
+        else:
+            # Crea una nueva valoración si no existe
+            valoration = Valoration(
+                profile=request.user,
+                product=product,
+                value=rating_value,
+                message=message
+            )
+            valoration.save()
+            messages.success(request, 'Tu valoración ha sido creada con éxito.')
+
+        return redirect('product', product_id=product_id)
+
+    # Renderiza el template con el formulario y la valoración existente (si la hay)
+    return render(request, 'onlybites_web/add-rating.html', {
+        'product': product,
+        'existing_valoration': valoration,
+    })

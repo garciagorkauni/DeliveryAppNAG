@@ -5,6 +5,7 @@
 
 <h3>Product information:</h3>
 <ul>
+    <p>Product ID: {{ product.product_id }}</p>
     <li><strong>Description: </strong> {{ product.description }}</li>
     <li><strong>Stock: </strong> {{ product.stock }}</li>
     <li><strong>Vegan: </strong> {{ product.vegan }}</li>
@@ -29,13 +30,27 @@
     </ul>
 
 <h3>Product valorations:</h3>
-    <ul>
+<ul>
         {% for valoration in valorations %}
-        <li><strong> {{ valoration.profile.name }}:</strong> {{ valoration.value }}/5 - {{ valoration.message }}</li>
+        <li>
+            <strong>{{ valoration.profile.name }}:</strong> 
+            {% for i in "*****" %}
+                {% if forloop.counter <= valoration.value %}
+                    ★
+                {% else %}
+                    ☆
+                {% endif %}
+            {% endfor %}
+            ({{ valoration.value }}/5) - {{ valoration.message }}
+        </li>
         {% endfor %}
+        {% if user.is_authenticated %}
+        <a class="btn btn-warning" href="#" onclick="showNewValorationForm('{{product.product_id}}')" role="button">Add</a>
+        {% endif %}
     </ul>
+    <div id="newValorationForm" class="popup">
+    </div>
 
 <a class="btn btn-primary" href="{% url 'add_cart' product_id=product.product_id %}" role="button">Add to cart</a>
-
 
 {% endblock %}
