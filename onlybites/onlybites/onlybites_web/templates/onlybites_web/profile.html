@@ -1,30 +1,81 @@
 {% extends 'onlybites_web/base.html' %}
 {% block content %}
-
-<h1>{{ profile.name }}</h1>
-
-<h3>Profile information:</h3>
-<ul>
-    <li><strong>Name: </strong> {{ profile.name }}</li>
-    <li><strong>Surname: </strong> {{ profile.surname }}</li>
-    <li><strong>Birthdate: </strong> {{ profile.birthdate }}</li>
-    <li><strong>Email: </strong> {{ profile.email }}</li>
-    <li><strong>Telephone: </strong> {{ profile.telephone }}</li>
-</ul>
-
-<h3>Profile addresses:</h3>
-    <ul>
-        {% for address in addresses %}
-            <li>
-                {{ address.address1 }} ...
-                <a class="btn btn-warning" href="#" onclick="showNewAddressFrom('{{address.address_id}}')" role="button">Edit</a>
-            </li>
-        {% endfor %}
-    </ul>
-
-<a class="btn btn-primary" href="#" onclick="showNewAddressFrom()" role="button">Create address</a>
-
-<div id="newAddressForm" class="popup">
+{% load static %}
+<div class="wid-80 flex fl-direc-colum m-left-10 ">
+    <div id="hello">
+        <h1>Kaixo, {{ profile.name }}</h1>
+    </div>
+    <div class="section-title"> <h3>Bezeroaren datuak</h3></div>
 </div>
+
+<div class="separate-line"></div>
+<div class="wid-80 flex fl-direc-colum m-left-10 mb-5 ">
+    <div class="row flex ">
+        <div class="col-lg-6">
+            <div class="p-lable"><p></p>Izena<p></p></div>
+            <div class="p-info"><p>{{ profile.name }}</p></div>
+
+        </div>
+        <div class="col-lg-6">
+            <div class="p-lable "><p></p>Abizena<p></p></div>
+            <div class="p-info"><p>{{ profile.birthdate }}</p></div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="p-lable"><p></p>Posta helbidea<p></p></div>
+            <div class="p-info"><p>{{ profile.email }}</p></div>
+
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="p-lable"><p></p>Telefono zenbakia<p></p></div>
+            <div class="p-info"><p>{{ profile.telephone }}</p></div>
+
+        </div>
+        <div class="col-lg-6">
+            <div class="p-lable"><p></p>Jaiotze datad<p></p></div>
+            <div class="p-info"><p>{{ profile.birthdate }}</p></div>
+
+        </div>
+    </div>
+</div>
+   
+
+
+<div class="wid-80 flex fl-direc-colum m-left-10 ">
+  
+    <div class="section-title"> <h3>Eskaera helbideak:</h3></div>
+</div>
+<div class="separate-line"></div>
+<div class="wid-80 flex fl-direc-colum m-left-10 mb-5 ">
+    {% for address in addresses %}
+    <div class="row flex ">
+        <div class="col-lg-10">
+            <div class="p-address"><p> {{ address.address1 }} ...</p></div>
+        
+
+        </div>
+        <div class="col-lg-2">
+            <a class="btn btn-warning" href="#" onclick="showNewAddressFrom('{{address.address_id}}')" role="button">Edit</a>
+        
+
+        </div>
+        
+    </div>
+    {% endfor %}
+    <a class=" mt-10 btn btn-green wid-20 " href="#" onclick="showNewAddressFrom()" role="button">Sortu helbidea</a>
+
+    <div id="newAddressForm" class="popup">
+    </div>
+</div>
+
+
+   
+
+
 
 {% endblock %}
