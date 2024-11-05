@@ -1,3 +1,10 @@
+$(document).ready(function () {
+    $('#loginButton').on("click", function(){
+        showLogin()
+    }); 
+})
+
+
 function showLogin(){
     $.ajax({
         url: "/login/",
