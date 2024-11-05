@@ -1,8 +1,11 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Profile, Address, Product, Valoration, Cart, Image, Allergen, ProductAllergen
-from django.contrib.auth import login, authenticate, logout
-from .forms import RegisterForm, AddressForm
+from .models import Profile, Address, Product, Valoration, Cart, Order, Image, Allergen, ProductAllergen
+from django.contrib.auth import login, authenticate, logout ,get_user_model
+from .forms import RegisterForm, AddressForm, PaymentForm
+from django.contrib.auth.models import User
+from django.utils import timezone
+
 # View for home
 def home(request):
     return render(request, 'onlybites_web/home.html', locals())
@@ -28,15 +31,71 @@ def product(request, product_id):
 
 # View for cart
 def cart(request):
-    profile = Profile.objects.get(profile_id=1)
+    profile = Profile.objects.get(profile_id=request.user.profile_id)
 
-    products_id = Cart.objects.filter(profile=profile).values_list('product')
-    products = []
-    for product_id in products_id:
-        products.append(Product.objects.get(product_id=product_id[0]))
-
+    carts = Cart.objects.filter(profile=profile)
     addresses = Address.objects.filter(profile=profile)
     return render(request, 'onlybites_web/cart.html', locals())
+
+def add_cart(request, product_id):
+    cart = Cart.objects.filter(profile_id=request.user.profile_id, product_id=product_id).first()
+    if cart:
+        cart.quantity += 1
+    else:
+        cart = Cart()
+        
+        cart.profile = Profile.objects.get(profile_id=request.user.profile_id)
+        cart.product = Product.objects.get(product_id=product_id)
+        # Default quantity = 1
+
+    cart.save()
+
+    return redirect('cart')
+
+def delete_cart(request, cart_id):
+    cart = Cart.objects.filter(id=cart_id).first()
+    cart.delete()
+
+    return redirect('cart')
+
+def reduce_cart(request, product_id):
+    cart = Cart.objects.filter(profile_id=request.user.profile_id, product_id=product_id).first()
+    if cart.quantity > 1:
+        cart.quantity -= 1
+
+    elif cart.quantity == 1:
+        cart.quantity = 1
+        return redirect('delete_cart', cart_id=cart.id)
+    
+    cart.save()
+    return redirect('cart')
+
+def payment(request):
+    profile = request.user
+    if request.method == 'POST':
+        form = PaymentForm(request.POST, profile=profile)
+        if form.is_valid():
+            address_id = form.cleaned_data['address']
+            address = Address.objects.get(address_id=address_id)
+
+            carts = Cart.objects.filter(profile=profile)
+            for cart_item in carts:
+                Order.objects.create(
+                    profile=profile,
+                    product=cart_item.product,
+                    address=address,
+                    quantity=cart_item.quantity,
+                    date=timezone.now().date()
+                )
+            
+            carts.delete()
+            
+            return redirect('home')
+    else:
+        form = PaymentForm(profile=profile)
+    
+    return render(request, 'onlybites_web/payment.html', {'form': form})
+
 
 # View for profile
 def profile(request):
@@ -69,7 +128,7 @@ def edit_address(request, id):
     else:
         form = AddressForm(instance=address)
 
-    return render(request, 'onlybites_web/add-address.html', {'form': form, 'address': address})
+    return render(request, 'onlybites_web/edit-address.html', {'form': form, 'address': address})
 
 # View for profile session management
 def register(request):

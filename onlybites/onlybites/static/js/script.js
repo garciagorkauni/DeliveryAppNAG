@@ -37,6 +37,16 @@ function showNewValorationForm(valoration_id){
         },
         error: function () {
             alert("Error adding the valoration");
+
+function showPaymentForm() {
+    $.ajax({
+        url: "/payment/",
+        type: 'GET',
+        success: function (data) {
+            document.getElementById("paymentForm").innerHTML = data;
+        },
+        error: function () {
+            alert("Error loading payment form");
         }
     });
 }
