@@ -67,3 +67,33 @@ height:80%;
     font-size: 25px;
  margin: 0;
    }
+
+/* Estilo de los filtros */
+.filter-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Distribuye los filtros con espacio entre ellos */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-item input[type="number"] {
+    width: 100px; /* Tamaño específico para el input de calorías */
+}
+
+.allergies-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el grupo de alergias a la izquierda */
+}
+
+.allergy-option {
+    display: flex;
+    align-items: center;
+}
+
