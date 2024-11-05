@@ -1,8 +1,10 @@
+{% load static %}
 
-<a href="" role="button">X</a>
+<a class="close-x" href="" role="button">X</a>
 
 
-<div class="flex fl-direc-colum alg-it-center">
+
+<div class="flex fl-direc-colum alg-it-center login">
     <div class="mb-2">
         <h1>Hasi saioa</h1>
     </div>
@@ -24,8 +26,9 @@
         
         <button class="btn btn-green submit-form "  type="submit">Login</button>
     </form>
-    <h3>OR</h3>
-    <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
+    
+    <p>or</p>
+    <a class=" alg-it-center flex flex-center " href="{% url 'social:begin' 'google-oauth2' %}"><img class="sig-google "  src="{% static 'img/icons/sing-google.svg' %}" ></a>
     {% if error %}
     <p>{{ error }}</p>
     {% endif %}

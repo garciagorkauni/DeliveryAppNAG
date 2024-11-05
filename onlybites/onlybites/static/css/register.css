@@ -60,3 +60,17 @@ label{
 .width{
     width: 300px;
 }
+.close-x{
+    position: fixed;
+    top:10%;
+    left:5%;
+    color: #718238;
+    font-size: 18px;
+      font-family: 'Hagrid', sans-serif;
+      font-weight: bold;
+}
+.sig-google{
+
+    width: 60%;
+    margin-bottom: 20px;
+}
