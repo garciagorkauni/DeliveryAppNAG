@@ -63,8 +63,8 @@ class AddressForm(forms.ModelForm):
             'surname': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Sartu  abizena'}),
             'telephone': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '  +34'}),
             'postal_code': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Sartu posta helbidea'}),
-            'address2': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Helbidea'}),
-            'address1': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Beste helbide bat'}),
+            'address2': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': ' Beste helbide bat  '}),
+            'address1': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '  Sartu helbidea'}),
             'city': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Sartu hiria'}),
             'country': forms.Select( attrs={'class': 'mi-estilo-input'}),
 

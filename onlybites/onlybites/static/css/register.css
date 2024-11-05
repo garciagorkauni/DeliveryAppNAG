@@ -60,9 +60,12 @@ label{
 .width{
     width: 300px;
 }
+.width2{
+    width: 500px;
+}
 .close-x{
     position: fixed;
-    top:10%;
+    top:5%;
     left:5%;
     color: #718238;
     font-size: 18px;
