@@ -1,7 +1,15 @@
 $(document).ready(function () {
     $('#loginButton').on("click", function(){
         showLogin()
-    }); 
+    })
+
+    $('#editAddressButton').on("click", function(){
+        showNewAddressForm($('#addressId').value)
+    })
+
+    $('#addAddressButton').on("click", function(){
+        showNewAddressForm()
+    })
 })
 
 
@@ -18,7 +26,7 @@ function showLogin(){
     });
 }
 
-function showNewAddressFrom(address_id){
+function showNewAddressForm(address_id){
     url = "/add-address/"
     if(address_id){
         url = "/edit-address/" + address_id + "/"

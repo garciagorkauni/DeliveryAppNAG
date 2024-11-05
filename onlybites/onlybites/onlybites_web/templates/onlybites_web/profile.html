@@ -17,12 +17,13 @@
         {% for address in addresses %}
             <li>
                 {{ address.address1 }} ...
-                <a class="btn btn-warning" href="#" onclick="showNewAddressFrom('{{address.address_id}}')" role="button">Edit</a>
+                <input type="hidden" id="addressId" value="{{address.address_id}}"/>
+                <a class="btn btn-warning" href="#" id="editAddressButton" role="button">Edit</a>
             </li>
         {% endfor %}
     </ul>
 
-<a class="btn btn-primary" href="#" onclick="showNewAddressFrom()" role="button">Create address</a>
+<a class="btn btn-primary" href="#" id="addAddressButton" role="button">Create address</a>
 
 <div id="newAddressForm" class="popup">
 </div>
