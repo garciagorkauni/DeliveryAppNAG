@@ -10,6 +10,14 @@ $(document).ready(function () {
     $('#addAddressButton').on("click", function(){
         showNewAddressForm()
     })
+
+    $(document).on("click", "#closeAddressFormButton", function(){
+        $('#newAddressForm').empty();
+    });
+
+    $(document).on("click", "#closeLoginPopup", function(){
+        $('#loginPopup').empty();
+    });
 })
 
 
@@ -42,6 +50,7 @@ function showNewAddressForm(address_id){
         }
     });
 }
+
 function showNewValorationForm(valoration_id){
     url = "/add-rating/" + valoration_id + "/"
     $.ajax({
