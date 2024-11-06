@@ -1,0 +1,44 @@
+#producto {
+  margin: auto;
+  background: linear-gradient(180deg, #fefdf9 5%, #fdf1ec 0);
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-image {
+  border-radius: 5px;
+}
+
+.plus-icon img {
+  transition: transform 0.2s;
+}
+
+.plus-icon img:hover {
+  transform: scale(1.1);
+}
+.cart-img-container {
+  height: 85%;
+  overflow: hidden;
+  border-radius: 20px;
+  align-items: center;
+}
+.cart-product {
+  color: #718238;
+  font-size: 34px;
+}
+.cart-price {
+  font-size: 48px;
+}
+.playfair {
+  font-family: "Playfair Display";
+}
+.plus-cart {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
