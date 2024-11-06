@@ -1,20 +1,75 @@
-{% extends 'onlybites_web/base.html' %}
-{% block content %}
+{% extends 'onlybites_web/base.html' %} 
+{% block content %} 
+{% load static %}
 
-<h1>Cart</h1>
+<h1>{{ profile.name }}'s Cart</h1>
 
 <h3>Profile cart products:</h3>
-    <ul>
-        {% for product in products %}
-        <li>{{ product.name }}</li>
-        {% endfor %}
-    </ul>
+<ul>
+  {% for product in products %}
+  <li>{{ product.name }}</li>
+  {% endfor %}
+</ul>
+<div id="producto" class="flex fl-justcon-sbetw alg-it-center padd-10 " style="border-radius: 10px;">
+  <div class="flex alg-it-center">
+    <img src="{% static 'img/boloñesa.png' %}" alt="Pasta bolognese" style="width: 150px; height: auto;">
+    <div style="margin-left: 15px;">
+      <p class="cart-product playfair">Pasta bolognese</p>
+      <p class="f-w-bold playfair cart-price">6.90€</p>
+    </div>
+  </div>
+  <div class="display: flex; align-items: center;">
+    <a style="border: none; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer;">
+      <img class="plus-cart"
+      src="{% static 'img/icons/Minus-circle.svg' %}"
+    />
+    </a>
+    <span class="cart-price playfair">1</span>
+    <a>
+      <img class="plus-cart"
+      src="{% static 'img/icons/Plus-circle.svg' %}"
+    />
+    </a>
+  </div>
+</div>  
+<!-- <div id="producto">
+  <div
+    class="cart flex fl-direc-row fl-justcon-sbetw align-items-center border-bottom"
+  >
+    
+    <div class="cart-img-container flex fl-justcon-sbetw">
+      <img
+        class="cart-image"
+        src="{% static 'img/boloñesa.png' %}"
+        alt="pasta de spaguetis a la boloñesa"
+        style="width: 80px; height: auto; margin-bottom: 5px;"
+      />
+      <div class="fl-direc-column" style="margin-left: 5%;">
+        <p class="cart-product f-w-bold f-zie-18">Pasta Boloinesa</p>
+        <p class="f-w-bold f-zie-16">6.90€</p>
+      </div>
+    </div>
+
+    
+    <div class="plus-icon flex" id="add-product" style="align-self: center">
+      <img
+      src="{% static 'img/icons/Plus-circle.svg' %}"
+      style="width: 24px; height: 24px; cursor: pointer"
+    />
+      <p>1</p>
+      <img
+        src="{% static 'img/icons/Plus-circle.svg' %}"
+        style="width: 24px; height: 24px; cursor: pointer"
+      />
+    </div>
+  </div>
+</div> -->
 
 <h3>Addresses:</h3>
-    <ul>
-        {% for address in addresses %}
-        <li>{{ address.address1 }} ...</li>
-        {% endfor %}
-    </ul>
+<ul>
+  {% for address in addresses %}
+  <li>{{ address.address1 }} ...</li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
