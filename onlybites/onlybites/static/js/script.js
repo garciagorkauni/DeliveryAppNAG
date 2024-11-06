@@ -12,11 +12,21 @@ $(document).ready(function () {
     })
 
     $(document).on("click", "#closeAddressFormButton", function(){
-        $('#newAddressForm').empty();
+        $('#newAddressForm').empty()
     });
 
     $(document).on("click", "#closeLoginPopup", function(){
         $('#loginPopup').empty();
+    });
+
+    $(document).on("submit", "#addAddressForm", function(){
+        e.preventDefault()
+        saveAddress()
+    });
+
+    $(document).on("submit", "#editAddressForm", function(){
+        e.preventDefault()
+        saveAddress($('#addressId').attr('value'))
     });
 })
 
@@ -46,9 +56,28 @@ function showNewAddressForm(address_id){
             document.getElementById("newAddressForm").innerHTML = data;
         },
         error: function () {
-            alert("Error adding the address");
+            alert("Error reading the address form");
         }
     });
+}
+
+function saveAddress(address_id){
+    url = "/add-address/"
+    if(address_id){
+        url = "/edit-address/" + address_id + "/"
+    }
+    data = $(this).serialize()
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: data,
+        success: function (response) {
+            alert("ondo gorde da address-a")
+        },
+        error: function (response) {
+            alert("Error adding the address" + response);
+        }
+    })
 }
 
 function showNewValorationForm(valoration_id){

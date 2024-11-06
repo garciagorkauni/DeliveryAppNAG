@@ -10,8 +10,10 @@ urlpatterns = [
 
     # product
     path('product/<int:product_id>/', views.product, name='product'),
+    
     # valoration
     path('add-rating/<int:product_id>/', views.add_rating, name='add_rating'),
+
     # cart
     path('cart/', views.cart, name='cart'),
     path('add-cart/<int:product_id>/', views.add_cart, name='add_cart'),
