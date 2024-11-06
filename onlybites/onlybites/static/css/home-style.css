@@ -1,89 +1,73 @@
-
-h1{
-    color: #F95C39;
-    font-size: 40px;
+h1 {
+  color: #f95c39;
+  font-size: 40px;
 }
-h2{
-    color: #718238;
-    font-size: 36px;
+h2 {
+  color: #718238;
+  font-size: 36px;
 }
- h3{
-   
-    font-family: 'Playfair Display', sans-serif;
-    font-weight: bold;
-   
-} 
+h3 {
+  font-family: "Playfair Display", sans-serif;
+  font-weight: bold;
+}
 .intro {
-   
-    position: relative; /* Para que los elementos absolutos se posicionen respecto a .row */
-   height: 250px;
-    overflow: visible; 
-    align-items: center;
+  position: relative; /* Para que los elementos absolutos se posicionen respecto a .row */
+  height: 250px;
+  overflow: visible;
+  align-items: center;
 }
 
-.col-lg-7, .col-md-7 {
-    z-index: 2; /* Asegura que el texto esté por encima de la imagen */
-    
+.col-lg-7,
+.col-md-7 {
+  z-index: 2; /* Asegura que el texto esté por encima de la imagen */
 }
 
 #home-image {
-    position: absolute;
-    top: -180px; /* Ajusta según necesites */
-    right: -100px; /* Ajusta según necesites */
-    z-index: 1; /* Asegura que la imagen esté detrás del texto */
-   overflow-y: unset;
-    transform: rotate(10deg);
-    
+  position: absolute;
+  top: -180px; /* Ajusta según necesites */
+  right: -100px; /* Ajusta según necesites */
+  z-index: 1; /* Asegura que la imagen esté detrás del texto */
+  overflow-y: unset;
+  transform: rotate(10deg);
 }
-
 
 #home-image img {
-  
-   height: 730px;/* Ajusta el tamaño de la imagen */
-    border-radius: 50px; /* Para un diseño más suave */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar un poco de profundidad */
-   
+  height: 730px; /* Ajusta el tamaño de la imagen */
+  border-radius: 50px; /* Para un diseño más suave */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar un poco de profundidad */
 }
-.pink{
-    background: linear-gradient(180deg, #FEFDF9 5%, #FDF1EC 0);
-   box-sizing: content-box;
-   padding-bottom: 9rem;
-   
+.pink {
+  background: linear-gradient(180deg, #fefdf9 5%, #fdf1ec 0);
+  box-sizing: content-box;
+  padding-bottom: 9rem;
 }
 
+.center {
+  text-align: center;
+  flex-direction: column;
+}
+.popular-dish {
+  width: 250px;
+  height: 300px;
 
-.center{
-
-  
-    text-align: center;
-    flex-direction: column;
-    
+  margin-top: 30px;
 }
-.popular-dish{
-    width: 250px;
-    height: 300px;
-   
-    
-    margin-top: 30px;
+.popular-dish img {
+  width: 250px;
+  height: 300px;
+  border-radius: 20px;
 }
-.popular-dish img{
-    width: 250px;
-    height: 300px;
-    border-radius: 20px;
+.btn-green {
+  color: white;
+  background-color: #718238; /* Color del botón de Register */
+  padding: 10px 20px;
+  border-radius: 9rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
 }
-.btn-green{
-    color: white;
-    background-color: #718238; /* Color del botón de Register */
-    padding: 10px 20px;
-    border-radius: 9rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight:bold;
-    font-size: 18px;
-}
-.btn-green:hover{
-    color: white; 
-    font-size: 20px;
+.btn-green:hover {
+  color: white;
+  font-size: 20px;
 }
 /* etiketa margen*/
-
-

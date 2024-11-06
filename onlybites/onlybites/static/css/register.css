@@ -1,76 +1,70 @@
-.shadow{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.shadow {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.radius{
-    border-radius: 20px;
+.radius {
+  border-radius: 20px;
 }
-.form-block{
-    padding: 50px;
-    box-sizing: content-box;
-   
+.form-block {
+  padding: 50px;
+  box-sizing: content-box;
 }
-.black{
-color: black;
+.black {
+  color: black;
 }
-.form-width{
-    width: 700px;
+.form-width {
+  width: 700px;
 }
 
 form label {
-    display: block; /* Hace que el label ocupe toda la línea encima del input */
-   
-    margin-bottom: 5px; /* Espacio entre el label y el input */
-    color: black; /* Cambia el color del label si quieres */
+  display: block; /* Hace que el label ocupe toda la línea encima del input */
+
+  margin-bottom: 5px; /* Espacio entre el label y el input */
+  color: black; /* Cambia el color del label si quieres */
 }
-label{
-    font-weight: lighter;
-    font-size: 16px;
-   
+label {
+  font-weight: lighter;
+  font-size: 16px;
 }
-.mi-estilo-input-email,.mi-estilo-input {
-    width: 100%;
-    border-radius: 15px;
-    border: #777 solid 1px;
-    padding: 4px;
+.mi-estilo-input-email,
+.mi-estilo-input {
+  width: 100%;
+  border-radius: 15px;
+  border: #777 solid 1px;
+  padding: 4px;
 }
-.submit-form{
-    width: 200px;
-    align-self: center;
-    margin-top: 10px;
+.submit-form {
+  width: 200px;
+  align-self: center;
+  margin-top: 10px;
 }
 /* style for login pop-up+*/
-.popup{
-    position: fixed;
-    z-index: 999;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);/*lo centra en mitad de la pantall*/
-    width: 80%;
-    max-width: 600px;
-    min-width: 300px;
-    height: auto;
-    max-height: 90vh;
-  
-    background-color: #FEFDF9;
- 
-    
-   
-   
-}
-.width{
-    width: 300px;
-}
-.close-x{
-    position: fixed;
-    top:10%;
-    left:5%;
-    color: #718238;
-    font-size: 18px;
-      font-family: 'Hagrid', sans-serif;
-      font-weight: bold;
-}
-.sig-google{
+.popup {
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*lo centra en mitad de la pantall*/
+  width: 80%;
+  max-width: 600px;
+  min-width: 300px;
+  height: auto;
+  max-height: 90vh;
 
-    width: 60%;
-    margin-bottom: 20px;
+  background-color: #fefdf9;
+}
+.width {
+  width: 300px;
+}
+.close-x {
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  color: #718238;
+  font-size: 18px;
+  font-family: "Hagrid", sans-serif;
+  font-weight: bold;
+}
+.sig-google {
+  width: 60%;
+  margin-bottom: 20px;
 }
