@@ -29,7 +29,7 @@ def product(request, product_id):
 
 # View for cart
 def cart(request):
-    profile = Profile.objects.get(profile_id=1)
+    profile = Profile.objects.get(profile_id=request.user.profile_id)
 
     products_id = Cart.objects.filter(profile=profile).values_list('product')
     products = []
