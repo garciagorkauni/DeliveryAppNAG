@@ -3,8 +3,8 @@ $(document).ready(function () {
         showLogin()
     })
 
-    $('#editAddressButton').on("click", function(){
-        showNewAddressForm($('#addressId').value)
+    $('.editAddressButton').on("click", function(){
+        showNewAddressForm($(this).attr('id'))
     })
 
     $('#addAddressButton').on("click", function(){
