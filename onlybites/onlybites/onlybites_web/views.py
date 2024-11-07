@@ -130,6 +130,10 @@ def edit_address(request, id):
 
     return render(request, 'onlybites_web/edit-address.html', {'form': form, 'address': address})
 
+def update_address_list(request):
+    addresses = Address.objects.all() 
+    return render(request, "onlybites_web/address_list.html", locals())
+
 # View for profile session management
 def register(request):
     if request.method == 'POST':
