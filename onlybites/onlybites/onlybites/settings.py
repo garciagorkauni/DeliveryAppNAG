@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'onlybites_web',
+    'rest_framework',
 ]
 
 AUTHENTICATION_BACKENDS = (

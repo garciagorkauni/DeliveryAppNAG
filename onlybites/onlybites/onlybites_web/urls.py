@@ -28,4 +28,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
+    #Rest
+    path('v1/product', views.Product_APIView.as_view()),
+    path('v1/product/<int:pk>/', views.Product_APIView_Detail.as_view())
 ]
