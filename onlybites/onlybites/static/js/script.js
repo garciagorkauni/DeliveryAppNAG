@@ -1,8 +1,15 @@
 $(document).ready(function () {
+    // Listeners for login popup
     $('#loginButton').on("click", function(){
         showLogin()
     })
 
+    $(document).on("click", "#closeLoginPopup", function(){
+        $('#loginPopup').empty();
+    });
+
+
+    // Listeners for addresses managemet
     $('.editAddressButton').on("click", function(){
         showNewAddressForm($(this).attr('id'))
     })
@@ -15,10 +22,6 @@ $(document).ready(function () {
         $('#newAddressForm').empty()
     });
 
-    $(document).on("click", "#closeLoginPopup", function(){
-        $('#loginPopup').empty();
-    });
-
     $(document).on("submit", "#addAddressForm", function(e){
         e.preventDefault()
         saveAddress()
@@ -29,6 +32,8 @@ $(document).ready(function () {
         saveAddress($('#addressId').attr('value'))
     });
 
+
+    // Listeners for product filters
     $(document).on("change", "#vegan", function(e){
         alert("Vegan filter changed")
     });
@@ -46,7 +51,7 @@ $(document).ready(function () {
     });
 })
 
-
+// AJAX function for get login popup html
 function showLogin(){
     $.ajax({
         url: "/login/",
@@ -60,6 +65,7 @@ function showLogin(){
     });
 }
 
+// AJAX function for get address form html
 function showNewAddressForm(address_id){
     url = "/add-address/"
     if(address_id){
@@ -77,6 +83,7 @@ function showNewAddressForm(address_id){
     });
 }
 
+// AJAX function for saving new or edited address
 function saveAddress(address_id = null){
     let url = "/add-address/"
     if(address_id){
@@ -98,6 +105,7 @@ function saveAddress(address_id = null){
     });
 }
 
+// AJAX function for get updated addresses list html
 function updateAddressList() {
     $.ajax({
         url: "/update-address-list/", 
@@ -111,6 +119,7 @@ function updateAddressList() {
     });
 }
 
+// AJAX function for get valoration form html
 function showNewValorationForm(valoration_id){
     url = "/add-rating/" + valoration_id + "/"
     $.ajax({
@@ -125,6 +134,7 @@ function showNewValorationForm(valoration_id){
     });
 }
 
+// AJAX function for get payment form html
 function showPaymentForm() {
     $.ajax({
         url: "/payment/",
@@ -138,6 +148,7 @@ function showPaymentForm() {
     });
 }
 
+// Function for show and hide product filters in menu
 function toggleFilters() {
     const filterContainer = document.getElementById('filter-container');
     if (filterContainer.style.display === 'none' || filterContainer.style.display === '') {
