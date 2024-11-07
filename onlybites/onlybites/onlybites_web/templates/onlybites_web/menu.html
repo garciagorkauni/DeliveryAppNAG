@@ -38,18 +38,12 @@
                     
                     <div class="filter-item allergies-group" id="allergiesList">
                         <label>Allergies</label>
+                        {% for allergen in allAllergens %}
                         <div class="allergy-option">
-                            <input type="checkbox" class="allergies">
-                            <label for="allergy-fruit">Fruta</label>
+                            <input type="checkbox" name="{{ allergen.allergen_id }}" class="allergies">
+                            <label for="allergy-fruit">{{ allergen.name }}</label>
                         </div>
-                        <div class="allergy-option">
-                            <input type="checkbox" class="allergies">
-                            <label for="allergy-seafood">Marisco</label>
-                        </div>
-                        <div class="allergy-option">
-                            <input type="checkbox" class="allergies">
-                            <label for="allergy-fish">Pescado</label>
-                        </div>
+                        {% endfor %}
                     </div>
                 </form>
             </div>

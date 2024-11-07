@@ -69,9 +69,12 @@ $(document).ready(function () {
     })
 
     $(document).on("change", "#allergiesList", function(e){
-        for (let index = 0; index < $(".allergies").length; index++) {
-            selected_filters.allergies.push($(".allergies")[index].checked)          
-        }
+        selected_filters.allergies = []
+        $(".allergies").each(function() {
+            if ($(this).is(":checked")) {
+                selected_filters.allergies.push($(this).attr("name"));
+            }
+        })
         
         updateProductList(selected_filters.vegan, 
             selected_filters.celiac, 
@@ -179,6 +182,10 @@ function showPaymentForm() {
 
 // AJAX function for get updated and filtered product list html
 function updateProductList(vegan, celiac, max_calories, allergies) {
+    allergiesStr = ''
+    for (let index = 0; index < allergies.length; index++) {
+        allergiesStr += allergies[index] + '-'
+    }
     $.ajax({
         url: "/update-product-list/",
         type: 'GET',
@@ -186,7 +193,7 @@ function updateProductList(vegan, celiac, max_calories, allergies) {
             vegan: vegan,
             celiac: celiac,
             max_calories: max_calories,
-            allergies: allergies
+            allergies: allergiesStr
         },
         success: function (data) {
             document.getElementById("productList").innerHTML = data;

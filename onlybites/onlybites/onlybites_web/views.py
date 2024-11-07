@@ -14,6 +14,7 @@ def home(request):
 # View for menu
 def menu(request):
     allProducts = Product.objects.all()
+    allAllergens = Allergen.objects.all()
     return render(request, 'onlybites_web/menu.html', locals())
 
 def update_product_list(request):
@@ -22,19 +23,27 @@ def update_product_list(request):
     vegan = request.GET.get('vegan')
     celiac = request.GET.get('celiac')
     max_calories = request.GET.get('max_calories')
-    allergies = request.GET.getlist('allergies')
+    allergies = request.GET.get('allergies')
 
-    # Aplicar los filtros según los datos recibidos
     if vegan == "true":
         allProducts = allProducts.filter(vegan=True)
     if celiac == "true":
         allProducts = allProducts.filter(celiac=True)
-    if int(max_calories) > 0:
+    if max_calories and int(max_calories) > 0:
         allProducts = allProducts.filter(calories__lte=max_calories)
-    # if allergies:
-    #     allProducts = allProducts.exclude(allergens__allergen_id__in=allergies)
+
+    if allergies:
+        allergy_ids = allergies.split('-')
+        for allergy_id in allergy_ids:
+            try:
+                allProducts = allProducts.exclude(
+                    product_id__in=ProductAllergen.objects.filter(allergen_id=allergy_id).values('product_id')
+                )
+            except:
+                pass
 
     return render(request, 'onlybites_web/product_list.html', {'allProducts': allProducts})
+
 
 
 # View for product
