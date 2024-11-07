@@ -86,7 +86,7 @@ body {
 
 /*para gente con problemas de vista, aumento de los botones del nav*/
 .navbar-default .navbar-nav> li > a:hover{
-  font-size: 20px;
+  transform: scale(1.1);
   border:solid #777 2px ; 
   border-radius:9rem ;
 }
@@ -140,6 +140,9 @@ footer{
 }
 .fl-jc-end{
   justify-content: end;
+}
+.fl-jc-start{
+  justify-content: start;
 }
 .f-zie-18{
   font-size: 18px;

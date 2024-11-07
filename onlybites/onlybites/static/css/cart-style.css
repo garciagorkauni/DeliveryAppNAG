@@ -1,6 +1,9 @@
-#producto {
+#producto-carrito {
   margin: auto;
-  background: linear-gradient(180deg, #fefdf9 5%, #fdf1ec 0);
+  background-color: #fdf1ec;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 2rem;
 }
 
 .cart {
@@ -10,17 +13,18 @@
   border-bottom: 1px solid #ccc;
 }
 
-.cart-image {
-  border-radius: 5px;
+.cart-img {
+  
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
 }
 
 .plus-icon img {
   transition: transform 0.2s;
 }
 
-.plus-icon img:hover {
-  transform: scale(1.1);
-}
+
 .cart-img-container {
   height: 85%;
   overflow: hidden;
@@ -29,16 +33,43 @@
 }
 .cart-product {
   color: #718238;
-  font-size: 34px;
+  
 }
 .cart-price {
-  font-size: 48px;
+  font-size: 25px;
+ 
 }
 .playfair {
   font-family: "Playfair Display";
 }
-.plus-cart {
-  width: 48px;
-  height: 48px;
+.cart-btn {
+  width: 40px;
+height: auto;
+margin: 5px;
   cursor: pointer;
+  
 }
+.cart-btn:hover{
+  transform: scale(1.1);
+}
+.ml-20{
+  margin-left: 20px;
+}
+.alg-it-start{
+ 
+  align-items: start;
+}
+.height-120{
+  height: 120px;
+}
+.wid-90{
+  width: 90%;
+}
+#amount{
+  margin: 10px;
+  font-size: 50px;
+}
+.btn:focus,
+        .btn:active {
+            color: white !important;
+        }
