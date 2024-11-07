@@ -19,12 +19,12 @@ $(document).ready(function () {
         $('#loginPopup').empty();
     });
 
-    $(document).on("submit", "#addAddressForm", function(){
+    $(document).on("submit", "#addAddressForm", function(e){
         e.preventDefault()
         saveAddress()
     });
 
-    $(document).on("submit", "#editAddressForm", function(){
+    $(document).on("submit", "#editAddressForm", function(e){
         e.preventDefault()
         saveAddress($('#addressId').attr('value'))
     });
@@ -61,23 +61,38 @@ function showNewAddressForm(address_id){
     });
 }
 
-function saveAddress(address_id){
-    url = "/add-address/"
+function saveAddress(address_id = null){
+    let url = "/add-address/"
     if(address_id){
         url = "/edit-address/" + address_id + "/"
     }
-    data = $(this).serialize()
+    let data = $('#addAddressForm, #editAddressForm').serialize()
+
     $.ajax({
         type: 'POST',
         url: url,
         data: data,
         success: function (response) {
-            alert("ondo gorde da address-a")
+            $('#newAddressForm').empty()
+            updateAddressList();
         },
         error: function (response) {
-            alert("Error adding the address" + response);
+            alert("Error adding the address.");
         }
-    })
+    });
+}
+
+function updateAddressList() {
+    $.ajax({
+        url: "/update-address-list/", 
+        type: 'GET',
+        success: function (data) {
+            document.getElementById("addressList").innerHTML = data
+        },
+        error: function () {
+            alert("Error updating the address list.")
+        }
+    });
 }
 
 function showNewValorationForm(valoration_id){

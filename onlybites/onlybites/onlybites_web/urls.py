@@ -25,6 +25,7 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('add-address/', views.add_address, name='add_address'),
     path('edit-address/<int:id>/', views.edit_address, name='edit_address'),
+    path("update-address-list/", views.update_address_list, name="update_address_list"),
 
     # Profile authentication management
     path('register/', views.register, name='register'),
