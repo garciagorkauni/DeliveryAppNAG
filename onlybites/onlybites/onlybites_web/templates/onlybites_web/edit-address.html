@@ -2,7 +2,7 @@
 <br>
 <a id="closeAddressFormButton" role="button">X</a>
 
-<form method="POST" class="post-form" id="addAddressForm">
+<form method="POST" class="post-form" id="editAddressForm">
     {% csrf_token %} {{ form.as_p }}
     <input type="hidden" id="addressId" value="{{ address.address_id }}"/>
     <button type="submit" class="save btn btn-default">Save</button>

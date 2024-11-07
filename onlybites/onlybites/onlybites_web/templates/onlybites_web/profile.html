@@ -13,16 +13,11 @@
 </ul>
 
 <h3>Profile addresses:</h3>
-    <ul>
-        {% for address in addresses %}
-            <li>
-                {{ address.address1 }} ...
-                <a class="btn btn-warning" href="#" onclick="showNewAddressFrom('{{address.address_id}}')" role="button">Edit</a>
-            </li>
-        {% endfor %}
-    </ul>
+<div id="addressList">
+    {% include "onlybites_web/address_list.html" %}
+</div>
 
-<a class="btn btn-primary" href="#" onclick="showNewAddressFrom()" role="button">Create address</a>
+<a class="btn btn-primary" id="addAddressButton" role="button">Create address</a>
 
 <div id="newAddressForm" class="popup">
 </div>

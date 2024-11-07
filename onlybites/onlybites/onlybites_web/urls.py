@@ -10,14 +10,22 @@ urlpatterns = [
 
     # product
     path('product/<int:product_id>/', views.product, name='product'),
+    
+    # valoration
+    path('add-rating/<int:product_id>/', views.add_rating, name='add_rating'),
 
     # cart
     path('cart/', views.cart, name='cart'),
-
+    path('add-cart/<int:product_id>/', views.add_cart, name='add_cart'),
+    path('delete-cart/<int:cart_id>/', views.delete_cart, name='delete_cart'),
+    path('reduce-cart/<int:product_id>/', views.reduce_cart, name='reduce_cart'),
+    path('payment/', views.payment, name='payment'),
+    
     # profile
     path('profile/', views.profile, name='profile'),
     path('add-address/', views.add_address, name='add_address'),
     path('edit-address/<int:id>/', views.edit_address, name='edit_address'),
+    path("update-address-list/", views.update_address_list, name="update_address_list"),
 
     # Profile authentication management
     path('register/', views.register, name='register'),
