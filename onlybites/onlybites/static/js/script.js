@@ -28,6 +28,22 @@ $(document).ready(function () {
         e.preventDefault()
         saveAddress($('#addressId').attr('value'))
     });
+
+    $(document).on("change", "#vegan", function(e){
+        alert("Vegan filter changed")
+    });
+
+    $(document).on("change", "#celiac", function(e){
+        alert("Celiac filter changed")
+    });
+
+    $(document).on("change", "#max-calories", function(e){
+        alert("Max calories filter changed")
+    });
+
+    $(document).on("change", "#allergiesList", function(e){
+        alert("Allergies selector filter changed")
+    });
 })
 
 

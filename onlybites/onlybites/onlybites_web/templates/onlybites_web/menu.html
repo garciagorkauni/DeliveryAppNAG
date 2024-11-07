@@ -17,7 +17,6 @@
     <div class=" container ">
         <div class="row ">
             <div class="dropdown fl-jc-end flex">
-                <!-- Botón de filtro -->
                 <div class="btn btn-dropdown f-zie-18 f-w-bold" id="dropdownbutton" onclick="toggleFilters()">
                     Filtroak <img src="{% static 'img/icons/filtro.svg' %}">
                 </div>
@@ -25,26 +24,22 @@
             
             <div class="right" id="filter-container" style="display: none;">
                 <form class="filter-form">
-                    <!-- Checkbox para Vegan -->
                     <div class="filter-item">
                         <label for="vegan">Vegan</label>
                         <input type="checkbox" id="vegan">
                     </div>
                     
-                    <!-- Checkbox para Celiac -->
                     <div class="filter-item">
                         <label for="celiac">Celiac</label>
                         <input type="checkbox" id="celiac">
                     </div>
                     
-                    <!-- Input para Max. Calories -->
                     <div class="filter-item">
                         <label for="max-calories">Max. Calories</label>
                         <input type="number" id="max-calories">
                     </div>
                     
-                    <!-- Grupo de checkboxes para Allergies -->
-                    <div class="filter-item allergies-group">
+                    <div class="filter-item allergies-group" id="allergiesList">
                         <label>Allergies</label>
                         <div class="allergy-option">
                             <input type="checkbox" id="allergy-fruit">
