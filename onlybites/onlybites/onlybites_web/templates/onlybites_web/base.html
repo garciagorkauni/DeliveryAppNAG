@@ -5,25 +5,33 @@
 
 <head>
     <title>OnlyBites</title>
+
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home-style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu-style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}"/>
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <div class="page-header">
-        <h1><a href="/">OnlyBites</a></h1>
-    </div>
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header"> 
-                <a class="navbar-brand" href="{% url 'home' %}">OnlyBites</a>
+    <nav class="navbar navbar-default flex flex-center">
+        <div class="container-fluid flex flex-center">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites" class="logo-img"></a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{% url 'menu' %}">Menu</a></li>
-
+                </ul>
+    
+                <ul class="nav navbar-nav flex navbar-right jstcont-end">
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'cart' %}">Cart</a></li>
                         <li><a href="{% url 'profile' %}">Profile</a></li>
@@ -34,18 +42,49 @@
                     {% endif %}
                 </ul>
             </div>
+    
         </div>
     </nav>
 
-    <div id="loginPopup" class="popup">
+    <div id="loginPopup" class="popup shadow radius  ">
     </div>
 
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">{% block content %} {% endblock %}</div>
+    <div class=" container">
+        <div class="blank-space">
         </div>
+        {% block content %} {% endblock %}
     </div>
 
+<footer>
+    <div class="container center">
+        <div class="row mt-10">
+            <div class="col-lg-4 info">
+                <h4>Gure bila etorri</h4>
+                <p>tel: 943267802</p>
+                <p>Errebal Kalea 3, Eibar, Gipuzkoa 20600</p>
+            </div>
+            
+            <div class="col-lg-4 info">
+                <h4>Gure ordutegia</h4>
+                <p>Astelenetik Ostiralera: 12:00-16:00 | 19:00-23:00</p>
+                <p>Larunbata eta igandea 12:00-16:00 | 19:00-00:00</p>
+                <p>Jai egunak 19:00-23:00</p>
+            </div>
+            
+            <div class="col-lg-4 info">
+                <h4>Jarraitu gure sozialetan</h4>
+                <!--instagram-->
+                <a><img/></a>
+                <!--facebook-->
+                <a><img/></a>
+                <!--x-->
+                <a><img/></a>
+            </div>
+            
+        </div>
+
+    </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'js/script.js' %}"></script>

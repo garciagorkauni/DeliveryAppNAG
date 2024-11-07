@@ -1,11 +1,59 @@
 {% extends 'onlybites_web/base.html' %}
 {% block content %}
+{% load static %}
 
-<h1>Menu</h1>
 
-{% for product in allProducts %}
-    <h4><a href="{% url 'product' product_id=product.product_id %}">{{ product.name }}</a></h4>
-    <br>
-{% endfor %}
+
+<div class="row intro">
+    <div class="col-lg-9 col-md-9">
+        <h1>Gure sukaldetik zure etxera <span id='italic'>bite</span> batean</h1>
+    </div>
+</div>
+</div>
+<div class="pink">
+    <div class=" container ">
+        <div class="row ">
+            <div class="dropdown fl-jc-end flex">
+                <div class="btn btn-dropdown f-zie-18 f-w-bold" id="dropdownbutton" onclick="toggleFilters()">
+                    Filtroak <img src="{% static 'img/icons/filtro.svg' %}">
+                </div>
+            </div>
+            
+            <div class="right" id="filter-container" style="display: none;">
+                <form class="filter-form">
+                    <div class="filter-item">
+                        <label for="vegan">Vegan</label>
+                        <input type="checkbox" id="vegan">
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="celiac">Celiac</label>
+                        <input type="checkbox" id="celiac">
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="max-calories">Max. Calories</label>
+                        <input type="number" id="max-calories">
+                    </div>
+                    
+                    <div class="filter-item allergies-group" id="allergiesList">
+                        <label>Allergies</label>
+                        {% for allergen in allAllergens %}
+                        <div class="allergy-option">
+                            <input type="checkbox" name="{{ allergen.allergen_id }}" class="allergies">
+                            <label for="allergy-fruit">{{ allergen.name }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row" id="productList">
+            {% include "onlybites_web/product_list.html" %}        
+        </div>
+    </div>
+</div>
+</div>
 
 {% endblock %}

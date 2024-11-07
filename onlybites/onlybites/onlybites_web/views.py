@@ -10,10 +10,41 @@ from django.utils import timezone
 def home(request):
     return render(request, 'onlybites_web/home.html', locals())
 
+
 # View for menu
 def menu(request):
     allProducts = Product.objects.all()
+    allAllergens = Allergen.objects.all()
     return render(request, 'onlybites_web/menu.html', locals())
+
+def update_product_list(request):
+    allProducts = Product.objects.all()
+
+    vegan = request.GET.get('vegan')
+    celiac = request.GET.get('celiac')
+    max_calories = request.GET.get('max_calories')
+    allergies = request.GET.get('allergies')
+
+    if vegan == "true":
+        allProducts = allProducts.filter(vegan=True)
+    if celiac == "true":
+        allProducts = allProducts.filter(celiac=True)
+    if max_calories and int(max_calories) > 0:
+        allProducts = allProducts.filter(calories__lte=max_calories)
+
+    if allergies:
+        allergy_ids = allergies.split('-')
+        for allergy_id in allergy_ids:
+            try:
+                allProducts = allProducts.exclude(
+                    product_id__in=ProductAllergen.objects.filter(allergen_id=allergy_id).values('product_id')
+                )
+            except:
+                pass
+
+    return render(request, 'onlybites_web/product_list.html', {'allProducts': allProducts})
+
+
 
 # View for product
 def product(request, product_id):
@@ -28,6 +59,42 @@ def product(request, product_id):
 
     valorations = Valoration.objects.filter(product=product)
     return render(request, 'onlybites_web/product.html', locals())
+
+def add_rating(request, product_id):
+    product = get_object_or_404(Product, product_id=product_id)
+
+    # Busca si ya existe una valoración de este usuario para este producto
+    valoration = Valoration.objects.filter(profile=request.user, product=product).first()
+
+    if request.method == 'POST':
+        rating_value = float(request.POST.get('rating', 0))
+        message = request.POST.get('message', '')
+
+        if valoration:
+            # Actualiza la valoración existente
+            valoration.value = rating_value
+            valoration.message = message
+            valoration.save()
+            messages.success(request, 'Tu valoración ha sido actualizada con éxito.')
+        else:
+            # Crea una nueva valoración si no existe
+            valoration = Valoration(
+                profile=request.user,
+                product=product,
+                value=rating_value,
+                message=message
+            )
+            valoration.save()
+            messages.success(request, 'Tu valoración ha sido creada con éxito.')
+
+        return redirect('product', product_id=product_id)
+
+    # Renderiza el template con el formulario y la valoración existente (si la hay)
+    return render(request, 'onlybites_web/add-rating.html', {
+        'product': product,
+        'existing_valoration': valoration,
+    })
+
 
 # View for cart
 def cart(request):
@@ -134,6 +201,7 @@ def update_address_list(request):
     addresses = Address.objects.all() 
     return render(request, "onlybites_web/address_list.html", locals())
 
+
 # View for profile session management
 def register(request):
     if request.method == 'POST':
@@ -163,39 +231,3 @@ def logout_view(request):
     response = redirect('home')  
     response.delete_cookie('sessionid')
     return response
- 
-
-def add_rating(request, product_id):
-    product = get_object_or_404(Product, product_id=product_id)
-
-    # Busca si ya existe una valoración de este usuario para este producto
-    valoration = Valoration.objects.filter(profile=request.user, product=product).first()
-
-    if request.method == 'POST':
-        rating_value = float(request.POST.get('rating', 0))
-        message = request.POST.get('message', '')
-
-        if valoration:
-            # Actualiza la valoración existente
-            valoration.value = rating_value
-            valoration.message = message
-            valoration.save()
-            messages.success(request, 'Tu valoración ha sido actualizada con éxito.')
-        else:
-            # Crea una nueva valoración si no existe
-            valoration = Valoration(
-                profile=request.user,
-                product=product,
-                value=rating_value,
-                message=message
-            )
-            valoration.save()
-            messages.success(request, 'Tu valoración ha sido creada con éxito.')
-
-        return redirect('product', product_id=product_id)
-
-    # Renderiza el template con el formulario y la valoración existente (si la hay)
-    return render(request, 'onlybites_web/add-rating.html', {
-        'product': product,
-        'existing_valoration': valoration,
-    })
