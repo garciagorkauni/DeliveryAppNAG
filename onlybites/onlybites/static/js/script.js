@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     $(document).on("click", "#closeLoginPopup", function(){
         $('#loginPopup').empty();
-    });
+    })
 
 
     // Listeners for addresses managemet
@@ -20,35 +20,64 @@ $(document).ready(function () {
 
     $(document).on("click", "#closeAddressFormButton", function(){
         $('#newAddressForm').empty()
-    });
+    })
 
     $(document).on("submit", "#addAddressForm", function(e){
         e.preventDefault()
         saveAddress()
-    });
+    })
 
     $(document).on("submit", "#editAddressForm", function(e){
         e.preventDefault()
         saveAddress($('#addressId').attr('value'))
-    });
+    })
 
 
     // Listeners for product filters
+    const selected_filters = {
+        vegan: false,
+        celiac: false,
+        maxCalories: 0,
+        allergies: []
+    }
+
     $(document).on("change", "#vegan", function(e){
-        alert("Vegan filter changed")
-    });
+        selected_filters.vegan = $('#vegan')[0].checked
+
+        updateProductList(selected_filters.vegan, 
+            selected_filters.celiac, 
+            selected_filters.maxCalories, 
+            selected_filters.allergies)
+    })
 
     $(document).on("change", "#celiac", function(e){
-        alert("Celiac filter changed")
-    });
+        selected_filters.celiac = $('#celiac')[0].checked
+
+        updateProductList(selected_filters.vegan, 
+            selected_filters.celiac, 
+            selected_filters.maxCalories, 
+            selected_filters.allergies)
+    })
 
     $(document).on("change", "#max-calories", function(e){
-        alert("Max calories filter changed")
-    });
+        selected_filters.maxCalories = $("#max-calories").val()
+
+        updateProductList(selected_filters.vegan, 
+            selected_filters.celiac, 
+            selected_filters.maxCalories, 
+            selected_filters.allergies)
+    })
 
     $(document).on("change", "#allergiesList", function(e){
-        alert("Allergies selector filter changed")
-    });
+        for (let index = 0; index < $(".allergies").length; index++) {
+            selected_filters.allergies.push($(".allergies")[index].checked)          
+        }
+        
+        updateProductList(selected_filters.vegan, 
+            selected_filters.celiac, 
+            selected_filters.maxCalories, 
+            selected_filters.allergies)
+    })
 })
 
 // AJAX function for get login popup html
@@ -144,6 +173,26 @@ function showPaymentForm() {
         },
         error: function () {
             alert("Error loading payment form");
+        }
+    });
+}
+
+// AJAX function for get updated and filtered product list html
+function updateProductList(vegan, celiac, max_calories, allergies) {
+    $.ajax({
+        url: "/update-product-list/",
+        type: 'GET',
+        data: {
+            vegan: vegan,
+            celiac: celiac,
+            max_calories: max_calories,
+            allergies: allergies
+        },
+        success: function (data) {
+            document.getElementById("productList").innerHTML = data;
+        },
+        error: function () {
+            alert("Error updating the product list.");
         }
     });
 }

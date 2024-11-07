@@ -7,6 +7,7 @@ urlpatterns = [
 
     # menu
     path('products/', views.menu, name='menu'),
+    path('update-product-list/', views.update_product_list, name='update_product_list'),
 
     # product
     path('product/<int:product_id>/', views.product, name='product'),

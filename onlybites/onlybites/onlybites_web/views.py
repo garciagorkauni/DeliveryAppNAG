@@ -14,8 +14,28 @@ def home(request):
 # View for menu
 def menu(request):
     allProducts = Product.objects.all()
-    # FILTERS CODE HERE
     return render(request, 'onlybites_web/menu.html', locals())
+
+def update_product_list(request):
+    allProducts = Product.objects.all()
+
+    vegan = request.GET.get('vegan')
+    celiac = request.GET.get('celiac')
+    max_calories = request.GET.get('max_calories')
+    allergies = request.GET.getlist('allergies')
+
+    # Aplicar los filtros según los datos recibidos
+    if vegan == "true":
+        allProducts = allProducts.filter(vegan=True)
+    if celiac == "true":
+        allProducts = allProducts.filter(celiac=True)
+    if int(max_calories) > 0:
+        allProducts = allProducts.filter(calories__lte=max_calories)
+    # if allergies:
+    #     allProducts = allProducts.exclude(allergens__allergen_id__in=allergies)
+
+    return render(request, 'onlybites_web/product_list.html', {'allProducts': allProducts})
+
 
 # View for product
 def product(request, product_id):
