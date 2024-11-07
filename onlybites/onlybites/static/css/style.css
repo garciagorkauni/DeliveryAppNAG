@@ -100,9 +100,11 @@ body {
  
 }
 .navbar-default .navbar-nav .btn-register:hover {
+
   color: white;
   background-color: #718238; /* Color del botón de Register */
  
+
 }
 footer{
   background-color: #718238;

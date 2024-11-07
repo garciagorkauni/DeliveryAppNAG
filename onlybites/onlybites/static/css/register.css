@@ -55,6 +55,7 @@ label {
 .width {
   width: 300px;
 }
+
 .close-x {
   position: fixed;
   top: 10%;
@@ -67,4 +68,5 @@ label {
 .sig-google {
   width: 60%;
   margin-bottom: 20px;
+
 }

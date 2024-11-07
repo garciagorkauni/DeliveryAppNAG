@@ -7,7 +7,7 @@ class RegisterForm(UserCreationForm):
         model = Profile
         fields = ('email', 'name', 'surname', 'birthdate', 'telephone', 'password1', 'password2')
         labels = {
-            'email': 'Posta Helbidea',
+            'email': 'Helbide Elektronikoa',
             'name': 'Izena',
             'surname': 'Abizena',
             'birthdate': 'Jaiotze Data',
@@ -55,6 +55,19 @@ class AddressForm(forms.ModelForm):
             'postal_code': 'Posta Helbidea',
             'city': 'Hiria',
             'address1': 'Helbidea',
-            'address1': 'Helbidea 2',
+            'address2': 'Helbidea 2',
         }
         
+        widgets={
+            'name': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '  Sartu  izena'}),
+            'surname': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Sartu  abizena'}),
+            'telephone': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '  +34'}),
+            'postal_code': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Sartu posta helbidea'}),
+            'address2': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': ' Beste helbide bat  '}),
+            'address1': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '  Sartu helbidea'}),
+            'city': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Sartu hiria'}),
+            'country': forms.Select( attrs={'class': 'mi-estilo-input'}),
+
+
+          
+        }
