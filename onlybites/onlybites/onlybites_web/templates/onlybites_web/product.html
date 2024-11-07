@@ -16,9 +16,43 @@
 </div>
 </div>
 <div class="pink">
-    <div class=" container flex flex-center fl-direc-row">
-        <div>hla</div>
-        <div>hola</div>
+    <div class=" container flex flex-center ">
+        <div class="flex fl-direc-row bor-top" id="p-details-bloc">
+            <div id="pr-img">
+                <!--   {% for image in images %}
+                  <li> {{ image.path }} </li>
+                  {% endfor %} -->
+                  <img id="pr-img" src="{% static 'img/boloñesa.png' %}" alt="({{image.alt}})">
+            </div>
+            <div class="flex fl-direc-colum fl-justcon-sbetw" id="p-details" >
+
+                <div id="p-name">
+                    <h3>{{ product.name }}</h3>
+                </div>
+                
+
+                {% for allergen in allergens %}
+                <div id="p-añergen">
+                <!--meter icono de alergeno-->
+
+                 </div>
+        
+                {% endfor %}
+                <dic id="cal"> <p>{{ product.calories }}</p></dic>
+                  
+                 <div id="p-description">
+                    <p>{{ product.description }}</p>
+                 </div>
+                 <!--price and add to cart button, display block at the end-->
+                 <div class="flex fl-direct-row fl-justcon-sbetw fl-end">
+                    <p class="f-w-bold playfair cart-price">6.90€</p>
+                    <div><img class="cart-btn" id="plus-button"
+                        src="{% static 'img/icons/Plus-circle.svg' %}" />
+                    </div>
+                 </div>
+            </div>
+        </div>
+        
     </div>
 </div>
 
