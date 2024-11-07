@@ -1,20 +1,62 @@
-{% extends 'onlybites_web/base.html' %}
-{% block content %}
+{% extends 'onlybites_web/base.html' %} 
+{% block content %} 
+{% load static %}
+<div class=" flex fl-direc-colum m-left-10 ">
+    <div >
+        <h1>{{ profile.name }}-ren saskia</h1>
+    </div>
+    <div class="section-title"> <h3>Produktuak:</h3></div>
+</div>
 
-<h1>Cart</h1>
+<div class="separate-line"></div>
+<ul>
+  {% for product in products %}
+ 
+  <li>{{ product.name }}</li>
+  {% endfor %}
+</ul>
+<div class="row flex fl-direc-colum">
+    <div id="producto-carrito" class="flex fl-justcon-sbetw alg-it-center wid-90 " >
+        <div class="flex alg-it-center " >
+            <!--product img-->
+            <div >
+                <img src="{% static 'img/boloñesa.png' %}" alt="Pasta bolognese"class="cart-img" >
+            </div>
+        <!--product name-->
+            <div class="flex fl-direc-colum ml-20 height-120 fl-justcon-sbetw">
+                <h3 class="cart-product ">Pasta bolognese</h3>
+            <!--product price-->
+                <p class="f-w-bold playfair cart-price">6.90€</p>
+            </div>
+        </div>
+    
+        <div  class="flex alg-it-center" >
+            <div><img class="cart-btn" id="minus-button"
+                src="{% static 'img/icons/Minus-circle.svg' %}"/>
+            </div>
+            <!--product amount-->
+            <div  ><span class="playfair" id="amount">1</span></div>
+            <div><img class="cart-btn" id="plus-button"
+                src="{% static 'img/icons/Plus-circle.svg' %}" />
+            </div>
+        </div>
+    </div>
+   
+    
+</div>
 
-<h3>Profile cart products:</h3>
-    <ul>
-        {% for product in products %}
-        <li>{{ product.name }}</li>
-        {% endfor %}
-    </ul>
+   
+
 
 <h3>Addresses:</h3>
-    <ul>
-        {% for address in addresses %}
-        <li>{{ address.address1 }} ...</li>
-        {% endfor %}
-    </ul>
+<ul>
+  {% for address in addresses %}
+  <li>{{ address.address1 }} ...</li>
+  {% endfor %}
+</ul>
+<a class=" mt-10 btn btn-green wid-20 " href="#" onclick="showNewAddressFrom()" >Sartu helbidea</a>
+
+    <div id="newAddressForm" class="popup">
+    </div>
 
 {% endblock %}
