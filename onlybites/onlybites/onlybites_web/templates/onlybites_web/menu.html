@@ -16,6 +16,7 @@
 <div class="pink">
     <div class=" container ">
         <div class="row ">
+        
             <div class="dropdown fl-jc-end flex">
                 <!--boton de filtro-->
                 <div class="btn btn-dropdown f-zie-18 " id="dropdownbutton">Filtroak <img src="{% static 'img/icons/filtro.svg' %}"></div>
@@ -28,25 +29,24 @@
         </div>
 
         <div class="row">
-            <!--tres productos por fila-->
-            <!--meter un for-->
-            <div class="col-lg-4  flex flex-center ">
+            {% for product in allProducts %}
+            <div class="col-lg-4  flex flex-center " >
                 <div class="dish-menu flex fl-direc-colum ">
                     <!--link para que envie a info del producto al hacer clik-->
-                    <a  class="flex fl-direc-colum" > 
+                    <a  class="flex fl-direc-colum" href="{% url 'product' product_id=product.product_id %}" > 
                          <!--imagen del producto -->
                         <div  class="product-img-container">
                              <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
                          </div>
                           <!--nombre del producto-->
                         <div class="product-name  f-zie-18 padd-10">
-                            <p>Pasta Boloinesa</p>
+                            <p>{{ product.name }}</p>
                         </div>
                     </a>
                     <!--precio del produkto-->
                     <div class="flex fl-justcon-sbetw padd-10 ">
                         <div class="dish-price flex  f-zie-18">
-                            <p>6.90€</p>
+                            <p>{{ product.price }}€</p>
 
                         </div>
                          <!--boton de agregar-->
@@ -59,151 +59,9 @@
                     
                 </div>
             </div>
-            <div class="col-lg-4  flex flex-center ">
-                <div class="dish-menu flex fl-direc-colum ">
-                    <!--link para que envie a info del producto al hacer clik-->
-                    <a  class="flex fl-direc-colum" > 
-                         <!--imagen del producto -->
-                        <div  class="product-img-container">
-                             <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
-                         </div>
-                          <!--nombre del producto-->
-                        <div class="product-name  f-zie-18 padd-10">
-                            <p>Pasta Boloinesa</p>
-                        </div>
-                    </a>
-                    <!--precio del produkto-->
-                    <div class="flex fl-justcon-sbetw padd-10 ">
-                        <div class="dish-price flex  f-zie-18">
-                            <p>6.90€</p>
-
-                        </div>
-                         <!--boton de agregar-->
-                        <div class="plus-icon " id="add-product">
-                            <img src="{% static 'img/icons/Plus-circle.svg' %}" >
-                        </div>
-                        
-                    </div>
-                
-                    
-                </div>
-            </div>
-            <div class="col-lg-4  flex flex-center ">
-                <div class="dish-menu flex fl-direc-colum ">
-                    <!--link para que envie a info del producto al hacer clik-->
-                    <a  class="flex fl-direc-colum" > 
-                         <!--imagen del producto -->
-                        <div  class="product-img-container">
-                             <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
-                         </div>
-                          <!--nombre del producto-->
-                        <div class="product-name  f-zie-18 padd-10">
-                            <p>Pasta Boloinesa</p>
-                        </div>
-                    </a>
-                    <!--precio del produkto-->
-                    <div class="flex fl-justcon-sbetw padd-10 ">
-                        <div class="dish-price flex  f-zie-18">
-                            <p>6.90€</p>
-
-                        </div>
-                         <!--boton de agregar-->
-                        <div class="plus-icon " id="add-product">
-                            <img src="{% static 'img/icons/Plus-circle.svg' %}" >
-                        </div>
-                        
-                    </div>
-                
-                    
-                </div>
-            </div>
-            <div class="col-lg-4  flex flex-center ">
-                <div class="dish-menu flex fl-direc-colum ">
-                    <!--link para que envie a info del producto al hacer clik-->
-                    <a  class="flex fl-direc-colum" > 
-                         <!--imagen del producto -->
-                        <div  class="product-img-container">
-                             <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
-                         </div>
-                          <!--nombre del producto-->
-                        <div class="product-name  f-zie-18 padd-10">
-                            <p>Pasta Boloinesa</p>
-                        </div>
-                    </a>
-                    <!--precio del produkto-->
-                    <div class="flex fl-justcon-sbetw padd-10 ">
-                        <div class="dish-price flex  f-zie-18">
-                            <p>6.90€</p>
-
-                        </div>
-                         <!--boton de agregar-->
-                        <div class="plus-icon " id="add-product">
-                            <img src="{% static 'img/icons/Plus-circle.svg' %}" >
-                        </div>
-                        
-                    </div>
-                
-                    
-                </div>
-            </div>
-            <div class="col-lg-4  flex flex-center ">
-                <div class="dish-menu flex fl-direc-colum ">
-                    <!--link para que envie a info del producto al hacer clik-->
-                    <a  class="flex fl-direc-colum" > 
-                         <!--imagen del producto -->
-                        <div  class="product-img-container">
-                             <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
-                         </div>
-                          <!--nombre del producto-->
-                        <div class="product-name  f-zie-18 padd-10">
-                            <p>Pasta Boloinesa</p>
-                        </div>
-                    </a>
-                    <!--precio del produkto-->
-                    <div class="flex fl-justcon-sbetw padd-10 ">
-                        <div class="dish-price flex  f-zie-18">
-                            <p>6.90€</p>
-
-                        </div>
-                         <!--boton de agregar-->
-                        <div class="plus-icon " id="add-product">
-                            <img src="{% static 'img/icons/Plus-circle.svg' %}" >
-                        </div>
-                        
-                    </div>
-                
-                    
-                </div>
-            </div>
-            <div class="col-lg-4  flex flex-center ">
-                <div class="dish-menu flex fl-direc-colum ">
-                    <!--link para que envie a info del producto al hacer clik-->
-                    <a  class="flex fl-direc-colum" > 
-                         <!--imagen del producto -->
-                        <div  class="product-img-container">
-                             <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
-                         </div>
-                          <!--nombre del producto-->
-                        <div class="product-name  f-zie-18 padd-10">
-                            <p>Pasta Boloinesa</p>
-                        </div>
-                    </a>
-                    <!--precio del produkto-->
-                    <div class="flex fl-justcon-sbetw padd-10 ">
-                        <div class="dish-price flex  f-zie-18">
-                            <p>6.90€</p>
-
-                        </div>
-                         <!--boton de agregar-->
-                        <div class="plus-icon " id="add-product">
-                            <img src="{% static 'img/icons/Plus-circle.svg' %}" >
-                        </div>
-                        
-                    </div>
-                
-                    
-                </div>
-            </div>
+          
+        {% endfor %}
+           
 
             
         </div>
@@ -215,9 +73,6 @@
    
 </div>
 
-{% for product in allProducts %}
-    <h4><a href="{% url 'product' product_id=product.product_id %}">{{ product.name }}</a></h4>
-    <br>
-{% endfor %}
+
 
 {% endblock %}
