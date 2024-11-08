@@ -74,6 +74,10 @@ def product(request, product_id):
 # View for cart
 def cart(request):
     profile = Profile.objects.get(profile_id=request.user.profile_id)
+    products_id = Cart.objects.filter(profile=profile).values_list('product')
+    products = []
+    for product_id in products_id:
+        products.append(Product.objects.get(product_id=product_id[0]))
 
     carts = Cart.objects.filter(profile=profile)
     addresses = Address.objects.filter(profile=profile)

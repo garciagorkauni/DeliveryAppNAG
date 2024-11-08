@@ -1,0 +1,49 @@
+.separate-line {
+  height: 1px;
+  background-color: black;
+  width: 100%;
+}
+.wid-80 {
+  width: 80%;
+}
+
+.m-left-10 {
+  margin-left: 3rem;
+}
+.p-info {
+  border: black solid 1px;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: #fffafa;
+  align-content: center;
+  width: 60%;
+}
+.p-info-empty{
+  border: black solid 1px;
+  border-radius: 15px;
+
+  background-color: #fffafa;
+  
+  width: 60%;
+  height: 32px;
+}
+.p-info > p {
+  margin: 0 5px 0;
+}
+.p-lable {
+  font-size: 16px;
+}
+h3 {
+  font-family: "Playfair Display", sans-serif;
+  font-weight: bold;
+}
+.home h3 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: normal;
+}
+.wid-20 {
+  width: 20%;
+}
+.padd-20{
+  padding: 20px;
+}

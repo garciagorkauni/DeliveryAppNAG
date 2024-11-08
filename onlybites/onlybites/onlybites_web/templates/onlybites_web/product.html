@@ -1,33 +1,72 @@
 {% extends 'onlybites_web/base.html' %}
 {% block content %}
 
-<h1>{{ product.name }}</h1>
+{% load static %}
 
-<h3>Product information:</h3>
-<ul>
-    <p>Product ID: {{ product.product_id }}</p>
-    <li><strong>Description: </strong> {{ product.description }}</li>
-    <li><strong>Stock: </strong> {{ product.stock }}</li>
-    <li><strong>Vegan: </strong> {{ product.vegan }}</li>
-    <li><strong>Celiac: </strong> {{ product.celiac }}</li>
-    <li><strong>Calories: </strong> {{ product.calories }}</li>
-    <li><strong>Valoration avg: </strong> {{ product.valoration_avg }}</li>
-    <li><strong>Price: </strong> {{ product.price }}</li>
-</ul>
+<div class="row intro">
+       
+    <div class="col-lg-9 col-md-9 flex fl-direc-colum">
+        <h1>Zure gustukoen  <span id='italic'>bite-ak</span> jateko prest?</h1>
+        <div id="back-page-botton" ><a href="{% url 'menu' %}"> <img src="{% static 'img/icons/Arrow left-circle.svg' %}"></a></div>
+       
+    </div>
+   
+    
+</div>
+</div>
+<div class="pink">
+    <div class=" container flex flex-center ">
+        <div class="flex fl-direc-row bor-top" id="p-details-bloc">
+            <div id="pr-img">
+                <!--   {% for image in images %}
+                  <li> {{ image.path }} </li>
+                  {% endfor %} -->
+                  <img id="pr-img" src="{% static 'img/boloñesa.png' %}" alt="{{image.alt}}">
+            </div>
+            <div class="flex fl-direc-colum " id="p-details" >
 
-<h3>Product images:</h3>
-    <ul>
-        {% for image in images %}
-        <li> {{ image.path }} ({{image.alt}})</li>
-        {% endfor %}
-    </ul>
-
-<h3>Product allergens:</h3>
-    <ul>
-        {% for allergen in allergens %}
-        <li><strong> {{ allergen.name }}:</strong> {{ allergen.description }}</li>
-        {% endfor %}
-    </ul>
+                <div id="p-name"class="mb-2 flex">  
+                    <h3>{{ product.name }}</h3>
+                </div>
+                
+                <div class="flex fl-direc-colum mb-2" id="alergens">
+                    {% for allergen in allergens %}
+                    <div id="p-añergen">
+                    <!--meter icono de alergeno-->
+    
+                     </div>
+            
+                    {% endfor %}
+                </div>
+               
+                <div id="cal" class="mb-2 flex"> <p>{{ product.calories }} cal</p></div>
+                  
+                 <div id="p-description" class="mb-2">
+                    <p>{{ product.description }}</p>
+                 </div>
+                 <!--price and add to cart button, display block at the end-->
+                 <div class="flex fl-direct-row fl-justcon-sbetw  end-aligned">
+                    <p class="f-w-bold playfair cart-price">6.90€</p>
+                    <div><img class="cart-btn" id="plus-button"
+                        src="{% static 'img/icons/Plus-circle.svg' %}" />
+                    </div>
+                 </div>
+                 <!--safe for vegand and celiac-->
+                 <div class="mb-2 flex  fl-direc-row" >
+                    {% if product.vegan %}
+                        <div class="apt f-w-bold "><p class="playfair f-zie-18">Beganoa</p></div>
+                    {% endif %}
+                    {% if product.celiac %}
+                    <div class="apt f-w-bold"><p class="playfair f-zie-18">Zeliakoentzat aptoa</p></div>
+                    {% endif %}
+                 </div>
+                 
+            </div>
+        </div>
+        
+    </div>
+    <!--valoracion-->
+</div>
 
 <h3>Product valorations:</h3>
 <ul>
