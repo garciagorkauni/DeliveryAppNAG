@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'onlybites_web',
+    'rest_framework',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -146,7 +147,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'home'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

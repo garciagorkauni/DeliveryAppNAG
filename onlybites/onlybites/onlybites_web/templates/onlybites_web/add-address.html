@@ -1,5 +1,5 @@
 {% load static %}
-<a class="close-x" href="" role="button">X</a>
+<a class="close-x" id="closeAddressFormButton" role="button">X</a>
 
 
 
@@ -9,8 +9,9 @@
     </div>
    
    
-    <form method="post" class=" flex fl-direc-colum width2"  >
+    <form method="post" class="flex fl-direc-colum width2" id="addAddressForm">
         {% csrf_token %}
+        <input type="hidden" id="addressId" value="{{ address.address_id }}"/>
         <div class="row flex mb-1" >
             <div class="col-lg-4">
                 <label for="{{form.country.id_for_label}}">{{form.country.label}}</label>

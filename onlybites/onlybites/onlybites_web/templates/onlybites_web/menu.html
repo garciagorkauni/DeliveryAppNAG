@@ -19,62 +19,42 @@
         
             <div class="dropdown fl-jc-end flex">
                 <!--boton de filtro-->
-                <div class="btn btn-dropdown f-zie-18 " id="dropdownbutton">Filtroak <img src="{% static 'img/icons/filtro.svg' %}"></div>
+                <div class="btn btn-dropdown f-zie-18 " id="dropdownbutton" onclick="toggleFilters()">Filtroak <img src="{% static 'img/icons/filtro.svg' %}"></div>
                 <!--filtros-->
-                <div class="dropdown-content" id="dropdownContent">
-                    <label><input type="checkbox" name="vegan" value="vegan"> Vegan </label>
-                    <label><input type="checkbox" name="celiac" value="sin-gluten"> Gluten gabe</label>
+                <div class="right" id="filter-container" style="display: none;">
+                    <form class="filter-form">
+                        <div class="filter-item">
+                            <label for="vegan">Vegan</label>
+                            <input type="checkbox" id="vegan">
+                        </div>
+
+                        <div class="filter-item">
+                            <label for="celiac">Celiac</label>
+                            <input type="checkbox" id="celiac">
+                        </div>
+
+                        <div class="filter-item">
+                            <label for="max-calories">Max. Calories</label>
+                            <input type="number" id="max-calories">
+                        </div>
+
+                        <div class="filter-item allergies-group" id="allergiesList">
+                            <label>Allergies</label>
+                            {% for allergen in allAllergens %}
+                            <div class="allergy-option">
+                                <input type="checkbox" name="{{ allergen.allergen_id }}" class="allergies">
+                                <label for="allergy-fruit">{{ allergen.name }}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            {% for product in allProducts %}
-            <div class="col-lg-4  flex flex-center " >
-                <div class="dish-menu flex fl-direc-colum ">
-                    <!--link para que envie a info del producto al hacer clik-->
-                    <a  class="flex fl-direc-colum" href="{% url 'product' product_id=product.product_id %}" > 
-                         <!--imagen del producto -->
-                        <div  class="product-img-container">
-                             <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
-                         </div>
-                         
-                          <!--nombre del producto-->
-                        <div class="product-name  f-zie-18 padd-10">
-                            <p>{{ product.name }}</p>
-                        </div>
-                    </a>
-                    <div id="cal" class="mb-2 flex mb-0"> <p>{{ product.calories }} cal</p></div>
-                    <!--precio del produkto-->
-                    <div class="flex fl-justcon-sbetw padd-10 ">
-                        <div class="dish-price flex  f-zie-18 ">
-                            <p class="playfair f-w-bold">{{ product.price }}€</p>
-
-                        </div>
-                         <!--boton de agregar-->
-                         <div><img class="cart-btn" id="plus-button"
-                            src="{% static 'img/icons/Plus-circle.svg' %}" />
-                        </div>
-                        
-                    </div>
-                
-                    
-                </div>
-            </div>
-          
-        {% endfor %}
-           
-
-            
+        <div class="row" id="productList">
+          {% include "onlybites_web/product_list.html" %}        
         </div>
-
-       
     </div>
 </div>
-
-   
-</div>
-
-
 
 {% endblock %}

@@ -142,3 +142,101 @@
   margin: 0;
   margin-left: 10px;
 }
+#italic{
+    font-family: 'Hagrid', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+.right{
+    display: flex;
+    justify-content: end;
+}
+.dropdown{
+    margin-top:40px;
+}
+.btn-dropdown{
+    color: white;
+    background-color:  #718238;
+    border-radius: 9rem;
+    font-size: 18px;
+   
+    font-weight: bold;
+}
+.btn-dropdown:hover{
+    color: white;
+}
+.dropdown-content {
+    display: none;  /* Ocultamos el contenido inicialmente */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+}
+.dish-menu{
+  
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 20px;
+    width: 300px;
+    height: 400px; 
+    overflow: hidden; 
+}
+.product-img-container{
+    height:85% ;
+    overflow: hidden;
+    border-radius: 20px;
+    align-items: center;
+   
+}
+.product-img{
+    height: 100%;
+    width: 100%;
+   
+}
+.product-name>p{
+    color: #718238;
+}
+.dish-menu>a{
+height:80%;
+}
+.dish-price{
+ 
+ align-items: center;
+}
+.dish-price>p{
+    font-size: 25px;
+ margin: 0;
+   }
+
+/* Estilo de los filtros */
+.filter-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Distribuye los filtros con espacio entre ellos */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-item input[type="number"] {
+    width: 100px; /* Tamaño específico para el input de calorías */
+}
+
+.allergies-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el grupo de alergias a la izquierda */
+}
+
+.allergy-option {
+    display: flex;
+    align-items: center;
+}

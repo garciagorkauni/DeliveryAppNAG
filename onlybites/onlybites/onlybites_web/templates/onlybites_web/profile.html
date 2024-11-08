@@ -55,30 +55,19 @@
 </div>
 <div class="separate-line"></div>
 <div class="wid-80 flex fl-direc-colum m-left-10 ">
-    {% for address in addresses %}
-    <div class="row flex ">
-        <div class="col-lg-10">
-            <div class="p-address"><p> {{ address.address1 }} ...</p></div>
-        
-
-        </div>
-        <div class="col-lg-2">
-            <a class="btn btn-warning" href="#" onclick="showNewAddressFrom('{{address.address_id}}')" role="button">Edit</a>
-        
-
-        </div>
-        
+    <div id="addressList">
+      {% include "onlybites_web/address_list.html" %}
     </div>
-    {% endfor %}
-    <a class=" mt-10 btn btn-green wid-20 " href="#" onclick="showNewAddressFrom()" role="button">Sortu helbidea</a>
+    <a class=" mt-10 btn btn-green wid-20 " href="#" id="addAddressButton role="button">Sortu helbidea</a>
 
     <div id="newAddressForm" class="popup shadow radius ">
     </div>
+                                                         
+    <form action="{% url 'delete_profile' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" style="background-color: red; color: white; padding: 10px; border: none; cursor: pointer;">
+            Eliminar Perfil
+        </button>
+    </form>
 </div>
-
-
-   
-
-
-
 {% endblock %}

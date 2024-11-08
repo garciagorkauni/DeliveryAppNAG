@@ -46,7 +46,6 @@ class AddressForm(forms.ModelForm):
     class Meta:
         model=Address
         fields=['name','surname', 'telephone', 'country', 'postal_code', 'city', 'address1', 'address2']
-
         labels = {
             'name': 'Izena',
             'surname': 'Abizena',
@@ -66,8 +65,17 @@ class AddressForm(forms.ModelForm):
             'address2': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': ' Beste helbide bat  '}),
             'address1': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '  Sartu helbidea'}),
             'city': forms.TextInput(attrs={'class': 'mi-estilo-input', 'placeholder': '   Sartu hiria'}),
-            'country': forms.Select( attrs={'class': 'mi-estilo-input'}),
-
-
-          
+            'country': forms.Select( attrs={'class': 'mi-estilo-input'}),          
         }
+        
+        
+class PaymentForm(forms.Form):
+    address = forms.ChoiceField(label="Select Address", choices=[])
+
+    def __init__(self, *args, profile=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        if profile:
+            self.fields['address'].choices = [
+                (address.address_id, f"{address.address1}, {address.city}, {address.country}")
+                for address in Address.objects.filter(profile=profile)
+            ]
