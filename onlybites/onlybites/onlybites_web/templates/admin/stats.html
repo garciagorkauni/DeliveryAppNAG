@@ -1,0 +1,41 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <h1>Stats</h1>
+
+    <h2>Products stock</h2>
+    <div id="product_stock_chart" style="width: 900px; height: 500px;"></div>
+
+    <h2>Orders by date</h2>
+    <div id="orders_chart" style="width: 900px; height: 500px;"></div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+
+function drawCharts() {
+    var data2 = google.visualization.arrayToDataTable([
+    ['Product', 'Stock'],
+    {% for product in product_stock_data %}
+        ['{{ product.name }}', {{ product.stock }}],
+    {% endfor %}
+    ]);
+    var options2 = { title: 'Products stock' };
+    var chart2 = new google.visualization.ColumnChart(document.getElementById('product_stock_chart'));
+    chart2.draw(data2, options2);
+
+    // Gráfico de Pedidos por Fecha
+    var data3 = google.visualization.arrayToDataTable([
+    ['Date', 'Orders'],
+    {% for order in orders_by_date %}
+        ['{{ order.date }}', {{ order.total }}],
+    {% endfor %}
+    ]);
+    var options3 = { title: 'Orders by date' };
+    var chart3 = new google.visualization.LineChart(document.getElementById('orders_chart'));
+    chart3.draw(data3, options3);
+}
+</script>
+{% endblock %}

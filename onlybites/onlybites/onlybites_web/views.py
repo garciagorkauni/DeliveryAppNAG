@@ -15,6 +15,8 @@ from rest_framework import status
 from django.http import Http404
 from rest_framework.permissions import IsAdminUser
 from allauth.socialaccount.models import SocialAccount
+
+
 # View for home
 def home(request):
     return render(request, 'onlybites_web/home.html', locals())
@@ -50,7 +52,6 @@ def update_product_list(request):
                 )
             except:
                 pass
-
     return render(request, 'onlybites_web/product_list.html', {'allProducts': allProducts})
 
 
@@ -68,41 +69,6 @@ def product(request, product_id):
 
     valorations = Valoration.objects.filter(product=product)
     return render(request, 'onlybites_web/product.html', locals())
-
-def add_rating(request, product_id):
-    product = get_object_or_404(Product, product_id=product_id)
-
-
-    valoration = Valoration.objects.filter(profile=request.user, product=product).first()
-
-    if request.method == 'POST':
-        rating_value = float(request.POST.get('rating', 0))
-        message = request.POST.get('message', '')
-
-        if valoration:
-            # Actualiza la valoración existente
-            valoration.value = rating_value
-            valoration.message = message
-            valoration.save()
-            messages.success(request, 'Tu valoración ha sido actualizada con éxito.')
-        else:
-            # Crea una nueva valoración si no existe
-            valoration = Valoration(
-                profile=request.user,
-                product=product,
-                value=rating_value,
-                message=message
-            )
-            valoration.save()
-            messages.success(request, 'Tu valoración ha sido creada con éxito.')
-
-        return redirect('product', product_id=product_id)
-
-    # Renderiza el template con el formulario y la valoración existente (si la hay)
-    return render(request, 'onlybites_web/add-rating.html', {
-        'product': product,
-        'existing_valoration': valoration,
-    })
 
 
 # View for cart
@@ -257,11 +223,11 @@ def delete_profile(request):
         return redirect("home")
 
     return render(request, "onlybites_web/delete-profile.html")
+  
 
+# Views for valorations
 def add_rating(request, product_id):
     product = get_object_or_404(Product, product_id=product_id)
-
-   
     valoration = Valoration.objects.filter(profile=request.user, product=product).first()
 
     if request.method == 'POST':
@@ -289,6 +255,9 @@ def add_rating(request, product_id):
         'product': product,
         'existing_valoration': valoration,
     })
+
+
+# Class based viws for the REST API
 class Product_APIView(APIView):
     permission_classes = [IsAdminUser]     
     def get(self, request, format=None, *args, **kwargs):        
@@ -300,7 +269,8 @@ class Product_APIView(APIView):
         if serializer.is_valid():            
             serializer.save()            
             return Response(serializer.data, status=status.HTTP_201_CREATED)        
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class Product_APIView_Detail(APIView):
     permission_classes = [IsAdminUser]      
     def get_object(self, pk):        
@@ -323,3 +293,22 @@ class Product_APIView_Detail(APIView):
         ikasle = self.get_object(pk)        
         ikasle.delete()        
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+# View for admin stats
+from django.contrib.admin.models import LogEntry
+from django.contrib.admin.views.decorators import staff_member_required
+from django.db.models import Count
+@staff_member_required
+def stats_view(request):
+    product_stock_data = Product.objects.values('name', 'stock')
+    orders_by_date = Order.objects.values('date').annotate(total=Count('id'))
+
+    log_entries = LogEntry.objects.all().order_by('-action_time')[:10]
+
+    context = {
+        'product_stock_data': product_stock_data,
+        'orders_by_date': orders_by_date,
+        'log_entries': log_entries,
+    }
+    return render(request, 'admin/stats.html', context)
