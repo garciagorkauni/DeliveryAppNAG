@@ -34,6 +34,10 @@ $(document).ready(function () {
 
 
     // Listeners for product filters
+    $(document).on("click", "#dropdownbutton", function(){
+        toggleFilters()
+    })
+
     const selected_filters = {
         vegan: false,
         celiac: false,
@@ -80,6 +84,17 @@ $(document).ready(function () {
             selected_filters.celiac, 
             selected_filters.maxCalories, 
             selected_filters.allergies)
+    })
+
+    // Listener for payment simulation
+    $(document).on("click", "#paymentButton", function(){
+        showPaymentForm()
+    })
+
+
+    // Listener for valoration
+    $(document).on("click", "#newValorationButton", function(){
+        showNewValorationForm($('#productId').attr('value'))
     })
 })
 

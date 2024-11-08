@@ -20,6 +20,9 @@ from allauth.socialaccount.models import SocialAccount
 
 # View for home
 def home(request):
+    # CALCULAR LOS 4 PRODUCTOS CON MEJOR VALORACIÓN
+    best_rated_products = Product.objects.order_by('-valoration_avg')[:4]
+
     return render(request, 'onlybites_web/home.html', locals())
 
 

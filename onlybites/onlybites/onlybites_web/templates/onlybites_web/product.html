@@ -86,7 +86,8 @@
         </li>
         {% endfor %}
         {% if user.is_authenticated %}
-        <a class="btn btn-warning" href="#" onclick="showNewValorationForm('{{product.product_id}}')" role="button">Add</a>
+        <input type="hidden" id="productId" value="{{product.product_id}}"/>
+        <a class="btn btn-warning" id="newValorationButton" role="button">Add</a>
         {% endif %}
     </ul>
     <div id="newValorationForm" class="popup">
