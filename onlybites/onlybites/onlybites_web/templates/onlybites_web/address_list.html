@@ -1,0 +1,8 @@
+<ul>
+    {% for address in addresses %}
+        <li>
+            {{ address.address1 }} ...
+            <a class="btn btn-warning editAddressButton" id="{{address.address_id}}" role="button">Edit</a>
+        </li>
+    {% endfor %}
+</ul>

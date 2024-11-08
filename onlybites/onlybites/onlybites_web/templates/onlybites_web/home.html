@@ -1,6 +1,77 @@
 {% extends 'onlybites_web/base.html' %}
+{% load static %}
 {% block content %}
 
-<h1>Here will be the home content</h1>
+
+    <div class="row intro flex">
+       
+        <div class="col-lg-7 col-md-7">
+            <h1>Erraza, goxoa eta zuzenean zure mahira.</h1>
+            <h3 >Janari prestatu aberats eta osasungarria.</h3>
+        </div>
+        
+    </div>
+    <div class=" overflow" id="home-image">
+        <img src="{% static 'img/home-image.jpg' %}" >
+    </div>
+</div>
+
+<div class=" pink">
+    <div class=" container center flex">
+        <div class="blank-space">
+          
+        </div>
+        <div class="row">
+            <h2>Bezeroen gustokoenak</h2>
+        </div>
+        <div class="row">
+            <h3>Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:</h3>
+        </div>
+        <!--platos mas gustados de la semana-->
+        <div class="row mt-10">
+            <!--mneter con variables dinamiscos-->
+            <div class="col-lg-3 flex flex-center">
+                <div class="popular-dish">
+                    <!--link del plato del -->
+                    <!--meter link de img-->
+                    <!--meter text alternativo de img-->
+                    <a id="dish-link"><img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" /></a>
+                </div>
+            </div>
+            <div class="col-lg-3 flex flex-center">
+                <div class="popular-dish">
+                    <!--link del plato del -->
+                    <!--meter link de img-->
+                    <!--meter text alternativo de img-->
+                    <a id="dish-link"><img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" /></a>
+                </div>
+            </div>
+            <div class="col-lg-3 flex flex-center">
+                <div class="popular-dish">
+                    <!--link del plato del -->
+                    <!--meter link de img-->
+                    <!--meter text alternativo de img-->
+                    <a id="dish-link"><img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" /></a>
+                </div>
+            </div>
+            <div class="col-lg-3 flex flex-center">
+                <div class="popular-dish">
+                    <!--link del plato del -->
+                    <!--meter link de img-->
+                    <!--meter text alternativo de img-->
+                    <a id="dish-link"><img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" /></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-10" >
+            <div ><a class="btn btn-green" href="{% url 'menu' %}">Ikusi plater guztiak</a> </div>
+        </div>
+       
+        
+   
+    </div>
+
+
 
 {% endblock %}

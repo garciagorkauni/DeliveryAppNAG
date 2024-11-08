@@ -147,7 +147,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'home'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -179,6 +179,9 @@ USE_TZ = True
 import os
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+# Carpeta donde se almacenan archivos estáticos durante el desarrollo
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
