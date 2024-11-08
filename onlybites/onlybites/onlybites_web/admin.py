@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import Profile, Address, Product, Valoration, Cart, Order, Image, Allergen, ProductAllergen
 
+admin.site.index_template = "admin/admin_index.html" 
+
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('email', 'name', 'surname', 'birthdate', 'telephone', 'is_staff')

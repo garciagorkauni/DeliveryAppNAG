@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    #admin
+    path('stats/', views.stats_view, name='admin_stats'),
+
     # home
     path('', views.home, name='home'),
 
