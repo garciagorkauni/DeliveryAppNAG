@@ -2,8 +2,14 @@
 <div class="row">
     {% if allProducts %}
         {% for product in allProducts %}
-        <div class="col-lg-4  flex flex-center ">
-            <div class="dish-menu flex fl-direc-colum ">
+        <div class="col-lg-4 flex flex-center">
+            {% if product.stock > 10 %}
+            <div class="dish-menu flex fl-direc-colum">
+            {% elif product.stock <= 10%}
+            <div class="dish-menu flex fl-direc-colum low-stock">
+            {% elif product.stock <= 0 %}
+            <div class="dish-menu flex fl-direc-colum none-stock">
+            {% endif %}
                 <!--link para que envie a info del producto al hacer clik-->
                 <a href="{% url 'product' product_id=product.product_id %}" class="flex fl-direc-colum" > 
                     <!--imagen del producto -->
