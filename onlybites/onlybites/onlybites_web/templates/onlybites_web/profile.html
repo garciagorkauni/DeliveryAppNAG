@@ -33,8 +33,11 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="p-lable"><p></p>Telefono zenbakia<p></p></div>
+            {% if profile.telephone %}
             <div class="p-info"><p>{{ profile.telephone }}</p></div>
-
+            {% else %}
+            <div class="p-info-empty "></div>
+            {% endif %}
         </div>
         <div class="col-lg-6">
             <div class="p-lable"><p></p>Jaiotze datad<p></p></div>
