@@ -16,25 +16,6 @@ h4{
 body {
   background-color: #FEFDF9;
   overflow-x: hidden;
-
-* {
-    font-family: 'DM Sans', sans-serif;
-   
-}
-h1, h2{
-    font-family: 'Hagrid', sans-serif;
-    font-weight: bold;
-    
-}
-h4{
-    font-family: 'Hagrid', sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-body {
-    background-color: #FEFDF9;
-    overflow-x: hidden;
 }
 
 /* Estilos para la barra de navegación */
@@ -61,29 +42,6 @@ body {
 }
 .navbar-collapse{
   width: 100%;
-=======
-    display: flex;
-    margin: 1rem 2rem;
-    background-color: white;
-    border-radius: 9rem;
-    align-items: center;
-    height: 90px;
-    position:fixed;
-    width: 90%;
-    z-index: 3;/*navigatzaile barra irudian gainetik beti egoteko*/
-    justify-content: center;
-    margin-left: 71px;
-}
-
-.container-fluid {
-    width: 100%;
-    margin: auto 20px auto 20px ;
-    display: flex;
-    align-items: center;
-    
-}
-.navbar-collapse{
-    width: 100%;
 }
 
 
@@ -91,12 +49,15 @@ body {
 .navbar-brand {
   padding: 0;
   width: 90px;
+  
   height: 90px;
+  
 }
 
 /* Estilo para el logo */
 .logo-img {
   height: 80px; /* Ajusta según el tamaño de tu logo */
+  
 }
 
 /* Alineación del menú */
@@ -165,8 +126,9 @@ footer{
 /*flex content center */
 .flex{
   display: flex;
-}
+
   
+}
 .flex-center{
   
   justify-content: center;

@@ -47,8 +47,10 @@
                  <!--price and add to cart button, display block at the end-->
                  <div class="flex fl-direct-row fl-justcon-sbetw  end-aligned">
                     <p class="f-w-bold playfair cart-price">6.90€</p>
-                    <div><img class="cart-btn" id="plus-button"
-                        src="{% static 'img/icons/Plus-circle.svg' %}" />
+                    <div>
+                        <a href="{% url 'add_cart' product_id=product.product_id %}">
+                            <img class="cart-btn" id="plus-button" src="{% static 'img/icons/Plus-circle.svg' %}" />
+                        </a>
                     </div>
                  </div>
                  <!--safe for vegand and celiac-->
@@ -90,6 +92,5 @@
     <div id="newValorationForm" class="popup">
     </div>
 
-<a class="btn btn-primary" href="{% url 'add_cart' product_id=product.product_id %}" role="button">Add to cart</a>
 
 {% endblock %}

@@ -1,3 +1,21 @@
+* {
+  font-family: 'DM Sans', sans-serif;
+ 
+}
+h1, h2{
+  font-family: 'Hagrid', sans-serif;
+  font-weight: bold;
+  
+}
+h4{
+  font-family: 'Hagrid', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+body {
+  background-color: #FEFDF9;
+  overflow-x: hidden;
 
 * {
     font-family: 'DM Sans', sans-serif;
@@ -21,6 +39,29 @@ body {
 
 /* Estilos para la barra de navegación */
 .navbar-default {
+  display: flex;
+  margin: 1rem 2rem;
+  background-color: white;
+  border-radius: 9rem;
+  align-items: center;
+  height: 90px;
+  position:fixed;
+  width: 90%;
+  z-index: 3;/*navigatzaile barra irudian gainetik beti egoteko*/
+  justify-content: center;
+  margin-left: 71px;
+}
+
+.container-fluid {
+  width: 100%;
+  margin: auto 20px auto 20px ;
+  display: flex;
+  align-items: center;
+  
+}
+.navbar-collapse{
+  width: 100%;
+=======
     display: flex;
     margin: 1rem 2rem;
     background-color: white;
@@ -48,133 +89,137 @@ body {
 
 
 .navbar-brand {
-    padding: 0;
-    width: 90px;
-    
-    height: 90px;
-    
+  padding: 0;
+  width: 90px;
+  height: 90px;
 }
 
 /* Estilo para el logo */
 .logo-img {
-    height: 80px; /* Ajusta según el tamaño de tu logo */
-    
+  height: 80px; /* Ajusta según el tamaño de tu logo */
 }
 
 /* Alineación del menú */
 .navbar-nav {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-   
-    
+  display: flex;
+  align-items: center;
+  padding: 10px;
+ 
+  
 }
 .navbar-right{
-    justify-content: flex-end;
-    gap:10px;
+  justify-content: flex-end;
+  gap:10px;
 }
 
 /* Estilos para los enlaces del menú */
 .navbar-default .navbar-nav > li > a {
-    color: #777;
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 20px;
-    text-decoration: none;
+  color: #777;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 20px;
+  text-decoration: none;
 }
 
 /* Botón de Login hover*/
 
 /*para gente con problemas de vista, aumento de los botones del nav*/
 .navbar-default .navbar-nav> li > a:hover{
-    font-size: 20px;
-    border:solid #777 2px ; 
-    border-radius:9rem ;
+  transform: scale(1.1);
+  border:solid #777 2px ; 
+  border-radius:9rem ;
 }
 /* Botón de Register */
 .navbar-default .navbar-nav .btn-register {
-    color: white;
-    background-color: #718238; /* Color del botón de Register */
-    padding: 10px 20px;
-    border-radius: 9rem;
-    border: none;
-   
+  color: white;
+  background-color: #718238; /* Color del botón de Register */
+  padding: 10px 20px;
+  border-radius: 9rem;
+  border: none;
+ 
 }
 .navbar-default .navbar-nav .btn-register:hover {
-    color: white;
-    background-color: #718238; /* Color del botón de Register */
-   
+
+  color: white;
+  background-color: #718238; /* Color del botón de Register */
+ 
+
 }
 footer{
-    background-color: #718238;
-    color: white;
-    
-    height: 200px;
-    width: 100%;
-   
+  background-color: #718238;
+  color: white;
+  
+  height: 200px;
+  width: 100%;
+ 
 }
- .bottom-page-space{
-    padding-bottom: 9rem;
-    display: block;
+.bottom-page-space{
+  padding-bottom: 9rem;
+  display: block;
 }
 .blank-space{
-    padding-top: 16rem;
-    display: block;
+  padding-top: 16rem;
+  display: block;
 }
 
 /*flex content center */
 .flex{
-    display: flex;
-  
-    
+  display: flex;
 }
+  
 .flex-center{
-    
-    justify-content: center;
-    
+  
+  justify-content: center;
+  
 }
 .fl-direc-colum{
-    flex-direction: column;
+  flex-direction: column;
 }
 .fl-direc-row{
-    flex-direction: row;
+  flex-direction: row;
 }
 .fl-jc-end{
-    justify-content: end;
+  justify-content: end;
+}
+.fl-jc-start{
+  justify-content: start;
 }
 .f-zie-18{
-    font-size: 18px;
+  font-size: 18px;
 }
 .f-w-bold{
-    font-weight: bold;
+  font-weight: bold;
 }
 .wid-100{
-    width: 100%;
+  width: 100%;
 }
 .padd-10{
-    padding: 10px;
+  padding: 10px;
 }
 .fl-justcon-sbetw{
-    justify-content: space-between;
+  justify-content: space-between;
 }
 a:hover{
-    text-decoration: none;
-    /*cambiar aparienca del curosr*/
-    cursor: pointer;
+  text-decoration: none;
+  /*cambiar aparienca del curosr*/
+  cursor: pointer;
 }
 .alg-it-center{
-    
-    align-items: center;
+  
+  align-items: center;
 }
 .mb-1{
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 .mb-2{
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 .mb-5{
-    margin-bottom: 5rem;
+  margin-bottom: 5rem;
 }
 .mt-10{
-    margin-top: 40px;
+  margin-top: 40px;
+}
+.min-height{
+  min-height: 535px;
 }
