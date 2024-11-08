@@ -182,3 +182,6 @@ a:hover{
 .mt-10{
   margin-top: 40px;
 }
+.min-height{
+  min-height: 535px;
+}
