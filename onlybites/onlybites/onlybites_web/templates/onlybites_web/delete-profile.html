@@ -1,0 +1,20 @@
+{% extends 'onlybites_web/base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Perfil</title>
+</head>
+<body>
+    <h2>¿Estás seguro de que deseas eliminar tu perfil?</h2>
+    <p>Esta acción es irreversible y eliminará permanentemente tu cuenta.</p>
+    
+    <!-- Formulario para confirmar la eliminación -->
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" style="background-color: red; color: white; padding: 10px; border: none; cursor: pointer;">
+            Eliminar Perfil
+        </button>
+        <a href="{% url 'profile' %}" style="margin-left: 10px; text-decoration: none; color: blue;">Cancelar</a>
+    </form>
+</body>
+</html>

@@ -239,7 +239,15 @@ def logout_view(request):
     response = redirect('home')  
     response.delete_cookie('sessionid')
     return response
- 
+
+def delete_profile(request):
+    if request.method == "POST":
+        profile = Profile.objects.get(profile_id=request.user.profile_id)
+        profile.delete()  # Elimina el perfil del usuario de la base de datos local
+        messages.success(request, "Tu perfil ha sido eliminado exitosamente.")
+        return redirect("home")  # Redirige a la página de inicio o despedida
+
+    return render(request, "onlybites_web/delete-profile.html")  # Solicita confirmación antes de eliminar
 
 def add_rating(request, product_id):
     product = get_object_or_404(Product, product_id=product_id)

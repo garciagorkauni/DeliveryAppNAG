@@ -17,7 +17,13 @@
     {% include "onlybites_web/address_list.html" %}
 </div>
 
-<a class="btn btn-primary" id="addAddressButton" role="button">Create address</a>
+<a class="btn btn-primary" href="#" onclick="showNewAddressFrom()" role="button">Create address</a>
+<form action="{% url 'delete_profile' %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" style="background-color: red; color: white; padding: 10px; border: none; cursor: pointer;">
+        Eliminar Perfil
+    </button>
+</form>
 
 <div id="newAddressForm" class="popup">
 </div>
