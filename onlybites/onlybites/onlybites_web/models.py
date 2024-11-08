@@ -43,7 +43,9 @@ class Profile(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name', 'surname', 'birthdate', 'telephone']
-    
+
+    def __str__(self):
+        return f"{self.name} {self.surname} ({self.email})"
 
 
 class Address(models.Model):
@@ -260,6 +262,9 @@ class Address(models.Model):
     address1 = models.CharField(max_length=200)
     address2 = models.CharField(max_length=200, blank=True)
 
+    def __str__(self):
+        return f"{self.address1}, {self.city} - {self.country}"
+    
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=75)
@@ -271,6 +276,9 @@ class Product(models.Model):
     valoration_avg = models.FloatField()
     price = models.FloatField()
 
+    def __str__(self):
+        return self.name
+
 class Valoration(models.Model):
     valoration_id = models.AutoField(primary_key=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -278,10 +286,16 @@ class Valoration(models.Model):
     value = models.IntegerField()
     message = models.TextField()
 
+    def __str__(self):
+        return f"{self.profile.name} - {self.product.name}"
+
 class Cart(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
+
+    def __str__(self):
+        return f"Cart of {self.profile.name} - {self.product.name}"
 
 class Order(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -290,17 +304,29 @@ class Order(models.Model):
     quantity = models.IntegerField()
     date = models.DateField(default=datetime.date.today)
 
+    def __str__(self):
+        return f"Order by {self.profile.name} - {self.product.name} on {self.date}"
+
 class Image(models.Model):
     image_id = models.AutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     path = models.CharField(max_length=100)
     alt = models.CharField(max_length=75)
 
+    def __str__(self):
+        return f"Image of {self.product.name}"
+
 class Allergen(models.Model):
     allergen_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=75)
     description = models.TextField()
 
+    def __str__(self):
+        return self.name
+
 class ProductAllergen(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     allergen = models.ForeignKey(Allergen, on_delete=models.CASCADE) 
+
+    def __str__(self):
+        return f"{self.product.name} - {self.allergen.name}"
