@@ -5,6 +5,7 @@ from requests import Response
 
 from .models import Profile, Address, Product, Valoration, Cart, Order, Image, Allergen, ProductAllergen
 from django.contrib.auth import login, authenticate, logout ,get_user_model
+from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm, AddressForm, PaymentForm
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -72,6 +73,7 @@ def product(request, product_id):
 
 
 # View for cart
+@login_required
 def cart(request):
     profile = Profile.objects.get(profile_id=request.user.profile_id)
     products_id = Cart.objects.filter(profile=profile).values_list('product')
@@ -83,6 +85,7 @@ def cart(request):
     addresses = Address.objects.filter(profile=profile)
     return render(request, 'onlybites_web/cart.html', locals())
 
+@login_required
 def add_cart(request, product_id):
     cart = Cart.objects.filter(profile_id=request.user.profile_id, product_id=product_id).first()
     if cart:
@@ -93,17 +96,17 @@ def add_cart(request, product_id):
         cart.profile = Profile.objects.get(profile_id=request.user.profile_id)
         cart.product = Product.objects.get(product_id=product_id)
 
-
     cart.save()
-
     return redirect('cart')
 
+@login_required
 def delete_cart(request, cart_id):
     cart = Cart.objects.filter(id=cart_id).first()
     cart.delete()
 
     return redirect('cart')
 
+@login_required
 def reduce_cart(request, product_id):
     cart = Cart.objects.filter(profile_id=request.user.profile_id, product_id=product_id).first()
     if cart.quantity > 1:
@@ -116,6 +119,7 @@ def reduce_cart(request, product_id):
     cart.save()
     return redirect('cart')
 
+@login_required
 def payment(request):
     profile = request.user
     if request.method == 'POST':
@@ -144,6 +148,7 @@ def payment(request):
 
 
 # View for profile
+@login_required
 def profile(request):
     profile = Profile.objects.get(profile_id=request.user.profile_id)
     
@@ -151,6 +156,7 @@ def profile(request):
 
     return render(request, 'onlybites_web/profile.html', locals())
 
+@login_required
 def add_address(request):
     if request.method == 'POST':
         form = AddressForm(request.POST)
@@ -164,6 +170,7 @@ def add_address(request):
 
     return render(request, 'onlybites_web/add-address.html', {'form': form})
 
+@login_required
 def edit_address(request, id):
     address = get_object_or_404(Address, address_id=id)
     if request.method == 'POST':
@@ -175,6 +182,8 @@ def edit_address(request, id):
         form = AddressForm(instance=address)
 
     return render(request, 'onlybites_web/edit-address.html', {'form': form, 'address': address})
+
+@login_required
 def delete_address(request, address_id):
     direccion = get_object_or_404(Address, address_id=address_id)
     if request.method == "POST":
@@ -182,6 +191,7 @@ def delete_address(request, address_id):
         return redirect('profile')  # Cambia por la vista o URL de redirección
     return render(request, 'onlybites_web/delete-profile.html', {'direccion': direccion})
 
+@login_required
 def update_address_list(request):
     addresses = Address.objects.all() 
     return render(request, "onlybites_web/address_list.html", locals())
@@ -217,6 +227,7 @@ def logout_view(request):
     response.delete_cookie('sessionid')
     return response
 
+@login_required
 def delete_profile(request):
     if request.method == "POST":
         user=request.user
@@ -227,9 +238,10 @@ def delete_profile(request):
         return redirect("home")
 
     return render(request, "onlybites_web/delete-profile.html")
-  
+
 
 # Views for valorations
+@login_required
 def add_rating(request, product_id):
     product = get_object_or_404(Product, product_id=product_id)
     valoration = Valoration.objects.filter(profile=request.user, product=product).first()
