@@ -203,7 +203,7 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             profile = form.save()
-            login(request, profile)
+            login(request, profile, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('home')
     else:
         form = RegisterForm()
@@ -215,7 +215,7 @@ def login_view(request):
         password = request.POST['password']
         profile = authenticate(request, email=email, password=password)
         if profile is not None:
-            login(request, profile)
+            login(request, profile, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('home')
         else:
             return render(request, 'onlybites_web/login.html', {'error': 'Invalid email or password'})
