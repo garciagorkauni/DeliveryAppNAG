@@ -57,7 +57,10 @@
 }
 .product-name {
   padding-top: 0;
-  width: 90%;
+  width: 100%;
+}
+.product-name p{
+ margin: 0;
 }
 .dish-menu > a {
   height: 80%;
@@ -134,4 +137,8 @@
 }
 .apt{
   margin-right: 20px;
+}
+.mb-0{
+  margin: 0;
+  margin-left: 10px;
 }

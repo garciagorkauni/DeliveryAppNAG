@@ -38,15 +38,17 @@
                         <div  class="product-img-container">
                              <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
                          </div>
+                         
                           <!--nombre del producto-->
                         <div class="product-name  f-zie-18 padd-10">
                             <p>{{ product.name }}</p>
                         </div>
                     </a>
+                    <div id="cal" class="mb-2 flex mb-0"> <p>{{ product.calories }} cal</p></div>
                     <!--precio del produkto-->
                     <div class="flex fl-justcon-sbetw padd-10 ">
-                        <div class="dish-price flex  f-zie-18">
-                            <p>{{ product.price }}€</p>
+                        <div class="dish-price flex  f-zie-18 ">
+                            <p class="playfair f-w-bold">{{ product.price }}€</p>
 
                         </div>
                          <!--boton de agregar-->
