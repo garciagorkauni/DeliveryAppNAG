@@ -72,7 +72,7 @@ def product(request, product_id):
 def add_rating(request, product_id):
     product = get_object_or_404(Product, product_id=product_id)
 
-    # Busca si ya existe una valoración de este usuario para este producto
+
     valoration = Valoration.objects.filter(profile=request.user, product=product).first()
 
     if request.method == 'POST':
@@ -122,7 +122,7 @@ def add_cart(request, product_id):
         
         cart.profile = Profile.objects.get(profile_id=request.user.profile_id)
         cart.product = Product.objects.get(product_id=product_id)
-        # Default quantity = 1
+
 
     cart.save()
 
@@ -205,6 +205,12 @@ def edit_address(request, id):
         form = AddressForm(instance=address)
 
     return render(request, 'onlybites_web/edit-address.html', {'form': form, 'address': address})
+def delete_address(request, address_id):
+    direccion = get_object_or_404(Address, address_id=address_id)
+    if request.method == "POST":
+        direccion.delete()
+        return redirect('profile')  # Cambia por la vista o URL de redirección
+    return render(request, 'onlybites_web/delete-profile.html', {'direccion': direccion})
 
 def update_address_list(request):
     addresses = Address.objects.all() 
@@ -248,14 +254,14 @@ def delete_profile(request):
         SocialAccount.objects.filter(user=user).delete()
         profile.delete()  
         messages.success(request, "Tu perfil ha sido eliminado exitosamente.")
-        return redirect("home")  # Redirige a la página de inicio o despedida
+        return redirect("home")
 
     return render(request, "onlybites_web/delete-profile.html")
 
 def add_rating(request, product_id):
     product = get_object_or_404(Product, product_id=product_id)
 
-    # Busca si ya existe una valoración de este usuario para este producto
+   
     valoration = Valoration.objects.filter(profile=request.user, product=product).first()
 
     if request.method == 'POST':
@@ -263,13 +269,11 @@ def add_rating(request, product_id):
         message = request.POST.get('message', '')
 
         if valoration:
-            # Actualiza la valoración existente
             valoration.value = rating_value
             valoration.message = message
             valoration.save()
             messages.success(request, 'Tu valoración ha sido actualizada con éxito.')
         else:
-            # Crea una nueva valoración si no existe
             valoration = Valoration(
                 profile=request.user,
                 product=product,
