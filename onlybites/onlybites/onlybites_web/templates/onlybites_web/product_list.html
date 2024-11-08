@@ -1,35 +1,39 @@
 {% load static %}
 <div class="row">
-    {% for product in allProducts %}
-    <div class="col-lg-4  flex flex-center ">
-        <div class="dish-menu flex fl-direc-colum ">
-            <!--link para que envie a info del producto al hacer clik-->
-            <a href="{% url 'product' product_id=product.product_id %}" class="flex fl-direc-colum" > 
-                 <!--imagen del producto -->
-                <div  class="product-img-container">
-                     <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
-                 </div>
-                  <!--nombre del producto-->
-                <div class="product-name  f-zie-18 padd-10">
-                    <p>{{ product.name }}</p>
+    {% if allProducts %}
+        {% for product in allProducts %}
+        <div class="col-lg-4  flex flex-center ">
+            <div class="dish-menu flex fl-direc-colum ">
+                <!--link para que envie a info del producto al hacer clik-->
+                <a href="{% url 'product' product_id=product.product_id %}" class="flex fl-direc-colum" > 
+                    <!--imagen del producto -->
+                    <div  class="product-img-container">
+                        <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
+                    </div>
+                    <!--nombre del producto-->
+                    <div class="product-name  f-zie-18 padd-10">
+                        <p>{{ product.name }}</p>
+                    </div>
+                </a>
+                <div id="cal" class="mb-2 flex mb-0"> <p>{{ product.calories }} cal<p></div>
+                <!--precio del produkto-->
+                <div class="flex fl-justcon-sbetw padd-10 ">
+                    <div class="dish-price flex  f-zie-18">
+                        <p class="playfair f-w-bold">{{ product.price }}€</p>
+        
+                    </div>
+                    <!--boton de agregar-->
+                    <div>
+                        <a href="{% url 'add_cart' product_id=product.product_id %}">
+                            <img class="cart-btn" id="plus-button" src="{% static 'img/icons/Plus-circle.svg' %}" />
+                        </a>
+                    </div>
+                    
                 </div>
-            </a>
-            <div id="cal" class="mb-2 flex mb-0"> <p>{{ product.calories }} cal<p></div>
-            <!--precio del produkto-->
-            <div class="flex fl-justcon-sbetw padd-10 ">
-                <div class="dish-price flex  f-zie-18">
-                    <p class="playfair f-w-bold">{{ product.price }}€</p>
-    
-                </div>
-                 <!--boton de agregar-->
-                 <div>
-                    <a href="{% url 'add_cart' product_id=product.product_id %}">
-                        <img class="cart-btn" id="plus-button" src="{% static 'img/icons/Plus-circle.svg' %}" />
-                    </a>
-                </div>
-                
             </div>
         </div>
-    </div>
-    {% endfor %}
-</div>
+        {% endfor %}
+    {% else %}
+        <h3>Ez dira ezaugarri horiek betetzen dituzten produktuak topatu...</h3>
+    {% endif %}
+</div> 
