@@ -14,6 +14,7 @@ from .serializers import ProductSerializers
 from rest_framework import status 
 from django.http import Http404
 from rest_framework.permissions import IsAdminUser
+from allauth.socialaccount.models import SocialAccount
 # View for home
 def home(request):
     return render(request, 'onlybites_web/home.html', locals())
@@ -242,7 +243,9 @@ def logout_view(request):
 
 def delete_profile(request):
     if request.method == "POST":
+        user=request.user
         profile = Profile.objects.get(profile_id=request.user.profile_id)
+        SocialAccount.objects.filter(user=user).delete()
         profile.delete()  
         messages.success(request, "Tu perfil ha sido eliminado exitosamente.")
         return redirect("home")  # Redirige a la página de inicio o despedida
