@@ -22,72 +22,53 @@
                 <!--   {% for image in images %}
                   <li> {{ image.path }} </li>
                   {% endfor %} -->
-                  <img id="pr-img" src="{% static 'img/boloñesa.png' %}" alt="({{image.alt}})">
+                  <img id="pr-img" src="{% static 'img/boloñesa.png' %}" alt="{{image.alt}}">
             </div>
-            <div class="flex fl-direc-colum fl-justcon-sbetw" id="p-details" >
+            <div class="flex fl-direc-colum " id="p-details" >
 
-                <div id="p-name">
+                <div id="p-name"class="mb-2 flex">  
                     <h3>{{ product.name }}</h3>
                 </div>
                 
-
-                {% for allergen in allergens %}
-                <div id="p-añergen">
-                <!--meter icono de alergeno-->
-
-                 </div>
-        
-                {% endfor %}
-                <dic id="cal"> <p>{{ product.calories }}</p></dic>
+                <div class="flex fl-direc-colum mb-2" id="alergens">
+                    {% for allergen in allergens %}
+                    <div id="p-añergen">
+                    <!--meter icono de alergeno-->
+    
+                     </div>
+            
+                    {% endfor %}
+                </div>
+               
+                <div id="cal" class="mb-2 flex"> <p>{{ product.calories }} cal</p></div>
                   
-                 <div id="p-description">
+                 <div id="p-description" class="mb-2">
                     <p>{{ product.description }}</p>
                  </div>
                  <!--price and add to cart button, display block at the end-->
-                 <div class="flex fl-direct-row fl-justcon-sbetw fl-end">
+                 <div class="flex fl-direct-row fl-justcon-sbetw  end-aligned">
                     <p class="f-w-bold playfair cart-price">6.90€</p>
                     <div><img class="cart-btn" id="plus-button"
                         src="{% static 'img/icons/Plus-circle.svg' %}" />
                     </div>
                  </div>
+                 <!--safe for vegand and celiac-->
+                 <div class="mb-2 flex  fl-direc-row" >
+                    {% if product.vegan %}
+                        <div class="apt f-w-bold "><p class="playfair f-zie-18">Beganoa</p></div>
+                    {% endif %}
+                    {% if product.celiac %}
+                    <div class="apt f-w-bold"><p class="playfair f-zie-18">Zeliakoentzat aptoa</p></div>
+                    {% endif %}
+                 </div>
+                 
             </div>
         </div>
         
     </div>
+    <!--valoracion-->
 </div>
 
-<h1>{{ product.name }}</h1>
 
-<h3>Product information:</h3>
-<ul>
-    <li><strong>Description: </strong> {{ product.description }}</li>
-    <li><strong>Stock: </strong> {{ product.stock }}</li>
-    <li><strong>Vegan: </strong> {{ product.vegan }}</li>
-    <li><strong>Celiac: </strong> {{ product.celiac }}</li>
-    <li><strong>Calories: </strong> {{ product.calories }}</li>
-    <li><strong>Valoration avg: </strong> {{ product.valoration_avg }}</li>
-    <li><strong>Price: </strong> {{ product.price }}</li>
-</ul>
-
-<h3>Product images:</h3>
-    <ul>
-        {% for image in images %}
-        <li> {{ image.path }} ({{image.alt}})</li>
-        {% endfor %}
-    </ul>
-
-<h3>Product allergens:</h3>
-    <ul>
-        {% for allergen in allergens %}
-        <li><strong> {{ allergen.name }}:</strong> {{ allergen.description }}</li>
-        {% endfor %}
-    </ul>
-
-<h3>Product valorations:</h3>
-    <ul>
-        {% for valoration in valorations %}
-        <li><strong> {{ valoration.profile.name }}:</strong> {{ valoration.value }}/5 - {{ valoration.message }}</li>
-        {% endfor %}
-    </ul>
 
 {% endblock %}
