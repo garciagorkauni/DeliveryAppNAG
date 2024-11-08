@@ -1,3 +1,10 @@
+const selected_filters = {
+    vegan: false,
+    celiac: false,
+    maxCalories: 0,
+    allergies: []
+}
+
 $(document).ready(function () {
     // Listeners for login popup
     $('#loginButton').on("click", function(){
@@ -37,13 +44,6 @@ $(document).ready(function () {
     $(document).on("click", "#dropdownbutton", function(){
         toggleFilters()
     })
-
-    const selected_filters = {
-        vegan: false,
-        celiac: false,
-        maxCalories: 0,
-        allergies: []
-    }
 
     $(document).on("change", "#vegan", function(e){
         selected_filters.vegan = $('#vegan')[0].checked
@@ -85,6 +85,10 @@ $(document).ready(function () {
             selected_filters.maxCalories, 
             selected_filters.allergies)
     })
+
+    if (window.location.pathname === '/products/') { // This will be executed when the web is refreshed
+        getFilters()
+    }
 
     // Listener for payment simulation
     $(document).on("click", "#paymentButton", function(){
@@ -227,4 +231,22 @@ function toggleFilters() {
     } else {
         filterContainer.style.display = 'none';
     }
+}
+
+// Function to see which filters are checked
+function getFilters() {
+    selected_filters.vegan = $('#vegan')[0].checked
+    selected_filters.celiac = $('#celiac')[0].checked
+    selected_filters.maxCalories = $("#max-calories").val()
+    selected_filters.allergies = []
+    $(".allergies").each(function() {
+        if ($(this).is(":checked")) {
+            selected_filters.allergies.push($(this).attr("name"));
+        }
+    })
+    
+    updateProductList(selected_filters.vegan, 
+        selected_filters.celiac, 
+        selected_filters.maxCalories, 
+        selected_filters.allergies)
 }
