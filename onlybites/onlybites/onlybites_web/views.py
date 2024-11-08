@@ -100,14 +100,20 @@ def add_cart(request, product_id):
         cart.product = Product.objects.get(product_id=product_id)
 
     cart.save()
-    return redirect('cart')
+
+    profile = Profile.objects.get(profile_id=request.user.profile_id)
+    carts = Cart.objects.filter(profile=profile)
+    return render(request, 'onlybites_web/cart_list.html', locals())
 
 @login_required
 def delete_cart(request, cart_id):
     cart = Cart.objects.filter(id=cart_id).first()
     cart.delete()
 
-    return redirect('cart')
+    profile = Profile.objects.get(profile_id=request.user.profile_id)
+    carts = Cart.objects.filter(profile=profile)
+
+    return render(request, 'onlybites_web/cart_list.html', locals())
 
 @login_required
 def reduce_cart(request, product_id):
@@ -120,7 +126,11 @@ def reduce_cart(request, product_id):
         return redirect('delete_cart', cart_id=cart.id)
     
     cart.save()
-    return redirect('cart')
+
+    profile = Profile.objects.get(profile_id=request.user.profile_id)
+    carts = Cart.objects.filter(profile=profile)
+
+    return render(request, 'onlybites_web/cart_list.html', locals())
 
 @login_required
 def payment(request):

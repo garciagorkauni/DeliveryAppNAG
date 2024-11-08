@@ -1,0 +1,46 @@
+{% load static %}
+
+{% if carts %}
+{% for cart in carts %}
+<div id="producto-carrito" class="flex fl-justcon-sbetw alg-it-center wid-90 " >
+    <div class="flex alg-it-center " >
+        <!--product img-->
+        <div >
+            <img src="{% static 'img/boloñesa.png' %}" alt="Pasta bolognese"class="cart-img" >
+        </div>
+    <!--product name-->
+        <div class="flex fl-direc-colum ml-20 height-120 fl-justcon-sbetw">
+            <h3 class="cart-product ">{{ cart.product.name }}</h3>
+        <!--product price-->
+        <div class="flex flfl-direc-colum fl-justcon-sbetw">
+            <p class="f-w-bold playfair cart-price">{{ cart.product.price }}€</p>
+
+            <div>
+                <a class="deleteCartButton" id="{{ cart.id }}">
+                    <img class="cart-btn" id="delete-btn" src="{% static 'img/icons/delete-btn.svg' %}"/>
+                </a>
+            </div>
+        </div>
+            
+        </div>
+    </div>
+
+    <div  class="flex alg-it-center" >
+        <div>
+            <a class="reduceCartButton" id="{{ cart.product.product_id }}">
+                <img class="cart-btn" id="minus-button" src="{% static 'img/icons/Minus-circle.svg' %}"/>
+            </a>
+        </div>
+        <!--product amount-->
+        <div><span class="playfair" id="cart-quantity">{{cart.quantity}}</span></div>
+        <div>
+            <a class="incrementCartButton" id="{{ cart.product.product_id }}">
+                <img class="cart-btn" id="minus-button" src="{% static 'img/icons/Plus-circle.svg' %}"/>
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<h4>Oraindik ez duzu produkturik gehitu zure saskira...</h4>
+{% endif %}

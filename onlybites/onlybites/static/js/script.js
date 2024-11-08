@@ -7,7 +7,7 @@ const selected_filters = {
 
 $(document).ready(function () {
     // Listeners for login popup
-    $('#loginButton').on("click", function(){
+    $(document).on("click", "#loginButton", function(){
         showLogin()
     })
 
@@ -17,11 +17,11 @@ $(document).ready(function () {
 
 
     // Listeners for addresses managemet
-    $('.editAddressButton').on("click", function(){
+    $(document).on("click", ".editAddressButton", function(){
         showNewAddressForm($(this).attr('id'))
     })
 
-    $('#addAddressButton').on("click", function(){
+    $(document).on("click", "#addAddressButton", function(){
         showNewAddressForm()
     })
 
@@ -90,6 +90,7 @@ $(document).ready(function () {
         getFilters()
     }
 
+
     // Listener for payment simulation
     $(document).on("click", "#paymentButton", function(){
         showPaymentForm()
@@ -99,6 +100,20 @@ $(document).ready(function () {
     // Listener for valoration
     $(document).on("click", "#newValorationButton", function(){
         showNewValorationForm($('#productId').attr('value'))
+    })
+
+
+    // Listeners for cart features
+    $(document).on("click", ".reduceCartButton", function(){
+        reduceCartQuantity($(this).attr('id'))
+    })
+
+    $(document).on("click", ".incrementCartButton", function(){
+        incrementCartQuantity($(this).attr('id'))
+    })
+
+    $(document).on("click", ".deleteCartButton", function(){
+        deleteCart($(this).attr('id'))
     })
 })
 
@@ -221,6 +236,51 @@ function updateProductList(vegan, celiac, max_calories, allergies) {
             alert("Error updating the product list.");
         }
     });
+}
+
+// AJAX function for increment one cart quantity
+function reduceCartQuantity(cart_id){
+    let url = "/reduce-cart/" + cart_id
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (data) {
+            document.getElementById("cartList").innerHTML = data
+        },
+        error: function (data) {
+            alert("Error reducing the cart.")
+        }
+    })
+}
+
+// AJAX function for reduce one cart quantity
+function incrementCartQuantity(cart_id){
+    let url = "/add-cart/" + cart_id
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (data) {
+            document.getElementById("cartList").innerHTML = data
+        },
+        error: function (data) {
+            alert("Error incrementing the cart.")
+        }
+    })
+}
+
+// AJAX function for delete cart quantity
+function deleteCart(cart_id){
+    let url = "/delete-cart/" + cart_id
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (data) {
+            document.getElementById("cartList").innerHTML = data
+        },
+        error: function (data) {
+            alert("Error deleting the cart.")
+        }
+    })
 }
 
 // Function for show and hide product filters in menu
