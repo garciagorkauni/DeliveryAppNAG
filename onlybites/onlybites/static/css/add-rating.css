@@ -42,3 +42,20 @@ textarea{
     border: solid 1px #777;
     
 }
+#val{
+    width: auto;
+    
+  }
+ .btn-val{
+    color: white;
+    background-color: #f95c39; 
+    padding: 10px 20px;
+    border-radius: 9rem;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+ } 
+ .btn-val:hover {
+    color: white;
+    transform: scale(1.1);
+  }
