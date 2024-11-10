@@ -1,0 +1,44 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.rating > input {
+    display: none;
+}
+
+.rating > label::before {
+    content: '\f005'; 
+    font-family: FontAwesome;
+    margin: 5px;
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.rating > .half::before {
+    content: '\f089';
+    position: absolute;
+}
+
+.rating > label {
+    color: #ddd;
+    float: right;
+    transition: 0.2s;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+.m{
+    margin: 2rem;
+}
+textarea{
+ 
+    border: solid 1px #777;
+    
+}
