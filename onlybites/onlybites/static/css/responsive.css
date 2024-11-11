@@ -125,4 +125,15 @@
     #val{
        padding: 3rem;
     }
+
+    /*login*/
+    .form-width{
+        width: auto;
+    }
+    .register, .shadow{
+        box-shadow: none !important;
+    }
+    .bottom-page-space{
+        padding-bottom: 0;
+    }
   }

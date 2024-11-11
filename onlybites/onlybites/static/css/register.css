@@ -68,65 +68,13 @@ label {
 
 }
 
-.shadow{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-.radius{
-    border-radius: 20px;
-}
-.form-block{
-    padding: 50px;
-    box-sizing: content-box;
-   
-}
-.black{
-color: black;
-}
-.form-width{
-    width: 700px;
-}
 
-form label {
-    display: block; /* Hace que el label ocupe toda la línea encima del input */
-   
-    margin-bottom: 5px; /* Espacio entre el label y el input */
-    color: black; /* Cambia el color del label si quieres */
-}
-label{
-    font-weight: lighter;
-    font-size: 16px;
-   
-}
-.mi-estilo-input-email,.mi-estilo-input {
-    width: 100%;
-    border-radius: 15px;
-    border: #777 solid 1px;
-    padding: 4px;
-}
-.submit-form{
-    width: 200px;
-    align-self: center;
-    margin-top: 10px;
-}
+
+
+
 /* style for login pop-up+*/
-.popup{
-    position: fixed;
-    z-index: 999;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);/*lo centra en mitad de la pantall*/
-    width: 80%;
-    max-width: 600px;
-    min-width: 300px;
-    height: auto;
-    max-height: 90vh;
-  
-    background-color: #FEFDF9;
  
-    
-   
-   
-}
+
 .width{
     width: 300px;
 }
