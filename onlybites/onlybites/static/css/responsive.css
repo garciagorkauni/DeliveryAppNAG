@@ -99,4 +99,7 @@
     .cart-product {
         font-size: 18px !important;;
     }
+    .min-height{
+        min-height: 300px !important;
+    }
   }
