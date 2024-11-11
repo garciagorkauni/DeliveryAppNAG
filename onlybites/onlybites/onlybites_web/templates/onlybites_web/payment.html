@@ -1,9 +1,17 @@
 {% load static %}
 <a class="close-x" id="closePaymentFormButton" role="button">X</a>
 
-<h2>Complete Payment</h2>
-<form method="post" action="{% url 'payment' %}">
+<div class="flex fl-direc-colum alg-it-center ">
+    <div class="m ">
+        <h1>Egin ordainketa</h1>
+    </div>
+</div>
+
+<form method="post"  class="flex fl-direc-colum width2" action="{% url 'payment' %}">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Confirm Purchase</button>
+    <div class="flex fl-direc-row flex-center">
+        {{ form.as_p }}
+    </div>
+   
+    <button type="submit" class=" save btn btn-green  mb-2 submit-form">Berretsi</button>
 </form>
