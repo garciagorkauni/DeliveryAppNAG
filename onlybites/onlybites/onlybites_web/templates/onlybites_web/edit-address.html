@@ -10,8 +10,7 @@
     <div class="mb-2 mt-10">
         <h1>{% trans "Eskaera Helbidea" %}</h1>
     </div>
-   
-   
+
     <form method="post" class="flex fl-direc-colum width2" id="editAddressForm">
         {% csrf_token %}
         <input type="hidden" id="addressId" value="{{ address.address_id }}"/>

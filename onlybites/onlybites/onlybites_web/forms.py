@@ -70,7 +70,7 @@ class AddressForm(forms.ModelForm):
         
         
 class PaymentForm(forms.Form):
-    address = forms.ChoiceField(label="Select Address", choices=[])
+    address = forms.ChoiceField(label="Aukeratu helbidea", choices=[])
 
     def __init__(self, *args, profile=None, **kwargs):
         super().__init__(*args, **kwargs)

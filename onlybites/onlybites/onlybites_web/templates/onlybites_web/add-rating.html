@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load static %}
 
 <h1>{% trans "Valorar producto:" %} {{ product.name }}</h1>
 <form method="post" action="{% url 'add_rating' product.product_id %}">
@@ -7,31 +8,39 @@
         <input type="radio" name="rating" id="star10" value="5">
         <label for="star10" class="full"></label>
 
-       
+<a class="close-x" id="closeRatingFormButton" role="button">X</a>
 
-        <input type="radio" name="rating" id="star8" value="4">
-        <label for="star8" class="full"></label>
+<div class="flex fl-direc-colum alg-it-center ">
+    <div class="m ">
+        <h1>Baloratu: {{ product.name }}</h1>
+    </div>
+</div>
 
-       
+<form method="post" class=" flex fl-direc-colum m " action="{% url 'add_rating' product.product_id %}">
+    {% csrf_token %}
+    <div class="flex fl-direc-row fl-justcon-sbetw">
+        <p class="rating-value f-zie-18 f-w-bold">Balorazioa</p>
+        <div class="rating">
+            <input type="radio" name="rating" id="star10" value="5">
+            <label for="star10" class="full"></label>
 
-        <input type="radio" name="rating" id="star6" value="3">
-        <label for="star6" class="full"></label>
+            <input type="radio" name="rating" id="star8" value="4">
+            <label for="star8" class="full"></label>
 
-        
+            <input type="radio" name="rating" id="star6" value="3">
+            <label for="star6" class="full"></label>
 
-        <input type="radio" name="rating" id="star4" value="2">
-        <label for="star4" class="full"></label>
+            <input type="radio" name="rating" id="star4" value="2">
+            <label for="star4" class="full"></label>
 
-        
+            <input type="radio" name="rating" id="star2" value="1">
+            <label for="star2" class="full"></label>
 
-        <input type="radio" name="rating" id="star2" value="1">
-        <label for="star2" class="full"></label>
-
-       
+        </div>
     </div>
     <p class="rating-value">{% trans "Rating" %}</p>
 
-    <label for="message">{% trans "Mensaje:" %}</label>
+    <label for="message" class="rating-value f-zie-18 f-w-bold">{% trans "Mensaje:" %}</label>
     <textarea name="message" id="message" required></textarea>
 
     <button type="submit" class="btn btn-success">{% trans "Enviar valoracion"}</button>
@@ -49,41 +58,4 @@
     });
 </script>
 
-<style>
-    @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    .rating > input {
-        display: none;
-    }
-
-    .rating > label::before {
-        content: '\f005'; 
-        font-family: FontAwesome;
-        margin: 5px;
-        font-size: 1.5rem;
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    .rating > .half::before {
-        content: '\f089';
-        position: absolute;
-    }
-
-    .rating > label {
-        color: #ddd;
-        float: right;
-        transition: 0.2s;
-    }
-
-    .rating > input:checked ~ label,
-    .rating:not(:checked) > label:hover,
-    .rating:not(:checked) > label:hover ~ label {
-        color: gold;
-    }
-</style>

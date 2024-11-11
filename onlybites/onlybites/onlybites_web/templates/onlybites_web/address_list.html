@@ -5,8 +5,8 @@
         {% for address in addresses %}
             <li>
                 {{ address.address1 }} ...
-                <a href="{% url 'delete_address' address.address_id %}">{% trans "Eliminar Direccion" %}</a>
-                <a class="btn btn-warning editAddressButton" id="{{address.address_id}}" role="button">{% trans "Edit" %}</a>
+                <a class="btn  btn-red" href="{% url 'delete_address' address.address_id %}">{% trans "Eliminar Direccion" %}</a>
+                <a class="btn  btn-orange editAddressButton" id="{{address.address_id}}" role="button">{% trans "Edit" %}</a>
             </li>
         {% endfor %}
     </ul>
