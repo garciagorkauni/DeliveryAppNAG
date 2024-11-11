@@ -41,6 +41,10 @@ $(document).ready(function () {
 
 
     // Listeners for product filters
+    $(document).on("submit", ".filter-form", function(e){
+        e.preventDefault()
+    })
+
     $(document).on("click", "#dropdownbutton", function(){
         toggleFilters()
     })
