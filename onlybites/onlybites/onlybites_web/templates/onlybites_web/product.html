@@ -71,6 +71,7 @@
         
     </div>
     <div class="container  flex fl-direc-colum ">
+        {% if valorations %}
         <div class="flex fl-direc-colum  mt-40 " id="val">
             <div class="mb-1">
                 <h2>Balorazioak:</h2>
@@ -98,6 +99,7 @@
             {% endfor %}
             
         </div>
+        {% endif %}
         <div class="fl-jc-end flex">
             {% if user.is_authenticated %}
             <input type="hidden" id="productId" value="{{product.product_id}}"/>
