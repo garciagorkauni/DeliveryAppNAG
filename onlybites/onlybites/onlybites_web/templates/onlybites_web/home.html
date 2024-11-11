@@ -18,7 +18,7 @@
 <div class=" pink">
     <div class=" container center flex">
         <div class="blank-space">
-          
+
         </div>
         <div class="row">
             <h2>Bezeroen gustokoenak</h2>
@@ -27,50 +27,20 @@
             <h3>Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:</h3>
         </div>
         <!--platos mas gustados de la semana-->
-        <div class="row mt-40">
-            <!--mneter con variables dinamiscos-->
+        <div class="row mt-10">
+            {% for product in best_rated_products%}
             <div class="col-lg-3 flex flex-center">
                 <div class="popular-dish">
-                    <!--link del plato del -->
-                    <!--meter link de img-->
-                    <!--meter text alternativo de img-->
-                    <a id="dish-link"><img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" /></a>
+                    <a id="dish-link" href="{% url 'product' product_id=product.product_id %}">
+                        <img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" />
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-3 flex flex-center">
-                <div class="popular-dish">
-                    <!--link del plato del -->
-                    <!--meter link de img-->
-                    <!--meter text alternativo de img-->
-                    <a id="dish-link"><img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" /></a>
-                </div>
-            </div>
-            <div class="col-lg-3 flex flex-center">
-                <div class="popular-dish">
-                    <!--link del plato del -->
-                    <!--meter link de img-->
-                    <!--meter text alternativo de img-->
-                    <a id="dish-link"><img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" /></a>
-                </div>
-            </div>
-            <div class="col-lg-3 flex flex-center">
-                <div class="popular-dish">
-                    <!--link del plato del -->
-                    <!--meter link de img-->
-                    <!--meter text alternativo de img-->
-                    <a id="dish-link"><img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" /></a>
-                </div>
-            </div>
-
+            {% endfor %}
         </div>
         <div class="row mt-40" >
             <div ><a class="btn btn-green" href="{% url 'menu' %}">Ikusi plater guztiak</a> </div>
         </div>
-       
-        
-   
     </div>
-
-
 
 {% endblock %}

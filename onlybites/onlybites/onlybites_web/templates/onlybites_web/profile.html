@@ -64,11 +64,16 @@
     <div id="addressList">
       {% include "onlybites_web/address_list.html" %}
     </div>
-    <a class=" mt-40 btn btn-green wid-20 " href="#" id="addAddressButton" role="button">Sortu helbidea</a>
+
+    <a class="mt-40 btn btn-green wid-20" id="addAddressButton" role="button">Sortu helbidea</a>
 
     <div id="newAddressForm" class="popup shadow radius ">
     </div>
-                                                         
-   
+    <form action="{% url 'delete_profile' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" style="background-color: red; color: white; padding: 10px; border: none; cursor: pointer;">
+            Eliminar Perfil
+        </button>
+    </form>
 </div>
 {% endblock %}
