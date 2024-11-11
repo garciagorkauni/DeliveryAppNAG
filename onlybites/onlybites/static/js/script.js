@@ -268,7 +268,7 @@ function incrementCartQuantity(cart_id){
         type: 'GET',
         url: url,
         success: function (data) {
-            if (window.location.pathname != '/cart/') { 
+            if (window.location.pathname.split("/")[2] != 'cart') { 
                 window.location.pathname = '/cart/'
             }
             document.getElementById("cartList").innerHTML = data
