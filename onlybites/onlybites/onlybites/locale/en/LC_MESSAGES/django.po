@@ -8,207 +8,301 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 10:13+0100\n"
+"POT-Creation-Date: 2024-11-11 14:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-# coding: utf-8
-
+#: onlybites/settings.py:173
 msgid "Castellano"
 msgstr "Spanish"
 
-msgid "Ingles"
+#: onlybites/settings.py:174
+msgid "Inglés"
 msgstr "English"
 
+#: onlybites/settings.py:175
 msgid "Euskera"
 msgstr "Basque"
 
+#: onlybites_web/templates/admin/admin_index.html:23
 msgid "Recent actions"
 msgstr "Recent actions"
 
+#: onlybites_web/templates/admin/admin_index.html:24
 msgid "My actions"
 msgstr "My actions"
 
+#: onlybites_web/templates/admin/admin_index.html:28
 msgid "None available"
 msgstr "None available"
 
+#: onlybites_web/templates/admin/admin_index.html:33
 msgid "Added:"
 msgstr "Added:"
 
+#: onlybites_web/templates/admin/admin_index.html:33
 msgid "Changed:"
 msgstr "Changed:"
 
+#: onlybites_web/templates/admin/admin_index.html:33
 msgid "Deleted:"
 msgstr "Deleted:"
 
+#: onlybites_web/templates/admin/admin_index.html:43
 msgid "Unknown content"
 msgstr "Unknown content"
 
+#: onlybites_web/templates/onlybites_web/add-address.html:8
+#: onlybites_web/templates/onlybites_web/edit-address.html:11
 msgid "Eskaera Helbidea"
-msgstr "Request Address"
+msgstr "Order Address"
 
+#: onlybites_web/templates/onlybites_web/add-address.html:60
+#: onlybites_web/templates/onlybites_web/edit-address.html:62
 msgid "Save"
 msgstr "Save"
 
+#: onlybites_web/templates/onlybites_web/add-rating.html:8
 msgid "Valorar producto:"
 msgstr "Rate product:"
 
+#: onlybites_web/templates/onlybites_web/add-rating.html:34
 msgid "Rating"
 msgstr "Rating"
 
+#: onlybites_web/templates/onlybites_web/add-rating.html:36
 msgid "Mensaje:"
 msgstr "Message:"
 
+#: onlybites_web/templates/onlybites_web/add-rating.html:39
+msgid "Enviar valoracion"
+msgstr "Submit rating"
+
+#: onlybites_web/templates/onlybites_web/address_list.html:8
 msgid "Eliminar Direccion"
 msgstr "Delete Address"
 
+#: onlybites_web/templates/onlybites_web/address_list.html:9
 msgid "Edit"
 msgstr "Edit"
 
+#: onlybites_web/templates/onlybites_web/address_list.html:14
 msgid "Oraindik ez duzu helbiderik gehitu..."
 msgstr "You haven't added any address yet..."
 
+#: onlybites_web/templates/onlybites_web/base.html:37
 msgid "Menu"
 msgstr "Menu"
 
+#: onlybites_web/templates/onlybites_web/base.html:42
 msgid "Cart"
 msgstr "Cart"
 
+#: onlybites_web/templates/onlybites_web/base.html:43
 msgid "Profile"
 msgstr "Profile"
 
+#: onlybites_web/templates/onlybites_web/base.html:44
 msgid "Logout"
 msgstr "Logout"
 
+#: onlybites_web/templates/onlybites_web/base.html:46
+#: onlybites_web/templates/onlybites_web/login.html:29
 msgid "Login"
 msgstr "Login"
 
+#: onlybites_web/templates/onlybites_web/base.html:47
+#: onlybites_web/templates/onlybites_web/register.html:53
 msgid "Register"
 msgstr "Register"
 
+#: onlybites_web/templates/onlybites_web/base.html:77
 msgid "Gure bila etorri"
-msgstr "Come visit us"
+msgstr "Find us"
 
+#: onlybites_web/templates/onlybites_web/base.html:83
 msgid "Gure ordutegia"
 msgstr "Our schedule"
 
+#: onlybites_web/templates/onlybites_web/base.html:84
 msgid "Astelenetik Ostiralera: 12:00-16:00 | 19:00-23:00"
 msgstr "Monday to Friday: 12:00-16:00 | 19:00-23:00"
 
+#: onlybites_web/templates/onlybites_web/base.html:85
 msgid "Larunbata eta igandea 12:00-16:00 | 19:00-00:00"
-msgstr "Saturday and Sunday 12:00-16:00 | 19:00-00:00"
+msgstr "Saturday and Sunday: 12:00-16:00 | 19:00-00:00"
 
+#: onlybites_web/templates/onlybites_web/base.html:86
 msgid "Jai egunak 19:00-23:00"
-msgstr "Holidays 19:00-23:00"
+msgstr "Public holidays 19:00-23:00"
 
+#: onlybites_web/templates/onlybites_web/base.html:90
 msgid "Jarraitu gure sozialetan"
 msgstr "Follow us on social media"
 
+#: onlybites_web/templates/onlybites_web/cart.html:8
+msgid "Saskia"
+msgstr "Cart"
+
+#: onlybites_web/templates/onlybites_web/cart.html:10
+msgid "Produktuak:"
+msgstr "Products:"
+
+#: onlybites_web/templates/onlybites_web/cart.html:20
 msgid "Eskaera Helbidea:"
 msgstr "Order Address:"
 
+#: onlybites_web/templates/onlybites_web/cart.html:32
 msgid "Gutxienez helbide bat gehitu behar duzu erosketa egiteko."
-msgstr "You must add at least one address to complete your purchase."
+msgstr "You must add at least one address to make a purchase."
 
-msgid "Oraindik ez duzu produkturik gehitu zure saskira..."
-msgstr "You haven't added any products to your cart yet..."
-
-msgid "Â¿Are you sure you want to delete this address?"
-msgstr "Are you sure you want to delete this address?"
-
-msgid "Confirm delete"
-msgstr "Confirm delete"
-
-msgid "Cancel"
-msgstr "Cancel"
-
-msgid "Erraza, goxoa eta zuzenean zure mahira."
-msgstr "Easy, delicious, and straight to your table."
-
-msgid "Janari prestatu aberats eta osasungarria."
-msgstr "Rich and healthy prepared food."
-
-msgid "Bezeroen gustokoenak"
-msgstr "Customer favorites"
-
-msgid "Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:"
-msgstr "This week, we've encouraged our customers to try their favorites:"
-
-msgid "Ikusi plater guztiak"
-msgstr "See all dishes"
-
-msgid "Hasi saioa"
-msgstr "Log in"
-
-msgid "or"
-msgstr "or"
-
-msgid "Gure sukaldetik zure etxera <span id='italic'>bite</span> batean"
-msgstr "From our kitchen to your home in a <span id='italic'>bite</span>"
-
-msgid "Filtroak"
-msgstr "Filters"
-
-msgid "Vegan"
-msgstr "Vegan"
-
-msgid "Celiac"
-msgstr "Celiac"
-
-msgid "Max. Calories"
-msgstr "Max. Calories"
-
-msgid "Allergies"
-msgstr "Allergies"
-
-msgid "Complete Payment"
-msgstr "Complete Payment"
-
-msgid "Confirm Purchase"
-msgstr "Confirm Purchase"
-
-msgid "Zure gustukoen  <span id='italic'>bite-ak</span> jateko prest?"
-msgstr "Ready to eat your favorite <span id='italic'>bites</span>?"
-
-msgid "Beganoa"
-msgstr "Vegan"
-
-msgid "Zeliakoentzat aptoa"
-msgstr "Suitable for celiacs"
-
-msgid "Ez dira ezaugarri horiek betetzen dituzten produktuak topatu..."
-msgstr "No products found matching these features..."
-
-msgid "Bezeroaren datuak"
-msgstr "Customer data"
-
-msgid "Izena"
-msgstr "First name"
-
-msgid "Abizena"
-msgstr "Last name"
-
-msgid "Posta helbidea"
-msgstr "Postal address"
-
-msgid "Telefono zenbakia"
-msgstr "Phone number"
-
-msgid "Jaiotze data"
-msgstr "Birthdate"
-
-msgid "Eskaera helbideak:"
-msgstr "Shipping addresses:"
-
+#: onlybites_web/templates/onlybites_web/cart.html:37
+#: onlybites_web/templates/onlybites_web/profile.html:70
 msgid "Sortu helbidea"
 msgstr "Create address"
 
+#: onlybites_web/templates/onlybites_web/cart_list.html:46
+msgid "Ordaindu"
+msgstr "Pay"
+
+#: onlybites_web/templates/onlybites_web/cart_list.html:48
+msgid "Oraindik ez duzu produkturik gehitu zure saskira..."
+msgstr "You haven't added any products to your cart yet..."
+
+#: onlybites_web/templates/onlybites_web/delete-profile.html:28
+msgid "¿Are you sure you want to delete this address?"
+msgstr "Are you sure you want to delete this address?"
+
+#: onlybites_web/templates/onlybites_web/delete-profile.html:31
+msgid "Confirm delete"
+msgstr "Confirm delete"
+
+#: onlybites_web/templates/onlybites_web/delete-profile.html:32
+msgid "Cancel"
+msgstr "Cancel"
+
+#: onlybites_web/templates/onlybites_web/home.html:9
+msgid "Erraza, goxoa eta zuzenean zure mahira."
+msgstr "Easy, delicious, and straight to your table."
+
+#: onlybites_web/templates/onlybites_web/home.html:10
+msgid "Janari prestatu aberats eta osasungarria."
+msgstr "Rich and healthy prepared food."
+
+#: onlybites_web/templates/onlybites_web/home.html:25
+msgid "Bezeroen gustokoenak"
+msgstr "Customer favorites"
+
+#: onlybites_web/templates/onlybites_web/home.html:28
+msgid "Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:"
+msgstr "Try what our customers have enjoyed most this week:"
+
+#: onlybites_web/templates/onlybites_web/home.html:43
+msgid "Ikusi plater guztiak"
+msgstr "See all dishes"
+
+#: onlybites_web/templates/onlybites_web/login.html:11
+msgid "Hasi saioa"
+msgstr "Log in"
+
+#: onlybites_web/templates/onlybites_web/login.html:32
+msgid "or"
+msgstr "or"
+
+#: onlybites_web/templates/onlybites_web/menu.html:10
+msgid "Gure sukaldetik zure etxera <span id='italic'>bite</span> batean"
+msgstr "From our kitchen to your home in one <span id='italic'>bite</span>"
+
+#: onlybites_web/templates/onlybites_web/menu.html:21
+msgid "Filtroak"
+msgstr "Filters"
+
+#: onlybites_web/templates/onlybites_web/menu.html:28
+msgid "Vegan"
+msgstr "Vegan"
+
+#: onlybites_web/templates/onlybites_web/menu.html:33
+msgid "Celiac"
+msgstr "Celiac"
+
+#: onlybites_web/templates/onlybites_web/menu.html:38
+msgid "Max. Calories"
+msgstr "Max. Calories"
+
+#: onlybites_web/templates/onlybites_web/menu.html:43
+msgid "Allergies"
+msgstr "Allergies"
+
+#: onlybites_web/templates/onlybites_web/payment.html:8
+msgid "Complete Payment"
+msgstr "Complete Payment"
+
+#: onlybites_web/templates/onlybites_web/payment.html:12
+msgid "Total: "
+msgstr "Total: "
+
+#: onlybites_web/templates/onlybites_web/payment.html:19
+msgid "Confirm Purchase"
+msgstr "Confirm Purchase"
+
+#: onlybites_web/templates/onlybites_web/product.html:10
+msgid "Zure gustukoen  <span id='italic'>bite-ak</span> jateko prest?"
+msgstr "Ready to enjoy your favorite <span id='italic'>bites</span>?"
+
+#: onlybites_web/templates/onlybites_web/product.html:60
+msgid "Beganoa"
+msgstr "Vegan"
+
+#: onlybites_web/templates/onlybites_web/product.html:63
+msgid "Zeliakoentzat aptoa"
+msgstr "Suitable for celiacs"
+
+#: onlybites_web/templates/onlybites_web/product_list.html:45
+msgid "Ez dira ezaugarri horiek betetzen dituzten produktuak topatu..."
+msgstr "No products found that meet those criteria..."
+
+#: onlybites_web/templates/onlybites_web/profile.html:7
+msgid "Kaixo, "
+msgstr "Hello, "
+
+#: onlybites_web/templates/onlybites_web/profile.html:9
+msgid "Bezeroaren datuak"
+msgstr "Customer data"
+
+#: onlybites_web/templates/onlybites_web/profile.html:16
+msgid "Izena"
+msgstr "First Name"
+
+#: onlybites_web/templates/onlybites_web/profile.html:21
+msgid "Abizena"
+msgstr "Last Name"
+
+#: onlybites_web/templates/onlybites_web/profile.html:28
+msgid "Posta helbidea"
+msgstr "Email Address"
+
+#: onlybites_web/templates/onlybites_web/profile.html:36
+msgid "Telefono zenbakia"
+msgstr "Phone Number"
+
+#: onlybites_web/templates/onlybites_web/profile.html:44
+msgid "Jaiotze data"
+msgstr "Date of Birth"
+
+#: onlybites_web/templates/onlybites_web/profile.html:55
 msgid "Eliminar Perfil"
 msgstr "Delete Profile"
 
+#: onlybites_web/templates/onlybites_web/profile.html:61
+msgid "Eskaera helbideak:"
+msgstr "Delivery Addresses:"
+ 
+#: onlybites_web/templates/onlybites_web/register.html:8
 msgid "Sortu kontua"
-msgstr "Create account"
+msgstr "Create Account"
+
