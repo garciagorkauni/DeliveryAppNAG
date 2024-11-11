@@ -18,9 +18,7 @@
     #home-image img {
       display: none !important; /* Añade !important para sobrescribir otros estilos */
     }
-    .mb-5{
-        margin-bottom: 0 !important;
-    }
+   
     .container {
         max-width: 100% !important;
         margin: 0 auto !important;
@@ -59,5 +57,9 @@
         width: 80%;
         height: auto;
         
+    }
+    /* display de los datps en el perfil*/
+    .p-info{
+        width: auto !important;
     }
   }

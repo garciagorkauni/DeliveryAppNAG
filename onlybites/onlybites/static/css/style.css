@@ -185,6 +185,9 @@ a:hover{
 .mt-40{
   margin-top: 40px;
 }
+.mt-10{
+  margin-top: 10px;
+}
 /* darle un tamaño minimo a la paginas*/
 .min-height{
   min-height: 535px;

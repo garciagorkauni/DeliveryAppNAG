@@ -2,7 +2,7 @@
 <div class="row">
     {% if allProducts %}
         {% for product in allProducts %}
-        <div class="col-lg-4 flex flex-center">
+        <div class="col-lg-4 col-6 flex flex-center">
             {% if product.stock > 10 %}
             <div class="dish-menu flex fl-direc-colum">
             {% elif product.stock <= 10%}
