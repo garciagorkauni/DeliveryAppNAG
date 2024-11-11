@@ -2,6 +2,7 @@
   height: 1px;
   background-color: black;
   width: 100%;
+  margin-bottom: 2rem;
 }
 .wid-80 {
   width: 80%;
@@ -36,6 +37,7 @@
 h3 {
   font-family: "Playfair Display", sans-serif;
   font-weight: bold;
+  font-size: 25px;
 }
 .home h3 {
   font-family: "DM Sans", sans-serif;
@@ -64,4 +66,7 @@ h3 {
 }
 .delete{
   font-size: 14px;
+}
+p{
+  font-size: 18px !important;
 }

@@ -113,7 +113,7 @@ footer{
   background-color: #718238;
   color: white;
   
-  height: 200px;
+  height: auto;
   width: 100%;
  
 }
@@ -150,7 +150,7 @@ footer{
   justify-content: start;
 }
 .f-zie-18{
-  font-size: 18px;
+  font-size: 18px !important;
 }
 .f-w-bold{
   font-weight: bold;

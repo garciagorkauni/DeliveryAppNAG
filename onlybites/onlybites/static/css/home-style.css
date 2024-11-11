@@ -1,10 +1,10 @@
 h1 {
   color: #f95c39;
-  font-size: 40px;
+  font-size: 40px !important;
 }
 h2 {
   color: #718238;
-  font-size: 36px;
+  font-size: 36px !important;
 }
 h3 {
   font-family: "Playfair Display", sans-serif;
@@ -167,3 +167,6 @@ h2{
     font-size: 20px;
 }
 /* etiketa margen*/
+footer p{
+  font-size: 18px;
+}
