@@ -267,8 +267,12 @@ class Address(models.Model):
     
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=75)
-    description = models.TextField()
+    name_es = models.CharField(max_length=75)
+    name_en = models.CharField(max_length=75)
+    name_eu = models.CharField(max_length=75)
+    description_es = models.TextField()
+    description_en = models.TextField()
+    description_eu = models.TextField()
     stock = models.IntegerField()
     vegan = models.BooleanField()
     celiac = models.BooleanField()
@@ -318,8 +322,12 @@ class Image(models.Model):
 
 class Allergen(models.Model):
     allergen_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=75)
-    description = models.TextField()
+    name_es = models.CharField(max_length=75)
+    name_en = models.CharField(max_length=75)
+    name_eu = models.CharField(max_length=75)
+    description_es = models.TextField()
+    description_en = models.TextField()
+    description_eu = models.TextField()
 
     def __str__(self):
         return self.name
