@@ -50,7 +50,7 @@
    
  <form action="{% url 'delete_profile' %}" method="post" style="display: inline;">
         {% csrf_token %}
-        <button type="submit" class="btn  btn-red" >
+        <button type="submit" class="btn  btn-red delete" >
             Eliminar Perfil
         </button>
     </form>
@@ -65,15 +65,13 @@
       {% include "onlybites_web/address_list.html" %}
     </div>
 
+   
+    
+</div>
+<div class="flex fl-justcon-sbetw mt-40">
     <a class="mt-40 btn btn-green wid-20" id="addAddressButton" role="button">Sortu helbidea</a>
 
     <div id="newAddressForm" class="popup shadow radius ">
     </div>
-    <form action="{% url 'delete_profile' %}" method="post" style="display: inline;">
-        {% csrf_token %}
-        <button type="submit" style="background-color: red; color: white; padding: 10px; border: none; cursor: pointer;">
-            Eliminar Perfil
-        </button>
-    </form>
 </div>
 {% endblock %}

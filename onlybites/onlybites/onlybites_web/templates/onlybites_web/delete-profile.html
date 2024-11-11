@@ -1,13 +1,28 @@
 {% extends 'onlybites_web/base.html' %}
 {% block content %}
+{% load static %}
 
-<br>
-<h2>¿Are you sure you want to delete this address?</h2>
-<p>{{ direccion.name }} {{ direccion.surname }} - {{ direccion.city }}</p>
-<form method="post">{% csrf_token %}
-    <button type="submit">Confirm delete</button>
-    <a href="{% url 'home' %}">Cancel</a>
-</form>
+<div class="min-height flex fl-direc-colum flex-center">
+    <div class="flex mb-2">
+        <h2>Ziur zaude helbide hau ezabatu nahi duzula?</h2>
+    </div>
+   
+    <div class="flex mb-2">
+        <p  class="f-zie-18">{{ direccion.name }} {{ direccion.surname }} - {{ direccion.city }}</p>
+    </div>
+    <div  class="flex">
+        <form class="wid-100" method="post">{% csrf_token %}
+            <div class="flex fl-justcon-sbetw">
+                <a  class="btn  btn-green " href="{% url 'home' %}">Utzi</a>
+                <button class="btn  btn-red" type="submit">Ezabatu</button>
+           
+            </div>
+            
+        </form>
+    </div>
+
+</div>
+
 
 {% endblock %}
 
