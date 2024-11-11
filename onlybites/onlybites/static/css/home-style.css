@@ -108,6 +108,7 @@ h2{
 }
 
 #home-image {
+  display: block;
     position: absolute;
     top: -180px; /* Ajusta según necesites */
     right: -100px; /* Ajusta según necesites */

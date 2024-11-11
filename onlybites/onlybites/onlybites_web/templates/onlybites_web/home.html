@@ -4,13 +4,13 @@
 
 
     <div class="row intro flex">
-        <div class="col-lg-7 col-md-7 home">
+        <div class="col-lg-7  home">
             <h1>Erraza, goxoa eta zuzenean zure mahira.</h1>
             <h3 >Janari prestatu aberats eta osasungarria.</h3>
         </div>
         
     </div>
-    <div class=" overflow" id="home-image">
+    <div  id="home-image">
         <img src="{% static 'img/home-image.jpg' %}" >
     </div>
 </div>
@@ -20,16 +20,16 @@
         <div class="blank-space">
 
         </div>
-        <div class="row">
+        <div class="rowflex-center">
             <h2>Bezeroen gustokoenak</h2>
         </div>
-        <div class="row">
+        <div class="row flex-center">
             <h3>Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:</h3>
         </div>
         <!--platos mas gustados de la semana-->
         <div class="row mt-10">
             {% for product in best_rated_products%}
-            <div class="col-lg-3 flex flex-center">
+            <div class="col-lg-3 col-md-4 col-6  flex flex-center">
                 <div class="popular-dish">
                     <a id="dish-link" href="{% url 'product' product_id=product.product_id %}">
                         <img clas="popular-dish-img" src="{% static 'img/boloñesa.png' %}" />
@@ -38,7 +38,7 @@
             </div>
             {% endfor %}
         </div>
-        <div class="row mt-40" >
+        <div class="row mt-40 flex-center" >
             <div ><a class="btn btn-green" href="{% url 'menu' %}">Ikusi plater guztiak</a> </div>
         </div>
     </div>

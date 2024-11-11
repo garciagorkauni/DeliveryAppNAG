@@ -5,9 +5,11 @@
 
 <head>
     <title>OnlyBites</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/home-style.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}"/>
@@ -16,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/cart-style.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/add-rating.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
@@ -25,27 +28,28 @@
 
 <body>
     <nav class="navbar navbar-default flex flex-center">
-        <div class="container-fluid flex flex-center">
-            <div class="navbar-header">
+        <div class="container-fluid ">
+            <div class="navbar-header ">
                 <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites" class="logo-img"></a>
+                <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'menu' %}">Menu</a></li>
+                    </ul>
+        
+                    <div class="nav navbar-nav flex fl-direc-row navbar-right jstcont-end">
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'cart' %}">Cart</a></li>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                            <li><a href="#" id="loginButton">Login</a></li>
+                            <li><a class="btn btn-register" href="{% url 'register' %}">Register</a></li>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'menu' %}">Menu</a></li>
-                </ul>
-    
-                <ul class="nav navbar-nav flex navbar-right jstcont-end">
-                    {% if user.is_authenticated %}
-                        <li><a href="{% url 'cart' %}">Cart</a></li>
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                    {% else %}
-                        <li><a href="#" id="loginButton">Login</a></li>
-                        <li><a class="btn btn-register" href="{% url 'register' %}">Register</a></li>
-                    {% endif %}
-                </ul>
-            </div>
+           
         </div>
     </nav>
 

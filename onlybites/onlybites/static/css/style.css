@@ -43,6 +43,9 @@ body {
 .navbar-collapse{
   width: 100%;
 }
+.navbar-header{
+  width: 100%;
+}
 
 
 
