@@ -9,6 +9,7 @@
     </div>
 </div>
 
+<h3>{% trans "Total: " %} {{ total }}€</h3>
 <form method="post"  class="flex fl-direc-colum width2" action="{% url 'payment' %}">
     {% csrf_token %}
     <div class="flex fl-direc-row flex-center">
