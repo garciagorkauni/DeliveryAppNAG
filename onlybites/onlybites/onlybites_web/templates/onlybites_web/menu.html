@@ -24,23 +24,23 @@
             <div  id="filter-container" style="display: none;">
                 <form class="filter-form ">
                     <div class="filter-item">
-                        <label for="vegan" class="l-name">Vegan</label>
+                        <label for="vegan" class="l-name">Beganoa</label>
 
                         <input type="checkbox" id="vegan">
                     </div>
 
                     <div class="filter-item">
-                        <label for="celiac" class="l-name">Celiac</label>
+                        <label for="celiac" class="l-name">Zeliakoa</label>
                         <input type="checkbox" id="celiac">
                     </div>
 
                     <div class="filter-item">
-                        <label for="max-calories" class="l-name">Max. Calories</label>
+                        <label for="max-calories" class="l-name">Max. Kaloria</label>
                         <input type="number" id="max-calories">
                     </div>
 
                     <div class="filter-item allergies-group" id="allergiesList">
-                        <label class="l-name">Allergies</label>
+                        <label class="l-name">Alergenoak</label>
                         {% for allergen in allAllergens %}
                         <div class="allergy-option">
                             <label for="allergy-fruit">{{ allergen.name }}</label>
