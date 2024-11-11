@@ -1,4 +1,12 @@
+{% load i18n %}
 {% load static %}
+
+<h1>{% trans "Valorar producto:" %} {{ product.name }}</h1>
+<form method="post" action="{% url 'add_rating' product.product_id %}">
+    {% csrf_token %}
+    <div class="rating">
+        <input type="radio" name="rating" id="star10" value="5">
+        <label for="star10" class="full"></label>
 
 <a class="close-x" id="closeRatingFormButton" role="button">X</a>
 
@@ -30,11 +38,12 @@
 
         </div>
     </div>
+    <p class="rating-value">{% trans "Rating" %}</p>
 
-    <label for="message" class="rating-value f-zie-18 f-w-bold">Mezua:</label>
+    <label for="message" class="rating-value f-zie-18 f-w-bold">{% trans "Mensaje:" %}</label>
     <textarea name="message" id="message" required></textarea>
 
-    <button type="submit" class="btn btn-green submit-form">Bidali</button>
+    <button type="submit" class="btn btn-success">{% trans "Enviar valoracion"}</button>
 </form>
 
 <script>

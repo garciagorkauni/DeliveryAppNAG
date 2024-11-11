@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 <div class="row">
     {% if allProducts %}
         {% for product in allProducts %}
@@ -40,6 +42,6 @@
         </div>
         {% endfor %}
     {% else %}
-        <h3>Ez dira ezaugarri horiek betetzen dituzten produktuak topatu...</h3>
+        <h3>{% trans "Ez dira ezaugarri horiek betetzen dituzten produktuak topatu..." %}</h3>
     {% endif %}
 </div> 

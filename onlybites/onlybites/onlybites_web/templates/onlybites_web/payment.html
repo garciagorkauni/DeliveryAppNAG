@@ -1,9 +1,11 @@
+{% load i18n %}
+
 {% load static %}
 <a class="close-x" id="closePaymentFormButton" role="button">X</a>
 
 <div class="flex fl-direc-colum alg-it-center ">
     <div class="m ">
-        <h1>Egin ordainketa</h1>
+        <h1>{% trans "Complete Payment" %}</h1>
     </div>
 </div>
 
@@ -13,5 +15,5 @@
         {{ form.as_p }}
     </div>
    
-    <button type="submit" class=" save btn btn-green  mb-2 submit-form">Berretsi</button>
+    <button type="submit" class=" save btn btn-green  mb-2 submit-form">{% trans "Confirm Purchase" %}</button>
 </form>

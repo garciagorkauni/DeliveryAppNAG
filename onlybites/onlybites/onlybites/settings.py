@@ -62,6 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'onlybites.urls'
@@ -164,14 +165,21 @@ SOCIALACCOUNT_PROVIDERS = {
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+from django.utils.translation import gettext_lazy as _
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'es'
+
+LANGUAGES = [
+    ('es', _('Castellano')),
+    ('en', _('Inglés')),
+    ('eu', _('Euskera')),
+]
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
+TIME_ZONE = 'UTC'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -179,6 +187,11 @@ USE_TZ = True
 import os
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'onlybites', 'locale'),
+]
+
 
 
 # Carpeta donde se almacenan archivos estáticos durante el desarrollo

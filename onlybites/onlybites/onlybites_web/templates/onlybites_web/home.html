@@ -1,12 +1,13 @@
 {% extends 'onlybites_web/base.html' %}
 {% load static %}
 {% block content %}
+{% load i18n %}
 
 
     <div class="row intro flex">
         <div class="col-lg-7 col-md-7 home">
-            <h1>Erraza, goxoa eta zuzenean zure mahira.</h1>
-            <h3 >Janari prestatu aberats eta osasungarria.</h3>
+            <h1>{% trans "Erraza, goxoa eta zuzenean zure mahira." %}</h1>
+            <h3>{% trans "Janari prestatu aberats eta osasungarria." %}</h3>
         </div>
         
     </div>
@@ -21,10 +22,10 @@
 
         </div>
         <div class="row">
-            <h2>Bezeroen gustokoenak</h2>
+            <h2>{% trans "Bezeroen gustokoenak" %}</h2>
         </div>
         <div class="row">
-            <h3>Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:</h3>
+            <h3>{% trans "Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:" %}</h3>
         </div>
         <!--platos mas gustados de la semana-->
         <div class="row mt-10">
@@ -39,7 +40,7 @@
             {% endfor %}
         </div>
         <div class="row mt-40" >
-            <div ><a class="btn btn-green" href="{% url 'menu' %}">Ikusi plater guztiak</a> </div>
+            <div ><a class="btn btn-green" href="{% url 'menu' %}">{% trans "Ikusi plater guztiak" %}</a> </div>
         </div>
     </div>
 

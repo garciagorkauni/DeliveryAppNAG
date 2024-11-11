@@ -1,4 +1,5 @@
 {% extends 'onlybites_web/base.html' %}
+{% load i18n %}
 {% block content %}
 
 {% load static %}
@@ -6,7 +7,7 @@
 <div class="row intro">
        
     <div class="col-lg-9 col-md-9 flex fl-direc-colum">
-        <h1>Zure gustukoen  <span id='italic'>bite-ak</span> jateko prest?</h1>
+        <h1>{% trans "Zure gustukoen  <span id='italic'>bite-ak</span> jateko prest?" %}</h1>
         <div id="back-page-botton" ><a href="{% url 'menu' %}"> <img src="{% static 'img/icons/Arrow left-circle.svg' %}"></a></div>
        
     </div>
@@ -56,10 +57,10 @@
                  <!--safe for vegand and celiac-->
                  <div class="mb-2 flex  fl-direc-row" >
                     {% if product.vegan %}
-                        <div class="apt f-w-bold "><p class="playfair f-zie-18">Beganoa</p></div>
+                        <div class="apt f-w-bold "><p class="playfair f-zie-18">{% trans "Beganoa" %}</p></div>
                     {% endif %}
                     {% if product.celiac %}
-                    <div class="apt f-w-bold"><p class="playfair f-zie-18">Zeliakoentzat aptoa</p></div>
+                    <div class="apt f-w-bold"><p class="playfair f-zie-18">{% trans "Zeliakoentzat aptoa" %}</p></div>
                     {% endif %}
                  </div>
                  

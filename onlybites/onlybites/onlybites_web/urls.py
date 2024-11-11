@@ -1,8 +1,10 @@
+# onlybites_web/urls.py (archivo de la app)
+
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    #admin
+    # admin
     path('stats/', views.stats_view, name='admin_stats'),
 
     # home
@@ -14,7 +16,7 @@ urlpatterns = [
 
     # product
     path('product/<int:product_id>/', views.product, name='product'),
-    
+
     # valoration
     path('add-rating/<int:product_id>/', views.add_rating, name='add_rating'),
 
@@ -24,7 +26,7 @@ urlpatterns = [
     path('delete-cart/<int:cart_id>/', views.delete_cart, name='delete_cart'),
     path('reduce-cart/<int:product_id>/', views.reduce_cart, name='reduce_cart'),
     path('payment/', views.payment, name='payment'),
-    
+
     # profile
     path('profile/', views.profile, name='profile'),
     path('add-address/', views.add_address, name='add_address'),
@@ -39,7 +41,8 @@ urlpatterns = [
 
     # address
     path('address_delete/<int:address_id>/', views.delete_address, name='delete_address'),
-    #Rest
+    
+    # Rest
     path('v1/product', views.Product_APIView.as_view()),
     path('v1/product/<int:pk>/', views.Product_APIView_Detail.as_view())
 ]

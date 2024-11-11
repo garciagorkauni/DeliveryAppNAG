@@ -1,4 +1,5 @@
 {% extends 'onlybites_web/base.html' %}
+{% load i18n %}
 {% block content %}
 {% load static %}
 
@@ -23,6 +24,13 @@
 
 </div>
 
+<br>
+<h2>{% trans "¿Are you sure you want to delete this address?" %}</h2>
+<p>{{ direccion.name }} {{ direccion.surname }} - {{ direccion.city }}</p>
+<form method="post">{% csrf_token %}
+    <button type="submit">{% trans "Confirm delete" %}</button>
+    <a href="{% url 'home' %}">{% trans "Cancel" %}</a>
+</form>
 
 {% endblock %}
 
