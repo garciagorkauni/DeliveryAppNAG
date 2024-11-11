@@ -99,13 +99,14 @@
         </div>
         <div class="fl-jc-end flex">
             {% if user.is_authenticated %}
-            <a class="btn btn-orange "  href="#" onclick="showNewValorationForm('{{product.product_id}}')" role="button">Baloratu</a>
+            <input type="hidden" id="productId" value="{{product.product_id}}"/>
+            <a class="btn btn-orange" id="newValorationButton" role="button">Baloratu</a>
             {% endif %}
         </div>
-        
-   
-    </div>
-    <!--valoracion-->
-</div>
 
+        <div id="newValorationForm" class="popup shadow radius">
+        </div>
+
+    </div>
+</div>
 {% endblock %}

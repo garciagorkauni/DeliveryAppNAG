@@ -1,3 +1,6 @@
+{% load static %}
+<a class="close-x" id="closePaymentFormButton" role="button">X</a>
+
 <h2>Complete Payment</h2>
 <form method="post" action="{% url 'payment' %}">
     {% csrf_token %}

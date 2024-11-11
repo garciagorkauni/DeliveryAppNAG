@@ -96,10 +96,18 @@ $(document).ready(function () {
         showPaymentForm()
     })
 
+    $(document).on("click", "#closePaymentFormButton", function(){
+        $('#paymentForm').empty()
+    })
+
 
     // Listener for valoration
     $(document).on("click", "#newValorationButton", function(){
         showNewValorationForm($('#productId').attr('value'))
+    })
+
+    $(document).on("click", "#closeRatingFormButton", function(){
+        $('#newValorationForm').empty()
     })
 
 
