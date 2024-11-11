@@ -130,7 +130,7 @@
     .form-width{
         width: auto;
     }
-    .register, .shadow{
+    .register{
         box-shadow: none !important;
     }
     .bottom-page-space{
