@@ -11,7 +11,7 @@
     
     <div class="separate-line"></div>
     
-    <div class="row flex fl-direc-colum" id="cartList">
+    <div class="row flex fl-direc-colum  m-left-10" id="cartList">
         {% include "onlybites_web/cart_list.html" %}  
     </div>
     <div class=" flex fl-direc-colum m-left-10 ">
@@ -19,7 +19,7 @@
         <div class="section-title"> <h3>Eskaera Helbidea:</h3></div>
     </div>
     <div class="separate-line"></div>
-    <div class="row flex fl-direc-colum">
+    <div class="row flex fl-direc-colum  m-left-10">
         <div class="row flex ">
             {% if addresses %}
                 {% for address in addresses %}
@@ -31,12 +31,17 @@
                 <h4>Gutxienez helbide bat gehitu behar duzu erosketa egiteko.</h4>
             {% endif %}
         </div>
-        <a class=" mt-10 btn btn-green wid-20" href="{% url 'profile' %}" role="button">Sortu helbidea</a>
+        
+        
+       
+    </div>
+    <div class="flex fl-justcon-sbetw mt-40">
+        <a class=" mt-10 btn btn-green wid-20"  id="addAddressButton" role="button" role="button">Sortu helbidea</a>
 
-        <div id="newAddressForm" class="popup">
+        <div id="newAddressForm" class="popup shadow radius ">
         </div>
-        <a class=" mt-10 btn btn-green wid-20" id="paymentButton"><strong>Ordaindu</strong></a>
-        <div id="paymentForm" class="popup">
+        <a class=" mt-10 btn btn-orange wid-20" id="paymentButton"><strong>Ordaindu</strong></a>
+        <div id="paymentForm" class="popup shadow radius">
         </div>
     </div>
 </div>

@@ -1,13 +1,12 @@
 {% if addresses %}
-    <ul>
-        {% for address in addresses %}
-            <li>
-                {{ address.address1 }} ...
-                <a href="{% url 'delete_address' address.address_id %}">Eliminar Dirección</a>
-                <a class="btn btn-warning editAddressButton" id="{{address.address_id}}" role="button">Edit</a>
-            </li>
-        {% endfor %}
-    </ul>
+    {% for address in addresses %}
+    <div class="flex fl-direc-row fl-justcon-sbetw">
+        <p  class="f-zie-18 "> {{ address }}</p>
+        
+        <a class="btn  btn-orange editAddressButton" id="{{address.address_id}}" role="button">Editatu</a>
+        <a class="btn  btn-red" href="{% url 'delete_address' address.address_id %}">Ezabatu</a>
+    </div>
+    {% endfor %}
 {% else %}
     <h4>Oraindik ez duzu helbiderik gehitu...</h4>
 {% endif %}

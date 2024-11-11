@@ -7,8 +7,7 @@
     <div class="mb-2 mt-10">
         <h1> Eskaera Helbidea</h1>
     </div>
-   
-   
+
     <form method="post" class="flex fl-direc-colum width2" id="editAddressForm">
         {% csrf_token %}
         <input type="hidden" id="addressId" value="{{ address.address_id }}"/>
@@ -57,7 +56,7 @@
             
         </div>
         
-        <button type="submit" class="save btn btn-green wid-20 mb-2 submit-form">Save</button>
+        <button type="submit" class="save btn btn-green wid-20 mb-2 submit-form">Gorde</button>
     </form>
     
     

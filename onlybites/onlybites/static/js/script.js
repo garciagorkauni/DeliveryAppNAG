@@ -96,10 +96,18 @@ $(document).ready(function () {
         showPaymentForm()
     })
 
+    $(document).on("click", "#closePaymentFormButton", function(){
+        $('#paymentForm').empty()
+    })
+
 
     // Listener for valoration
     $(document).on("click", "#newValorationButton", function(){
         showNewValorationForm($('#productId').attr('value'))
+    })
+
+    $(document).on("click", "#closeRatingFormButton", function(){
+        $('#newValorationForm').empty()
     })
 
 
@@ -238,7 +246,7 @@ function updateProductList(vegan, celiac, max_calories, allergies) {
     });
 }
 
-// AJAX function for increment one cart quantity
+// AJAX function for reduce one cart quantity
 function reduceCartQuantity(cart_id){
     let url = "/reduce-cart/" + cart_id
     $.ajax({
@@ -253,13 +261,16 @@ function reduceCartQuantity(cart_id){
     })
 }
 
-// AJAX function for reduce one cart quantity
+// AJAX function for increment one cart quantity
 function incrementCartQuantity(cart_id){
     let url = "/add-cart/" + cart_id
     $.ajax({
         type: 'GET',
         url: url,
         success: function (data) {
+            if (window.location.pathname != '/cart/') { 
+                window.location.pathname = '/cart/'
+            }
             document.getElementById("cartList").innerHTML = data
         },
         error: function (data) {

@@ -48,7 +48,7 @@
                  <div class="flex fl-direct-row fl-justcon-sbetw  end-aligned">
                     <p class="f-w-bold playfair cart-price">6.90€</p>
                     <div>
-                        <a href="{% url 'add_cart' product_id=product.product_id %}">
+                        <a class="incrementCartButton" id="{{ product.product_id }}">
                             <img class="cart-btn" id="plus-button" src="{% static 'img/icons/Plus-circle.svg' %}" />
                         </a>
                     </div>
@@ -65,33 +65,48 @@
                  
             </div>
         </div>
+        <!--valoraciones-->
+        
         
     </div>
-    <!--valoracion-->
-</div>
-
-<h3>Product valorations:</h3>
-<ul>
-        {% for valoration in valorations %}
-        <li>
-            <strong>{{ valoration.profile.name }}:</strong> 
-            {% for i in "*****" %}
-                {% if forloop.counter <= valoration.value %}
-                    ★
-                {% else %}
-                    ☆
-                {% endif %}
+    <div class="container  flex fl-direc-colum ">
+        <div class="flex fl-direc-colum  mt-40 " id="val">
+            <div class="mb-1">
+                <h2>Balorazioak:</h2>
+            </div>
+            {% for valoration in valorations %}
+            <div class="mb-1" >
+                
+                <div class="">
+                    <p class="f-zie-18 f-w-bold">{{ valoration.profile.name }}:
+                        <span>
+                            {% for i in "*****" %}
+                            {% if forloop.counter <= valoration.value %}
+                                ★
+                            {% else %}
+                                ☆
+                            {% endif %}
+                        {% endfor %}
+                        ({{ valoration.value }}/5) - {{ valoration.message }}
+                        </span>
+                    </p>
+                </div>
+                
+            </div>
+            
             {% endfor %}
-            ({{ valoration.value }}/5) - {{ valoration.message }}
-        </li>
-        {% endfor %}
-        {% if user.is_authenticated %}
-        <input type="hidden" id="productId" value="{{product.product_id}}"/>
-        <a class="btn btn-warning" id="newValorationButton" role="button">Add</a>
-        {% endif %}
-    </ul>
-    <div id="newValorationForm" class="popup">
+            
+        </div>
+        <div class="fl-jc-end flex">
+            {% if user.is_authenticated %}
+            <input type="hidden" id="productId" value="{{product.product_id}}"/>
+            <a class="btn btn-orange" id="newValorationButton" role="button">Baloratu</a>
+            {% endif %}
+        </div>
+
+        <div id="newValorationForm" class="popup shadow radius">
+        </div>
+
     </div>
-
-
+</div>
 {% endblock %}
