@@ -11,12 +11,13 @@
     display: none !important;
    }
    .intro {
-    max-width: 100% !important; /* Ajusta al 100% del ancho de pantalla */
+    max-width: 100% !important; 
     padding: 0;
  }
     #home-image,
     #home-image img {
-      display: none !important; /* Añade !important para sobrescribir otros estilos */
+      display: none !important;
+      overflow-x: hidden; 
     }
    
     .container {
@@ -54,11 +55,11 @@
     .popular-dish img {
         width: 80%;
         height: auto;
-        
+        border-radius: 10px;
     }
     .popular-dish  {
         width: 80%;
-        height: auto;
+        height: auto;   
         
     }
     /* display de los datps en el perfil*/
@@ -101,5 +102,27 @@
     }
     .min-height{
         min-height: 300px !important;
+    }
+
+
+    /*product details page*/
+    #p-details-bloc{
+        flex-direction: column !important;
+        width: 310px !important;
+    }
+    #pr-img{
+        width: 310px;
+        height: auto;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+    
+    #p-details{
+        padding: 9px;
+        margin: 0 !important;
+    }
+
+    #val{
+       padding: 3rem;
     }
   }
