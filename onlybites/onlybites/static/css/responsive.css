@@ -29,10 +29,13 @@
         font-size: 32px !important;
     }
     h3{
-        font-size: 15px !important;
+        font-size: 20px !important;
     }
     h2{
         font-size: 25px !important;
+    }
+    p{
+        font-size: 15px !important;
     }
     .blank-space {
         padding-top: 10rem;
@@ -73,5 +76,27 @@
    
     #ad-list{
         flex-direction: column;
+    }
+
+    /*mennu filters*/
+    .filter-item {
+        flex-direction: column;
+        
+    }
+    
+    /*carrito*/
+  .cart-img{
+        display: none !important;
+    }
+    .cart-btn{
+        transform: scale(0.5);
+    }
+    .cart-price{
+        font-size: 18px !important;
+        align-content: center;
+        margin-bottom: 0 !important;
+    }
+    .cart-product {
+        font-size: 18px !important;;
     }
   }
