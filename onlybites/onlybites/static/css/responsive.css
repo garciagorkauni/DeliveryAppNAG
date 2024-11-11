@@ -1,0 +1,63 @@
+/*home */
+@media (min-width: 280px) and (max-width:480px) {
+   /*delete home intro img*/
+   body, html {
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+   nav{
+    display: none !important;
+   }
+   .intro {
+    max-width: 100% !important; /* Ajusta al 100% del ancho de pantalla */
+    padding: 0;
+ }
+    #home-image,
+    #home-image img {
+      display: none !important; /* Añade !important para sobrescribir otros estilos */
+    }
+    .mb-5{
+        margin-bottom: 0 !important;
+    }
+    .container {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0;
+        overflow-x: hidden;
+     }
+    h1{
+        font-size: 32px !important;
+    }
+    h3{
+        font-size: 15px !important;
+    }
+    h2{
+        font-size: 25px !important;
+    }
+    .blank-space {
+        padding-top: 10rem;
+    }
+    .row{
+        margin: 0 !important;
+    }
+    .pink{
+        padding: 5px !important;
+    }
+    footer{
+        max-width:  100% !important;
+        height: auto;
+    }
+    /*display most liked dish */
+    .popular-dish img {
+        width: 80%;
+        height: auto;
+        
+    }
+    .popular-dish  {
+        width: 80%;
+        height: auto;
+        
+    }
+  }

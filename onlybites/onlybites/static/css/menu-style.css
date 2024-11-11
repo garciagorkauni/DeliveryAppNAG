@@ -151,6 +151,9 @@
   font-weight: bold;
   color: #718238;
 }
+#filter-container{
+  width: 100%;
+}
 .filter-form {
     display: flex;
     align-items: flex-start;
