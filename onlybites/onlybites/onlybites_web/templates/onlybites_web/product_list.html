@@ -30,7 +30,7 @@
                     </div>
                     <!--boton de agregar-->
                     <div>
-                        <a href="{% url 'add_cart' product_id=product.product_id %}">
+                        <a class="incrementCartButton" id="{{ product.product_id }}">
                             <img class="cart-btn" id="plus-button" src="{% static 'img/icons/Plus-circle.svg' %}" />
                         </a>
                     </div>

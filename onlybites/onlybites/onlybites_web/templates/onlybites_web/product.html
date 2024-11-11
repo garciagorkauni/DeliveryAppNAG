@@ -48,7 +48,7 @@
                  <div class="flex fl-direct-row fl-justcon-sbetw  end-aligned">
                     <p class="f-w-bold playfair cart-price">6.90€</p>
                     <div>
-                        <a href="{% url 'add_cart' product_id=product.product_id %}">
+                        <a class="incrementCartButton" id="{{ product.product_id }}">
                             <img class="cart-btn" id="plus-button" src="{% static 'img/icons/Plus-circle.svg' %}" />
                         </a>
                     </div>
