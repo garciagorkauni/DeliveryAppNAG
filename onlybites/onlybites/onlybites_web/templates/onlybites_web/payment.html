@@ -1,6 +1,8 @@
-<h2>Complete Payment</h2>
+{% load i18n %}
+
+<h2>{% trans "Complete Payment" %}</h2>
 <form method="post" action="{% url 'payment' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Confirm Purchase</button>
+    <button type="submit" class="btn btn-primary">{% trans "Confirm Purchase" %}</button>
 </form>

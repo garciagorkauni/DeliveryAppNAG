@@ -1,10 +1,11 @@
 {% extends 'onlybites_web/base.html' %}
+{% load i18n %}
 {% load static %}
 {% block content %}
 
 <div class="shadow radius flex fl-direc-colum form-block alg-it-center" > 
     <h1 class="black mb-5">
-        Sortu kontua
+        {% trans "Sortu kontua" %}
     </h1>
     <div class="form-width flex fl-direc-colum alg-it-center"  >
         <form method="post" class="form-width  flex fl-direc-colum" >
@@ -49,7 +50,7 @@
                     {{form.password2}}
                 </div>
             </div>
-            <button class="btn btn-green submit-form " type="submit">Register</button>
+            <button class="btn btn-green submit-form " type="submit">{% trans "Register" %}</button>
         </form>
     </div>
    

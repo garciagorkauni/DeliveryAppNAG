@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 
 {% if carts %}
 {% for cart in carts %}
@@ -42,5 +44,5 @@
 </div>
 {% endfor %}
 {% else %}
-<h4>Oraindik ez duzu produkturik gehitu zure saskira...</h4>
+<h4>{% trans "Oraindik ez duzu produkturik gehitu zure saskira..." %}</h4>
 {% endif %}

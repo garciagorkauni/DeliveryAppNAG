@@ -1,4 +1,5 @@
 {% extends 'onlybites_web/base.html' %}
+{% load i18n %}
 {% block content %}
 {% load static %}
 
@@ -6,7 +7,7 @@
 
 <div class="row intro">
     <div class="col-lg-9 col-md-9">
-        <h1>Gure sukaldetik zure etxera <span id='italic'>bite</span> batean</h1>
+        <h1>{% trans "Gure sukaldetik zure etxera <span id='italic'>bite</span> batean" %}</h1>
     </div>
 </div>
 </div>
@@ -16,26 +17,26 @@
         
             <div class="dropdown fl-jc-end flex">
                 <!--boton de filtro-->
-                <div class="btn btn-dropdown f-zie-18 " id="dropdownbutton">Filtroak <img src="{% static 'img/icons/filtro.svg' %}"></div>
+                <div class="btn btn-dropdown f-zie-18 " id="dropdownbutton">{% trans "Filtroak" %} <img src="{% static 'img/icons/filtro.svg' %}"></div>
                 <!--filtros-->
                 <div class="right" id="filter-container" style="display: none;">
                     <div class="filter-item">
-                        <label for="vegan">Vegan</label>
+                        <label for="vegan">{% trans "Vegan" %}</label>
                         <input type="checkbox" id="vegan">
                     </div>
 
                     <div class="filter-item">
-                        <label for="celiac">Celiac</label>
+                        <label for="celiac">{% trans "Celiac" %}</label>
                         <input type="checkbox" id="celiac">
                     </div>
 
                     <div class="filter-item">
-                        <label for="max-calories">Max. Calories</label>
+                        <label for="max-calories">{% trans "Max. Calories" %}</label>
                         <input type="number" id="max-calories">
                     </div>
 
                     <div class="filter-item allergies-group" id="allergiesList">
-                        <label>Allergies</label>
+                        <label>{% trans "Allergies" %}</label>
                         {% for allergen in allAllergens %}
                         <div class="allergy-option">
                             <input type="checkbox" name="{{ allergen.allergen_id }}" class="allergies">

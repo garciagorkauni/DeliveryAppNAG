@@ -1,4 +1,6 @@
-<h1>Valorar producto: {{ product.name }}</h1>
+{% load i18n %}
+
+<h1>{% trans "Valorar producto:" %} {{ product.name }}</h1>
 <form method="post" action="{% url 'add_rating' product.product_id %}">
     {% csrf_token %}
     <div class="rating">
@@ -27,12 +29,12 @@
 
        
     </div>
-    <p class="rating-value">Rating</p>
+    <p class="rating-value">{% trans "Rating" %}</p>
 
-    <label for="message">Mensaje:</label>
+    <label for="message">{% trans "Mensaje:" %}</label>
     <textarea name="message" id="message" required></textarea>
 
-    <button type="submit" class="btn btn-success">Enviar valoración</button>
+    <button type="submit" class="btn btn-success">{% trans "Enviar valoracion"}</button>
 </form>
 
 <script>

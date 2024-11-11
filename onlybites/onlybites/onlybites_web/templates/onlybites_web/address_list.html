@@ -1,13 +1,15 @@
+{% load i18n %}
+
 {% if addresses %}
     <ul>
         {% for address in addresses %}
             <li>
                 {{ address.address1 }} ...
-                <a href="{% url 'delete_address' address.address_id %}">Eliminar Dirección</a>
-                <a class="btn btn-warning editAddressButton" id="{{address.address_id}}" role="button">Edit</a>
+                <a href="{% url 'delete_address' address.address_id %}">{% trans "Eliminar Direccion" %}</a>
+                <a class="btn btn-warning editAddressButton" id="{{address.address_id}}" role="button">{% trans "Edit" %}</a>
             </li>
         {% endfor %}
     </ul>
 {% else %}
-    <h4>Oraindik ez duzu helbiderik gehitu...</h4>
+    <h4>{% trans "Oraindik ez duzu helbiderik gehitu..." %}</h4>
 {% endif %}

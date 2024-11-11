@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,19 +33,29 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'menu' %}">Menu</a></li>
+                    <li><a href="{% url 'menu' %}">{% trans "Menu" %}</a></li>
                 </ul>
     
                 <ul class="nav navbar-nav flex navbar-right jstcont-end">
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'cart' %}">Cart</a></li>
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                        <li><a href="{% url 'cart' %}">{% trans "Cart" %}</a></li>
+                        <li><a href="{% url 'profile' %}">{% trans "Profile" %}</a></li>
+                        <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
                     {% else %}
-                        <li><a href="#" id="loginButton">Login</a></li>
-                        <li><a class="btn btn-register" href="{% url 'register' %}">Register</a></li>
+                        <li><a href="#" id="loginButton">{% trans "Login" %}</a></li>
+                        <li><a class="btn btn-register" href="{% url 'register' %}">{% trans "Register" %}</a></li>
                     {% endif %}
                 </ul>
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <select name="language">
+                      <option value="es">Castellano</option>
+                      <option value="en">English</option>
+                      <option value="eu">Euskara</option>
+                    </select>
+                    <button type="submit">Cambiar idioma</button>
+                  </form>
+                  
             </div>
         </div>
     </nav>
@@ -61,20 +73,20 @@
     <div class="container center">
         <div class="row mt-10">
             <div class="col-lg-4 info">
-                <h4>Gure bila etorri</h4>
+                <h4>{% trans "Gure bila etorri" %}</h4>
                 <p>tel: 943267802</p>
                 <p>Errebal Kalea 3, Eibar, Gipuzkoa 20600</p>
             </div>
             
             <div class="col-lg-4 info">
-                <h4>Gure ordutegia</h4>
-                <p>Astelenetik Ostiralera: 12:00-16:00 | 19:00-23:00</p>
-                <p>Larunbata eta igandea 12:00-16:00 | 19:00-00:00</p>
-                <p>Jai egunak 19:00-23:00</p>
+                <h4>{% trans "Gure ordutegia" %}</h4>
+                <p>{% trans "Astelenetik Ostiralera: 12:00-16:00 | 19:00-23:00" %}</p>
+                <p>{% trans "Larunbata eta igandea 12:00-16:00 | 19:00-00:00" %}</p>
+                <p>{% trans "Jai egunak 19:00-23:00" %}</p>
             </div>
             
             <div class="col-lg-4 info">
-                <h4>Jarraitu gure sozialetan</h4>
+                <h4>{% trans "Jarraitu gure sozialetan" %}</h4>
                 <!--instagram-->
                 <a><img/></a>
                 <!--facebook-->
