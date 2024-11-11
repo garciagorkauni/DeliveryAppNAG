@@ -90,7 +90,7 @@ $(document).ready(function () {
             selected_filters.allergies)
     })
 
-    if (window.location.pathname === '/products/') { // This will be executed when the web is refreshed
+    if (window.location.pathname.split("/")[2] === 'products') { // This will be executed when the web is refreshed
         getFilters()
     }
 
@@ -131,8 +131,9 @@ $(document).ready(function () {
 
 // AJAX function for get login popup html
 function showLogin(){
+    lang = window.location.pathname.split("/")[1]
     $.ajax({
-        url: "/login/",
+        url: "/" + lang + "/login/",
         type: 'GET',
         success: function (data) {
             document.getElementById("loginPopup").innerHTML = data;
@@ -145,7 +146,8 @@ function showLogin(){
 
 // AJAX function for get address form html
 function showNewAddressForm(address_id){
-    url = "/add-address/"
+    lang = window.location.pathname.split("/")[1]
+    url = "/" + lang + "/add-address/"
     if(address_id){
         url = "/edit-address/" + address_id + "/"
     }
@@ -163,9 +165,10 @@ function showNewAddressForm(address_id){
 
 // AJAX function for saving new or edited address
 function saveAddress(address_id = null){
-    let url = "/add-address/"
+    lang = window.location.pathname.split("/")[1]
+    let url = "/" + lang + "/add-address/"
     if(address_id){
-        url = "/edit-address/" + address_id + "/"
+        url = "/" + lang + "/edit-address/" + address_id + "/"
     }
     let data = $('#addAddressForm, #editAddressForm').serialize()
 
