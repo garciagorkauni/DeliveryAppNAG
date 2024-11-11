@@ -1,10 +1,13 @@
 {% if addresses %}
     {% for address in addresses %}
-    <div class="flex fl-direc-row fl-justcon-sbetw">
+    <div class="flex fl-direc-row fl-justcon-sbetw" id="ad-list">
         <p > {{ address }}</p>
+        <div >
+            <a class="btn  btn-orange editAddressButton" id="{{address.address_id}}" role="button">Editatu</a>
+            <a class="btn  btn-red" href="{% url 'delete_address' address.address_id %}">Ezabatu</a>
+        </div>
         
-        <a class="btn  btn-orange editAddressButton" id="{{address.address_id}}" role="button">Editatu</a>
-        <a class="btn  btn-red" href="{% url 'delete_address' address.address_id %}">Ezabatu</a>
+       
     </div>
     {% endfor %}
 {% else %}

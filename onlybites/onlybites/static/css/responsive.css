@@ -3,7 +3,7 @@
    /*delete home intro img*/
    body, html {
     overflow-x: hidden; /* Oculta el scroll horizontal */
-    margin: 0;
+   
     padding: 0;
     width: 100%;
   }
@@ -21,7 +21,7 @@
    
     .container {
         max-width: 100% !important;
-        margin: 0 auto !important;
+        
         padding: 0;
         overflow-x: hidden;
      }
@@ -61,5 +61,17 @@
     /* display de los datps en el perfil*/
     .p-info{
         width: auto !important;
+    }
+    .delete, .sortu{
+        margin-left: 2rem;
+    }
+    /*botoiak txikiagoak izateko*/
+    .btn-red, .btn-green, .btn-orange{
+        font-size: 15px;
+    }
+    /*address list*/
+   
+    #ad-list{
+        flex-direction: column;
     }
   }
