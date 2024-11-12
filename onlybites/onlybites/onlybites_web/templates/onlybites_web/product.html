@@ -3,6 +3,7 @@
 {% block content %}
 
 {% load static %}
+{% get_current_language as LANGUAGE_CODE %}
 
 <div class="row intro">
        
@@ -26,8 +27,14 @@
             </div>
             <div class="flex fl-direc-colum " id="p-details" >
 
-                <div id="p-name"class="mb-2 flex">  
-                    <h3>{{ product.name }}</h3>
+                <div id="p-name"class="mb-2 flex">
+                    {% if LANGUAGE_CODE == 'en' %}
+                    <h3>{{ product.name_en }}</h3>
+                    {% elif LANGUAGE_CODE == 'es' %}
+                    <h3>{{ product.name_es }}</h3>
+                    {% elif LANGUAGE_CODE == 'eu' %}
+                    <h3>{{ product.name_eu }}</h3>
+                    {% endif %}
                 </div>
                 
                 <div class="flex fl-direc-colum mb-2" id="alergens">
@@ -43,7 +50,13 @@
                 <div id="cal" class="mb-2 flex"> <p>{{ product.calories }} cal</p></div>
                   
                  <div id="p-description" class="mb-2">
-                    <p>{{ product.description }}</p>
+                    {% if LANGUAGE_CODE == 'en' %}
+                    <p>{{ product.description_en }}</p>
+                    {% elif LANGUAGE_CODE == 'es' %}
+                    <p>{{ product.description_es }}</p>
+                    {% elif LANGUAGE_CODE == 'eu' %}
+                    <p>{{ product.description_eu }}</p>
+                    {% endif %}
                  </div>
                  <!--price and add to cart button, display block at the end-->
                  <div class="flex fl-direct-row fl-justcon-sbetw  end-aligned">

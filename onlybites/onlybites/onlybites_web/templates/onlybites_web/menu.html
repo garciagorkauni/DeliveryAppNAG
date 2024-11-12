@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block content %}
 {% load static %}
+{% get_current_language as LANGUAGE_CODE %}
 
 
 
@@ -43,7 +44,13 @@
                         <label class="l-name">{% trans "Allergies" %}</label>
                         {% for allergen in allAllergens %}
                         <div class="allergy-option">
-                            <label for="allergy-fruit">{{ allergen.name }}</label>
+                            {% if LANGUAGE_CODE == 'en' %}
+                            <label for="allergy-fruit">{{ allergen.name_en }}</label>
+                            {% elif LANGUAGE_CODE == 'es' %}
+                            <label for="allergy-fruit">{{ allergen.name_es }}</label>
+                            {% elif LANGUAGE_CODE == 'eu' %}
+                            <label for="allergy-fruit">{{ allergen.name_eu }}</label>
+                            {% endif %}
                             <input type="checkbox" name="{{ allergen.allergen_id }}" class="allergies">
                             
                         </div>

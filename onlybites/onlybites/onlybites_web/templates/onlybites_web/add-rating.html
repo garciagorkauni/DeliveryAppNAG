@@ -1,11 +1,19 @@
 {% load i18n %}
 {% load static %}
+{% get_current_language as LANGUAGE_CODE %}
 
 <a class="close-x" id="closeRatingFormButton" role="button">X</a>
 
 <div class="flex fl-direc-colum alg-it-center ">
     <div class="m ">
-        <h1>{% trans "Valorar producto:" %} {{ product.name }}</h1>
+        <h1>{% trans "Valorar producto:" %}
+            {% if LANGUAGE_CODE == 'en' %}
+            {{ product.name_en }}
+            {% elif LANGUAGE_CODE == 'es' %}
+            {{ product.name_es }}
+            {% elif LANGUAGE_CODE == 'eu' %}
+            {{ product.name_eu }}
+            {% endif %}</h1>
     </div>
 </div>
 
