@@ -19,7 +19,13 @@ function drawCharts() {
     var data2 = google.visualization.arrayToDataTable([
     ['Product', 'Stock'],
     {% for product in product_stock_data %}
-        ['{{ product.name }}', {{ product.stock }}],
+        {% if LANGUAGE_CODE == 'en' %}
+        ['{{ product.name_en }}', {{ product.stock }}],
+        {% elif LANGUAGE_CODE == 'es' %}
+        ['{{ product.name_es }}', {{ product.stock }}],
+        {% elif LANGUAGE_CODE == 'eu' %}
+        ['{{ product.name_eu }}', {{ product.stock }}],
+        {% endif %}
     {% endfor %}
     ]);
     var options2 = { title: 'Products stock' };

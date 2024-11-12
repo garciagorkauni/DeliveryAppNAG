@@ -3,6 +3,7 @@
 
 
 {% if carts %}
+{% get_current_language as LANGUAGE_CODE %}
 {% for cart in carts %}
 <div id="producto-carrito" class="flex fl-justcon-sbetw alg-it-center wid-90 " >
     <div class="flex alg-it-center " >
@@ -12,7 +13,13 @@
         </div>
     <!--product name-->
         <div class="flex fl-direc-colum ml-20 height-120 fl-justcon-sbetw">
-            <h3 class="cart-product ">{{ cart.product.name }}</h3>
+            {% if LANGUAGE_CODE == 'en' %}
+            <h3 class="cart-product ">{{ cart.product.name_en }}</h3>
+            {% elif LANGUAGE_CODE == 'es' %}
+            <h3 class="cart-product ">{{ cart.product.name_es }}</h3>
+            {% elif LANGUAGE_CODE == 'eu' %}
+            <h3 class="cart-product ">{{ cart.product.name_eu }}</h3>
+            {% endif %}
         <!--product price-->
         <div class="flex flfl-direc-colum fl-justcon-sbetw">
             <p class="f-w-bold playfair cart-price">{{ cart.product.price }}€</p>

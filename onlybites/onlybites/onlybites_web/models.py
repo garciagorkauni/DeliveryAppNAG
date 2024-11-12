@@ -1,8 +1,6 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.db import models
-
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models
+from django.utils.translation import get_language
 
 import datetime
 
@@ -281,7 +279,13 @@ class Product(models.Model):
     price = models.FloatField()
 
     def __str__(self):
-        return self.name
+        lang = get_language()
+        if lang == 'es':
+            return self.name_es
+        elif lang == 'en':
+            return self.name_en
+        elif lang == 'eu':
+            return self.name_eu
 
 class Valoration(models.Model):
     valoration_id = models.AutoField(primary_key=True)
@@ -291,7 +295,13 @@ class Valoration(models.Model):
     message = models.TextField()
 
     def __str__(self):
-        return f"{self.profile.name} - {self.product.name}"
+        lang = get_language()
+        if lang == 'es':
+            return f"{self.profile.name} - {self.product.name_es}"
+        elif lang == 'en':
+            return f"{self.profile.name} - {self.product.name_en}"
+        elif lang == 'eu':
+            return f"{self.profile.name} - {self.product.name_eu}"
 
 class Cart(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -299,7 +309,13 @@ class Cart(models.Model):
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
-        return f"Cart of {self.profile.name} - {self.product.name}"
+        lang = get_language()
+        if lang == 'es':
+            return f"Cart of {self.profile.name} - {self.product.name_es}"
+        elif lang == 'en':
+            return f"Cart of {self.profile.name} - {self.product.name_en}"
+        elif lang == 'eu':
+            return f"Cart of {self.profile.name} - {self.product.name_eu}"
 
 class Order(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -309,7 +325,13 @@ class Order(models.Model):
     date = models.DateField(default=datetime.date.today)
 
     def __str__(self):
-        return f"Order by {self.profile.name} - {self.product.name} on {self.date}"
+        lang = get_language()
+        if lang == 'es':
+            return f"Order by {self.profile.name} - {self.product.name_es} on {self.date}"
+        elif lang == 'en':
+            return f"Order by {self.profile.name} - {self.product.name_en} on {self.date}"
+        elif lang == 'eu':
+            return f"Order by {self.profile.name} - {self.product.name_eu} on {self.date}"
 
 class Image(models.Model):
     image_id = models.AutoField(primary_key=True)
@@ -318,7 +340,13 @@ class Image(models.Model):
     alt = models.CharField(max_length=75)
 
     def __str__(self):
-        return f"Image of {self.product.name}"
+        lang = get_language()
+        if lang == 'es':
+            return f"Image of {self.product.name_es}"
+        elif lang == 'en':
+            return f"Image of {self.product.name_en}"
+        elif lang == 'eu':
+            return f"Image of {self.product.name_eu}"
 
 class Allergen(models.Model):
     allergen_id = models.AutoField(primary_key=True)
@@ -330,11 +358,23 @@ class Allergen(models.Model):
     description_eu = models.TextField()
 
     def __str__(self):
-        return self.name
+        lang = get_language()
+        if lang == 'es':
+            return self.name_es
+        elif lang == 'en':
+            return self.name_en
+        elif lang == 'eu':
+            return self.name_eu
 
 class ProductAllergen(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     allergen = models.ForeignKey(Allergen, on_delete=models.CASCADE) 
 
     def __str__(self):
-        return f"{self.product.name} - {self.allergen.name}"
+        lang = get_language()
+        if lang == 'es':
+            return f"{self.product.name_es} - {self.allergen.name_es}"
+        elif lang == 'en':
+            return f"{self.product.name_en} - {self.allergen.name_en}"
+        elif lang == 'eu':
+            return f"{self.product.name_eu} - {self.allergen.name_eu}"
