@@ -99,7 +99,7 @@
     </div>
     <div class="container  flex fl-direc-colum ">
         {% if valorations %}
-        <div class="flex fl-direc-colum  mt-40 " id="val">
+        <div class="flex fl-direc-colum  mt-40 m " id="val">
             <div class="mb-1">
                 <h2>Balorazioak:</h2>
             </div>
@@ -130,7 +130,7 @@
         {% endif %}
             {% if user.is_authenticated %}
             <input type="hidden" id="productId" value="{{product.product_id}}"/>
-            <a class="btn btn-orange" id="newValorationButton" role="button">Baloratu</a>
+            <a class="btn btn-orange " id="newValorationButton" role="button">Baloratu</a>
             {% endif %}
         </div>
 

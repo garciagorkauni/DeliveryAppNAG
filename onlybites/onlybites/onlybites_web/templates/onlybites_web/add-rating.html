@@ -6,7 +6,7 @@
 
 <div class=" flex fl-direc-colum alg-it-center mt-40  ">
     <div class="m ">
-        <h1>{% trans "Valorar producto:" %}
+        <h1>
             {% if LANGUAGE_CODE == 'en' %}
             {{ product.name_en }}
             {% elif LANGUAGE_CODE == 'es' %}
@@ -44,7 +44,7 @@
     <label for="message" class="rating-value f-zie-18 f-w-bold">{% trans "Mensaje:" %}</label>
     <textarea name="message" id="message" required></textarea>
 
-    <button type="submit" class="btn btn-success">{% trans "Enviar valoracion"%}</button>
+    <button type="submit" class="btn btn-green submit-form ">{% trans "Enviar valoracion"%}</button>
 </form>
 
 <script>
