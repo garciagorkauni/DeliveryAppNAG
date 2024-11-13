@@ -196,6 +196,6 @@ a:hover{
  align-self: center;
  display: flex;
 }
-select, input{
+select, input, textarea{
   font-size: 18px;
 }
