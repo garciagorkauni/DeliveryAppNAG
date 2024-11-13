@@ -190,9 +190,12 @@ a:hover{
 }
 /* darle un tamaño minimo a la paginas*/
 .min-height{
-  min-height: 535px;
+  min-height: 680px;
 }
 .js-center{
  align-self: center;
  display: flex;
+}
+select, input{
+  font-size: 18px;
 }
