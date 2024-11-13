@@ -155,9 +155,17 @@ def payment(request):
             
             return redirect('home')
     else:
+        # CALCULAR EL PRECIO TOTAL
+        total = 0
+
+        carts = Cart.objects.filter(profile=profile)
+        for cart_item in carts:
+            total += cart_item.product.price * cart_item.quantity
+
+        total = round(total, 2)
         form = PaymentForm(profile=profile)
     
-    return render(request, 'onlybites_web/payment.html', {'form': form})
+    return render(request, 'onlybites_web/payment.html', locals())
 
 
 # View for profile

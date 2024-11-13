@@ -1,0 +1,233 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-11 14:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+
+msgid "Castellano"
+msgstr "Gaztelania"
+
+msgid "Inglés"
+msgstr "Ingelesa"
+
+msgid "Euskera"
+msgstr "Euskara"
+
+msgid "Recent actions"
+msgstr "Azken ekintzak"
+
+msgid "My actions"
+msgstr "Nire ekintzak"
+
+msgid "None available"
+msgstr "Ez dago erabilgarri"
+
+msgid "Added:"
+msgstr "Gehitua:"
+
+msgid "Changed:"
+msgstr "Aldatua:"
+
+msgid "Deleted:"
+msgstr "Ezabatua:"
+
+msgid "Unknown content"
+msgstr "Edukia ezezaguna"
+
+msgid "Eskaera Helbidea"
+msgstr "Eskaera Helbidea"
+
+msgid "Save"
+msgstr "Gorde"
+
+msgid "Valorar producto:"
+msgstr "Produktuari balorazioa eman:"
+
+msgid "Rating"
+msgstr "Balorazioa"
+
+msgid "Mensaje:"
+msgstr "Mezua:"
+
+msgid "Enviar valoracion"
+msgstr "Bidali balorazioa"
+
+msgid "Eliminar Direccion"
+msgstr "Helbidea ezabatu"
+
+msgid "Edit"
+msgstr "Editatu"
+
+msgid "Oraindik ez duzu helbiderik gehitu..."
+msgstr "Oraindik ez duzu helbiderik gehitu..."
+
+msgid "Menu"
+msgstr "Menua"
+
+msgid "Cart"
+msgstr "Saskia"
+
+msgid "Profile"
+msgstr "Profila"
+
+msgid "Logout"
+msgstr "Saioa itxi"
+
+msgid "Login"
+msgstr "Saioa hasi"
+
+msgid "Register"
+msgstr "Erregistratu"
+
+msgid "Gure bila etorri"
+msgstr "Gure bila etorri"
+
+msgid "Gure ordutegia"
+msgstr "Gure ordutegia"
+
+msgid "Astelenetik Ostiralera: 12:00-16:00 | 19:00-23:00"
+msgstr "Astelehena-Ostirala: 12:00-16:00 | 19:00-23:00"
+
+msgid "Larunbata eta igandea 12:00-16:00 | 19:00-00:00"
+msgstr "Larunbata eta igandea 12:00-16:00 | 19:00-00:00"
+
+msgid "Jai egunak 19:00-23:00"
+msgstr "Jai egunak: 19:00-23:00"
+
+msgid "Jarraitu gure sozialetan"
+msgstr "Jarraitu gure sare sozialetan"
+
+msgid "Saskia"
+msgstr "Saskia"
+
+msgid "Produktuak:"
+msgstr "Produktuak:"
+
+msgid "Eskaera Helbidea:"
+msgstr "Eskaera Helbidea:"
+
+msgid "Gutxienez helbide bat gehitu behar duzu erosketa egiteko."
+msgstr "Gutxienez helbide bat gehitu behar duzu erosketa egiteko."
+
+msgid "Sortu helbidea"
+msgstr "Sortu helbidea"
+
+msgid "Ordaindu"
+msgstr "Ordaindu"
+
+msgid "Oraindik ez duzu produkturik gehitu zure saskira..."
+msgstr "Oraindik ez duzu produkturik gehitu zure saskira..."
+
+msgid "¿Are you sure you want to delete this address?"
+msgstr "Ziur zaude helbide hau ezabatu nahi duzula?"
+
+msgid "Confirm delete"
+msgstr "Ezabatu berretsi"
+
+msgid "Cancel"
+msgstr "Utzi"
+
+msgid "Erraza, goxoa eta zuzenean zure mahira."
+msgstr "Erraza, goxoa eta zuzenean zure mahaira."
+
+msgid "Janari prestatu aberats eta osasungarria."
+msgstr "Janari prestatua, aberatsa eta osasungarria."
+
+msgid "Bezeroen gustokoenak"
+msgstr "Bezeroen gustukoenak"
+
+msgid "Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:"
+msgstr "Aste honetan gure bezeroei gehien gustatuko zaizkienak probatzera animatu:"
+
+msgid "Ikusi plater guztiak"
+msgstr "Ikusi plater guztiak"
+
+msgid "Hasi saioa"
+msgstr "Saioa hasi"
+
+msgid "or"
+msgstr "edo"
+
+msgid "Gure sukaldetik zure etxera <span id='italic'>bite</span> batean"
+msgstr "Gure sukaldetik zure etxera <span id='italic'>bite</span> batean"
+
+msgid "Filtroak"
+msgstr "Filtroak"
+
+msgid "Vegan"
+msgstr "Began"
+
+msgid "Celiac"
+msgstr "Zeliakoentzat"
+
+msgid "Max. Calories"
+msgstr "Kaloria maximoak"
+
+msgid "Allergies"
+msgstr "Alergiak"
+
+msgid "Complete Payment"
+msgstr "Ordainketa osatu"
+
+msgid "Total: "
+msgstr "Guztira: "
+
+msgid "Confirm Purchase"
+msgstr "Erosketa berretsi"
+
+msgid "Zure gustukoen  <span id='italic'>bite-ak</span> jateko prest?"
+msgstr "Zure gustuko <span id='italic'>bite-ak</span> jateko prest?"
+
+msgid "Beganoa"
+msgstr "Beganoa"
+
+msgid "Zeliakoentzat aptoa"
+msgstr "Zeliakoentzat egokia"
+
+msgid "Ez dira ezaugarri horiek betetzen dituzten produktuak topatu..."
+msgstr "Ez dira ezaugarri horiek betetzen dituzten produktuak aurkitu..."
+
+msgid "Kaixo, "
+msgstr "Kaixo, "
+
+msgid "Bezeroaren datuak"
+msgstr "Bezeroaren datuak"
+
+msgid "Izena"
+msgstr "Izena"
+
+msgid "Abizena"
+msgstr "Abizena"
+
+msgid "Posta helbidea"
+msgstr "Posta helbidea"
+
+msgid "Telefono zenbakia"
+msgstr "Telefono zenbakia"
+
+msgid "Jaiotze data"
+msgstr "Jaiotze data"
+
+msgid "Eliminar Perfil"
+msgstr "Profila ezabatu"
+
+msgid "Eskaera helbideak:"
+msgstr "Eskaera helbideak:"
+
+msgid "Sortu kontua"
+msgstr "Kontua sortu"

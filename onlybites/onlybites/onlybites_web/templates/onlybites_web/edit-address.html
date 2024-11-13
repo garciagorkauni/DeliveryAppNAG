@@ -1,11 +1,14 @@
 {% load static %}
+{% load i18n %}
+{% load i18n %}
+
 <a class="close-x" id="closeAddressFormButton" role="button">X</a>
 
 
 
 <div class="flex fl-direc-colum alg-it-center login padd-20 m">
     <div class="mb-2 mt-10">
-        <h1> Eskaera Helbidea</h1>
+        <h1>{% trans "Eskaera Helbidea" %}</h1>
     </div>
 
     <form method="post" class="flex fl-direc-colum width2" id="editAddressForm">
@@ -56,7 +59,7 @@
             
         </div>
         
-        <button type="submit" class="save btn btn-green  mb-2 submit-form">Gorde</button>
+        <button type="submit" class="save btn btn-green  mb-2 submit-form">{% trans "Save" %}</button>
     </form>
     
     

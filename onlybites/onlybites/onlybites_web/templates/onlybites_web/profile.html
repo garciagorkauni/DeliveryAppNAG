@@ -1,30 +1,31 @@
 {% extends 'onlybites_web/base.html' %}
+{% load i18n %}
 {% block content %}
 {% load static %}
 <div class="wid-80 flex fl-direc-colum m-left-10 ">
     <div id="hello">
-        <h1>Kaixo, {{ profile.name }}</h1>
+        <h1>{% trans "Kaixo, " %}{{ profile.name }}</h1>
     </div>
-    <div class="section-title mb-2 mt-10"> <h3>Bezeroaren datuak</h3></div>
+    <div class="section-title mb-2 mt-10"> <h3>{% trans "Bezeroaren datuak" %}</h3></div>
 </div>
 
 <div class="separate-line"></div>
 <div class="wid-80 flex fl-direc-colum m-left-10 mb-5 ">
     <div class="row flex ">
         <div class="col-lg-6">
-            <div class="p-lable"><p></p>Izena<p></p></div>
+            <div class="p-lable"><p></p>{% trans "Izena" %}<p></p></div>
             <div class="p-info"><p>{{ profile.name }}</p></div>
 
         </div>
         <div class="col-lg-6">
-            <div class="p-lable "><p></p>Abizena<p></p></div>
+            <div class="p-lable "><p></p>{% trans "Abizena" %}<p></p></div>
             <div class="p-info"><p>{{ profile.surname }}</p></div>
 
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <div class="p-lable"><p></p>Posta helbidea<p></p></div>
+            <div class="p-lable"><p></p>{% trans "Posta helbidea" %}<p></p></div>
             <div class="p-info"><p>{{ profile.email }}</p></div>
 
         </div>
@@ -32,7 +33,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <div class="p-lable"><p></p>Telefono zenbakia<p></p></div>
+            <div class="p-lable"><p></p>{% trans "Telefono zenbakia" %}<p></p></div>
             {% if profile.telephone %}
             <div class="p-info"><p>{{ profile.telephone }}</p></div>
             {% else %}
@@ -40,7 +41,7 @@
             {% endif %}
         </div>
         <div class="col-lg-6">
-            <div class="p-lable"><p></p>Jaiotze datad<p></p></div>
+            <div class="p-lable"><p></p>{% trans "Jaiotze data" %}<p></p></div>
             <div class="p-info"><p>{{ profile.birthdate }}</p></div>
 
         </div>
@@ -51,25 +52,21 @@
  <form action="{% url 'delete_profile' %}" method="post" style="display: inline;">
         {% csrf_token %}
         <button type="submit" class="btn  btn-red delete" >
-            Eliminar Perfil
+            {% trans "Eliminar Perfil" %}
         </button>
     </form>
 
 <div class="wid-80 flex fl-direc-colum m-left-10 ">
-  
-    <div class="section-title mt-10 "> <h3>Eskaera helbideak:</h3></div>
+    <div class="section-title mt-10 "> <h3>{% trans "Eskaera helbideak:" %}</h3></div>
 </div>
 <div class="separate-line  "></div>
 <div class="wid-80 flex fl-direc-colum m-left-10 ">
     <div id="addressList">
       {% include "onlybites_web/address_list.html" %}
     </div>
-
-   
-    
 </div>
 <div class="flex  mt-40">
-    <a class="mt-40 btn btn-green sortu" id="addAddressButton" role="button">Sortu helbidea</a>
+    <a class="mt-40 btn btn-green sortu" id="addAddressButton" role="button">{% trans "Sortu helbidea" %}</a>
 
     <div id="newAddressForm" class="popup shadow radius ">
     </div>

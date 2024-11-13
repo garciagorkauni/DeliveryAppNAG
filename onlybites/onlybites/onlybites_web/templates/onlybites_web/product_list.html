@@ -1,5 +1,8 @@
 {% load static %}
+{% load i18n %}
+
 <div class="row">
+    {% get_current_language as LANGUAGE_CODE %}
     {% if allProducts %}
         {% for product in allProducts %}
         <div class="col-lg-4 col-6 flex flex-center">
@@ -18,7 +21,13 @@
                     </div>
                     <!--nombre del producto-->
                     <div class="product-name  f-zie-18 padd-10">
-                        <p>{{ product.name }}</p>
+                        {% if LANGUAGE_CODE == 'en' %}
+                        <p>{{ product.name_en }}</p>
+                        {% elif LANGUAGE_CODE == 'es' %}
+                        <p>{{ product.name_es }}</p>
+                        {% elif LANGUAGE_CODE == 'eu' %}
+                        <p>{{ product.name_eu }}</p>
+                        {% endif %}
                     </div>
                 </a>
                 <div id="cal" class="mb-2 flex mb-0"> <p>{{ product.calories }} cal<p></div>
@@ -40,6 +49,6 @@
         </div>
         {% endfor %}
     {% else %}
-        <h3>Ez dira ezaugarri horiek betetzen dituzten produktuak topatu...</h3>
+        <h3>{% trans "Ez dira ezaugarri horiek betetzen dituzten produktuak topatu..." %}</h3>
     {% endif %}
 </div> 

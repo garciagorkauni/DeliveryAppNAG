@@ -47,3 +47,21 @@ h3 {
 .padd-20{
   padding: 20px;
 }
+
+/* address list style*/
+.btn-red{
+  color: white;
+  background-color: #fc3531; 
+  padding: 10px 20px;
+  border-radius: 9rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+.btn-red:hover {
+  color: white;
+  transform: scale(1.1);
+}
+.delete{
+  font-size: 14px;
+}

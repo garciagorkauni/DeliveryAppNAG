@@ -1,8 +1,14 @@
 from django import forms
 from .models import Profile, Address
 from django.contrib.auth.forms import UserCreationForm
+from django.forms.widgets import DateInput
 
 class RegisterForm(UserCreationForm):
+    birthdate = forms.DateField(
+        widget=DateInput(attrs={'type': 'date', 'format': '%Y-%m-%d'}), 
+        input_formats=['%Y-%m-%d']
+    )
+
     class Meta:
         model = Profile
         fields = ('email', 'name', 'surname', 'birthdate', 'telephone', 'password1', 'password2')

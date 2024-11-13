@@ -1,6 +1,13 @@
+const selected_filters = {
+    vegan: false,
+    celiac: false,
+    maxCalories: 0,
+    allergies: []
+}
+
 $(document).ready(function () {
     // Listeners for login popup
-    $('#loginButton').on("click", function(){
+    $(document).on("click", "#loginButton", function(){
         showLogin()
     })
 
@@ -10,11 +17,11 @@ $(document).ready(function () {
 
 
     // Listeners for addresses managemet
-    $('.editAddressButton').on("click", function(){
+    $(document).on("click", ".editAddressButton", function(){
         showNewAddressForm($(this).attr('id'))
     })
 
-    $('#addAddressButton').on("click", function(){
+    $(document).on("click", "#addAddressButton", function(){
         showNewAddressForm()
     })
 
@@ -34,12 +41,13 @@ $(document).ready(function () {
 
 
     // Listeners for product filters
-    const selected_filters = {
-        vegan: false,
-        celiac: false,
-        maxCalories: 0,
-        allergies: []
-    }
+    $(document).on("submit", ".filter-form", function(e){
+        e.preventDefault()
+    })
+
+    $(document).on("click", "#dropdownbutton", function(){
+        toggleFilters()
+    })
 
     $(document).on("change", "#vegan", function(e){
         selected_filters.vegan = $('#vegan')[0].checked
@@ -81,12 +89,51 @@ $(document).ready(function () {
             selected_filters.maxCalories, 
             selected_filters.allergies)
     })
+
+    if (window.location.pathname.split("/")[2] === 'products') { // This will be executed when the web is refreshed
+        getFilters()
+    }
+
+
+    // Listener for payment simulation
+    $(document).on("click", "#paymentButton", function(){
+        showPaymentForm()
+    })
+
+    $(document).on("click", "#closePaymentFormButton", function(){
+        $('#paymentForm').empty()
+    })
+
+
+    // Listener for valoration
+    $(document).on("click", "#newValorationButton", function(){
+        showNewValorationForm($('#productId').attr('value'))
+    })
+
+    $(document).on("click", "#closeRatingFormButton", function(){
+        $('#newValorationForm').empty()
+    })
+
+
+    // Listeners for cart features
+    $(document).on("click", ".reduceCartButton", function(){
+        reduceCartQuantity($(this).attr('id'))
+    })
+
+    $(document).on("click", ".incrementCartButton", function(){
+        incrementCartQuantity($(this).attr('id'))
+    })
+
+    $(document).on("click", ".deleteCartButton", function(){
+        deleteCart($(this).attr('id'))
+    })
 })
 
 // AJAX function for get login popup html
 function showLogin(){
+    lang = window.location.pathname.split("/")[1]
     $.ajax({
-        url: "/login/",
+        url: "/" + lang + "/login/",
         type: 'GET',
         success: function (data) {
             document.getElementById("loginPopup").innerHTML = data;
@@ -99,7 +146,8 @@ function showLogin(){
 
 // AJAX function for get address form html
 function showNewAddressForm(address_id){
-    url = "/add-address/"
+    lang = window.location.pathname.split("/")[1]
+    url = "/" + lang + "/add-address/"
     if(address_id){
         url = "/edit-address/" + address_id + "/"
     }
@@ -117,9 +165,10 @@ function showNewAddressForm(address_id){
 
 // AJAX function for saving new or edited address
 function saveAddress(address_id = null){
-    let url = "/add-address/"
+    lang = window.location.pathname.split("/")[1]
+    let url = "/" + lang + "/add-address/"
     if(address_id){
-        url = "/edit-address/" + address_id + "/"
+        url = "/" + lang + "/edit-address/" + address_id + "/"
     }
     let data = $('#addAddressForm, #editAddressForm').serialize()
 
@@ -204,6 +253,54 @@ function updateProductList(vegan, celiac, max_calories, allergies) {
     });
 }
 
+// AJAX function for reduce one cart quantity
+function reduceCartQuantity(cart_id){
+    let url = "/reduce-cart/" + cart_id
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (data) {
+            document.getElementById("cartList").innerHTML = data
+        },
+        error: function (data) {
+            alert("Error reducing the cart.")
+        }
+    })
+}
+
+// AJAX function for increment one cart quantity
+function incrementCartQuantity(cart_id){
+    let url = "/add-cart/" + cart_id
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (data) {
+            if (window.location.pathname.split("/")[2] != 'cart') { 
+                window.location.pathname = '/cart/'
+            }
+            document.getElementById("cartList").innerHTML = data
+        },
+        error: function (data) {
+            alert("Error incrementing the cart.")
+        }
+    })
+}
+
+// AJAX function for delete cart quantity
+function deleteCart(cart_id){
+    let url = "/delete-cart/" + cart_id
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (data) {
+            document.getElementById("cartList").innerHTML = data
+        },
+        error: function (data) {
+            alert("Error deleting the cart.")
+        }
+    })
+}
+
 // Function for show and hide product filters in menu
 function toggleFilters() {
     const filterContainer = document.getElementById('filter-container');
@@ -212,4 +309,22 @@ function toggleFilters() {
     } else {
         filterContainer.style.display = 'none';
     }
+}
+
+// Function to see which filters are checked
+function getFilters() {
+    selected_filters.vegan = $('#vegan')[0].checked
+    selected_filters.celiac = $('#celiac')[0].checked
+    selected_filters.maxCalories = $("#max-calories").val()
+    selected_filters.allergies = []
+    $(".allergies").each(function() {
+        if ($(this).is(":checked")) {
+            selected_filters.allergies.push($(this).attr("name"));
+        }
+    })
+    
+    updateProductList(selected_filters.vegan, 
+        selected_filters.celiac, 
+        selected_filters.maxCalories, 
+        selected_filters.allergies)
 }
