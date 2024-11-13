@@ -175,13 +175,16 @@
         margin-top: 10px;
         margin-right: 10px;
     }
+    #closeSideMenuButton{
+        
+    }
     #sideMenu{
         position: fixed;
         background-color: white;
         height: 100%;
         width: 70%;
         z-index: 999;
-        display: flex;
+        display: flex !important;
         justify-content: center;
         left: -300px; /* Oculto inicialmente */
     }

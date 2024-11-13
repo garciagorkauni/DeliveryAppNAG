@@ -337,7 +337,7 @@ $(document).ready(function() {
     //close the side menu
     $closeButton.on('click', function() {
         $sideMenu.animate({ left: '-300px' }, 300, function() {
-            $closeButton.animate({ left: '-300px' }, 300) 
+            $closeButton.hide() 
         });
     });
 
