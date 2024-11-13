@@ -261,7 +261,7 @@ class Address(models.Model):
     address2 = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
-        return f"{self.address1}, {self.city} - {self.country}"
+        return f"{self.address1}, {self.name} {self.surname}"
     
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)

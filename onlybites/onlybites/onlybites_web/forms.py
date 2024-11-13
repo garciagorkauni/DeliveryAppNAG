@@ -82,6 +82,6 @@ class PaymentForm(forms.Form):
         super().__init__(*args, **kwargs)
         if profile:
             self.fields['address'].choices = [
-                (address.address_id, f"{address.address1}, {address.city}, {address.country}")
+                (address.address_id, f"{address.address1}, {address.name} {address.surname}")
                 for address in Address.objects.filter(profile=profile)
             ]
