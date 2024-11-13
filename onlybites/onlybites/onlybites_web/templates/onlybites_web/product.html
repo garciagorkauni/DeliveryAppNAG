@@ -60,7 +60,7 @@
                  </div>
                  <!--price and add to cart button, display block at the end-->
                  <div class="flex fl-direct-row fl-justcon-sbetw  end-aligned">
-                    <p class="f-w-bold playfair cart-price">6.90€</p>
+                    <p class="f-w-bold playfair " id="p-price" >{{ product.price }}€</p>
                     <div>
                         <a class="incrementCartButton" id="{{ product.product_id }}">
                             <img class="cart-btn" id="plus-button" src="{% static 'img/icons/Plus-circle.svg' %}" />
@@ -75,6 +75,20 @@
                     {% if product.celiac %}
                     <div class="apt f-w-bold"><p class="playfair f-zie-18">{% trans "Zeliakoentzat aptoa" %}</p></div>
                     {% endif %}
+                    <div >
+                        <p id="p-val">
+                            <span>
+                                {% for i in "*****" %}
+                                {% if forloop.counter <= product.valoration_avg %}
+                                    ★
+                                {% else %}
+                                    ☆
+                                {% endif %}
+                            {% endfor %}
+                           
+                            </span>
+                        </p>
+                    </div>
                  </div>
                  
             </div>
@@ -112,8 +126,8 @@
             {% endfor %}
             
         </div>
+        <div class="fl-jc-end flex m">
         {% endif %}
-        <div class="fl-jc-end flex">
             {% if user.is_authenticated %}
             <input type="hidden" id="productId" value="{{product.product_id}}"/>
             <a class="btn btn-orange" id="newValorationButton" role="button">Baloratu</a>

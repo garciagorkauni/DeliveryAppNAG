@@ -5,14 +5,16 @@
 <div class="min-height">
     <div class=" flex fl-direc-colum m-left-10 ">
         <div >
+            <div id="back-page-botton" ><a href="{% url 'menu' %}"> <img src="{% static 'img/icons/Arrow left-circle.svg' %}"></a></div>
             <h1>{% trans "Saskia" %}</h1>
         </div>
-        <div class="section-title"> <h3>{% trans "Produktuak:" %}</h3></div>
+       
+        <div class="section-title  mt-10"> <h3>{% trans "Produktuak:" %}</h3></div>
     </div>
     
     <div class="separate-line"></div>
     
-    <div class="row flex fl-direc-colum  m-left-10" id="cartList">
+    <div class=" flex fl-direc-colum  m-left-10" id="cartList">
         {% include "onlybites_web/cart_list.html" %}  
     </div>
     <div class=" flex fl-direc-colum m-left-10 ">
@@ -33,8 +35,8 @@
             {% endif %}
         </div>
     </div>
-    <div class="flex fl-justcon-sbetw mt-40">
-        <a class=" mt-10 btn btn-green wid-20"  id="addAddressButton" role="button" role="button">{% trans "Sortu helbidea" %}</a>
+    <div class="flex fl-justcon-sbetw mt-40 m">
+        <a class=" mt-10 btn btn-green "  id="addAddressButton" role="button" role="button">{% trans "Sortu helbidea" %}</a>
 
         <div id="newAddressForm" class="popup shadow radius ">
         </div>

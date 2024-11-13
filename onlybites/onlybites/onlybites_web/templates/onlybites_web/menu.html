@@ -14,17 +14,17 @@
 </div>
 <div class="pink">
     <div class=" container ">
-        <div class="row ">
+        <div class="row fl-jc-end ">
         
-            <div class="dropdown fl-jc-end flex">
+            <div class="dropdown  flex">
 
                 <!--boton de filtro-->
                 <div class="btn btn-dropdown f-zie-18 " id="dropdownbutton">{% trans "Filtroak" %} <img src="{% static 'img/icons/filtro.svg' %}"></div>
                 <!--filtros-->
 
             </div>
-            <div  id="filter-container" style="display: none;">
-                <form class="filter-form">
+            <div  id="filter-container" class="mb-2" style="display: none;">
+                <form class="filter-form ">
                     <div class="filter-item">
                         <label for="vegan" class="l-name">{% trans "Vegan" %}</label>
                         <input type="checkbox" id="vegan">
@@ -59,7 +59,7 @@
                 </form>
             </div>
         </div>
-        <div class="row" id="productList">
+        <div class="mb-5" id="productList">
             {% include "onlybites_web/product_list.html" %}        
         </div>
     </div>

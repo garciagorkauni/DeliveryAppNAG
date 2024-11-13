@@ -1,10 +1,10 @@
 h1 {
   color: #f95c39;
-  font-size: 40px;
+  font-size: 40px !important;
 }
 h2 {
   color: #718238;
-  font-size: 36px;
+  font-size: 36px !important;
 }
 h3 {
   font-family: "Playfair Display", sans-serif;
@@ -108,6 +108,7 @@ h2{
 }
 
 #home-image {
+  display: block;
     position: absolute;
     top: -180px; /* Ajusta según necesites */
     right: -100px; /* Ajusta según necesites */
@@ -163,6 +164,9 @@ h2{
 }
 .btn-green:hover{
     color: white; 
-    font-size: 20px;
+    transform: scale(1.1);
 }
 /* etiketa margen*/
+footer p{
+  font-size: 18px;
+}

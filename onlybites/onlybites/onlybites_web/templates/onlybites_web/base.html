@@ -7,9 +7,12 @@
 
 <head>
     <title>OnlyBites</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/home-style.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}"/>
@@ -18,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/cart-style.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/add-rating.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
@@ -27,44 +31,77 @@
 
 <body>
     <nav class="navbar navbar-default flex flex-center">
-        <div class="container-fluid flex flex-center">
-            <div class="navbar-header">
+        <div class="container-fluid ">
+            <div class="navbar-header ">
                 <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites" class="logo-img"></a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'menu' %}">{% trans "Menu" %}</a></li>
-                </ul>
-    
-                <ul class="nav navbar-nav flex navbar-right jstcont-end">
-                    {% if user.is_authenticated %}
-                        <li><a href="{% url 'cart' %}">{% trans "Cart" %}</a></li>
-                        <li><a href="{% url 'profile' %}">{% trans "Profile" %}</a></li>
-                        <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
-                    {% else %}
-                        <li><a href="#" id="loginButton">{% trans "Login" %}</a></li>
-                        <li><a class="btn btn-register" href="{% url 'register' %}">{% trans "Register" %}</a></li>
-                    {% endif %}
-                </ul>
-                <form action="{% url 'set_language' %}" method="post">
-                    {% csrf_token %}
-                    <select name="language">
-                      <option value="es">Castellano</option>
-                      <option value="en">English</option>
-                      <option value="eu">Euskara</option>
-                    </select>
-                    <button type="submit">Cambiar idioma</button>
-                  </form>
-                  
+                <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'menu' %}">{% trans "Menu" %}</a></li>
+                    </ul>
+        
+                    <div class="nav navbar-nav flex fl-direc-row navbar-right jstcont-end">
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'cart' %}">{% trans "Cart" %}</a></li>
+                            <li><a href="{% url 'profile' %}">{% trans "Profile" %}</a></li>
+                            <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                        {% else %}
+                            <li><a href="#" id="loginButton">{% trans "Login" %}</a></li>
+                            <li><a class="btn btn-register" href="{% url 'register' %}">{% trans "Register" %}</a></li>
+                        {% endif %}
+                    </div>
+                    <form action="{% url 'set_language' %}" method="post">
+                      {% csrf_token %}
+                      <select name="language">
+                        <option value="es">Castellano</option>
+                        <option value="en">English</option>
+                        <option value="eu">Euskara</option>
+                      </select>
+                      <button type="submit">Cambiar idioma</button>
+                    </form>
+                </div>
+            </div>           
+        </div>
+    </nav>
+    <nav class=" navbar navbar-default flex flex-center" id="responsive" style="display: none;">
+        <div class="container-fluid ">
+            <div class="navbar-header   " style="justify-content: space-between;margin: 0;">
+                <a class="navbar-brand  fl-jc-start" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites" class="logo-img"></a>
+                <div class="  fl-jc-end js-center"   id="sideMenuDisplayButton"><img src="{% static 'img/icons/Menu-Hamburger.svg' %}"></div>
             </div>
         </div>
     </nav>
+    <aside id="sideMenu" style="display: none;"  >
+        <div >
+            <a class="close-x" id="closeSideMenuButton" role="button">X</a>
+                
+            <div class="nav navbar-nav flex fl-direc-colum " id="s-menu-content">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'menu' %}">{% trans "Menu" %}</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'cart' %}">{% trans "Cart" %}</a></li>
+                    <li><a href="{% url 'profile' %}">{% trans "Profile" %}</a></li>
+                    <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                {% else %}
+                    <li><a href="#" id="loginButton">{% trans "Login" %}</a></li>
+                    <li><a class="btn btn-register" href="{% url 'register' %}">{% trans "Register" %}</a></li>
+                {% endif %}
+                <form action="{% url 'set_language' %}" method="post">
+                  {% csrf_token %}
+                  <select name="language">
+                    <option value="es">Castellano</option>
+                    <option value="en">English</option>
+                    <option value="eu">Euskara</option>
+                  </select>
+                  <button type="submit">Cambiar idioma</button>
+                </form>
+            </div>
+        </div>
+    </aside>
 
     <div id="loginPopup" class="popup shadow radius  ">
     </div>
 
-    <div class=" container mb-5 ">
+    <div class=" min-height container mb-5 ">
         <div class="blank-space">
         </div>
         {% block content %} {% endblock %}

@@ -328,3 +328,26 @@ function getFilters() {
         selected_filters.maxCalories, 
         selected_filters.allergies)
 }
+
+/*open and close responsive side menu*/
+$(document).ready(function() {
+    const $sideMenu = $('#sideMenu');
+    const $closeButton = $('#closeSideMenuButton');
+
+    // open the side menu
+    $('#sideMenuDisplayButton').on('click', function() {
+        $sideMenu.animate({ left: '0px' }, 300, function() {
+            $closeButton.show(); 
+        });
+    });
+
+    //close the side menu
+    $closeButton.on('click', function() {
+        $sideMenu.animate({ left: '-300px' }, 300, function() {
+            $closeButton.hide() 
+        });
+    });
+
+    // hide the button if teh menu is not displayed
+    $closeButton.hide();
+});

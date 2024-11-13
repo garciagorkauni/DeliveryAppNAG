@@ -43,6 +43,9 @@ body {
 .navbar-collapse{
   width: 100%;
 }
+.navbar-header{
+  width: 100%;
+}
 
 
 
@@ -110,7 +113,7 @@ footer{
   background-color: #718238;
   color: white;
   
-  height: 200px;
+  height: auto;
   width: 100%;
  
 }
@@ -147,7 +150,7 @@ footer{
   justify-content: start;
 }
 .f-zie-18{
-  font-size: 18px;
+  font-size: 18px !important;
 }
 .f-w-bold{
   font-weight: bold;
@@ -182,7 +185,17 @@ a:hover{
 .mt-40{
   margin-top: 40px;
 }
+.mt-10{
+  margin-top: 10px;
+}
 /* darle un tamaño minimo a la paginas*/
 .min-height{
-  min-height: 535px;
+  min-height: 680px;
+}
+.js-center{
+ align-self: center;
+ display: flex;
+}
+select, input, textarea{
+  font-size: 18px;
 }
