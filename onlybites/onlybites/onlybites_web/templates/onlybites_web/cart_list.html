@@ -41,7 +41,7 @@
             </a>
         </div>
         <!--product amount-->
-        <div><span class="playfair" id="cart-quantity">{{cart.quantity}}</span></div>
+        <div><span class="f-w-bold f-zie-18" id="cart-quantity">{{cart.quantity}}</span></div>
         <div>
             <a class="incrementCartButton" id="{{ cart.product.product_id }}">
                 <img class="cart-btn" id="minus-button" src="{% static 'img/icons/Plus-circle.svg' %}"/>
@@ -50,7 +50,7 @@
     </div>
 </div>
 {% endfor %}
-<a class=" mt-10 btn btn-orange wid-20" id="paymentButton"><strong>{% trans "Ordaindu" %}</strong></a>
+<a class=" m btn btn-orange wid-20" id="paymentButton"><strong>{% trans "Ordaindu" %}</strong></a>
 {% else %}
 <h4>{% trans "Oraindik ez duzu produkturik gehitu zure saskira..." %}</h4>
 {% endif %}
