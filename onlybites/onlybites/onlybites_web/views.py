@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm, AddressForm, PaymentForm
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.utils.translation import get_language
 from rest_framework.views import APIView 
 from rest_framework.response import Response 
 from .serializers import ProductSerializers 
@@ -338,7 +339,13 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.db.models import Count
 @staff_member_required
 def stats_view(request):
-    product_stock_data = Product.objects.values('name', 'stock')
+    lang = get_language()
+    if lang == 'es':
+        product_stock_data = Product.objects.values('name_es', 'stock')
+    elif lang == 'en':
+        product_stock_data = Product.objects.values('name_en', 'stock')
+    elif lang == 'eu':
+        product_stock_data = Product.objects.values('name_eu', 'stock')
     orders_by_date = Order.objects.values('date').annotate(total=Count('id'))
 
     log_entries = LogEntry.objects.all().order_by('-action_time')[:10]
