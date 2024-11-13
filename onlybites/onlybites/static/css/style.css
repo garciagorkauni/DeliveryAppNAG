@@ -199,3 +199,13 @@ a:hover{
 select, input, textarea{
   font-size: 18px;
 }
+#l-select{
+  border-radius:5px;
+  border: solid 1px #777;
+}
+
+/*imagen de boton de cambiar de idioma*/
+#radio-img{
+  width: 20px;
+  height: auto;
+}

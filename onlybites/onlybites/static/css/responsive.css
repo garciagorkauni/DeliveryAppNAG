@@ -176,7 +176,7 @@
     }
     /*side menu*/
     #sideMenuDisplayButton{
-        height: 30px;
+        height: 30px !important;
         margin-top: 10px;
         margin-right: 10px;
     }
@@ -215,11 +215,29 @@
       
     }
   }
-  @media (min-width: 280px) and (max-width:840px) {
+  @media (min-width: 280px) and (max-width:940px) {
 
     #home-image,
     #home-image img {
       display: none !important;
       overflow-x: hidden; 
+    }
+    nav{
+        display: none !important;
+       }
+          /*nav responsive*/
+    
+    #responsive{
+        display: flex !important;
+    }
+    #sideMenuDisplayButton{
+        height: 50px;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    #sideMenu{
+       
+        display: flex !important;
+     
     }
   }

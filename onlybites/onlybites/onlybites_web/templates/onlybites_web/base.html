@@ -48,16 +48,17 @@
                             <li><a href="#" id="loginButton">{% trans "Login" %}</a></li>
                             <li><a class="btn btn-register" href="{% url 'register' %}">{% trans "Register" %}</a></li>
                         {% endif %}
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <select name="language" id="l-select">
+                              <option value="es">ES</option>
+                              <option value="en">EN</option>
+                              <option value="eu">EU</option>
+                            </select>
+                            <button type="submit" class="btn change-l"><img id="radio-img" src="{% static 'img/icons/radio_button_checked.svg' %}"></button>
+                          </form>
                     </div>
-                    <form action="{% url 'set_language' %}" method="post">
-                      {% csrf_token %}
-                      <select name="language">
-                        <option value="es">Castellano</option>
-                        <option value="en">English</option>
-                        <option value="eu">Euskara</option>
-                      </select>
-                      <button type="submit">Cambiar idioma</button>
-                    </form>
+                    
                 </div>
             </div>           
         </div>
@@ -88,11 +89,11 @@
                 <form action="{% url 'set_language' %}" method="post">
                   {% csrf_token %}
                   <select name="language">
-                    <option value="es">Castellano</option>
-                    <option value="en">English</option>
-                    <option value="eu">Euskara</option>
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                    <option value="eu">EU</option>
                   </select>
-                  <button type="submit">Cambiar idioma</button>
+                  <button type="submit" class="btn  change-l"><img id="radio-img" src="{% static 'img/icons/radio_button_checked.svg' %}"></button>
                 </form>
             </div>
         </div>
