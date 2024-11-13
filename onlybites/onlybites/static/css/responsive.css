@@ -142,6 +142,73 @@
     #back-page-botton {
         margin-bottom: 10px;
     }
+    
+    /*nav responsive*/
+    
+    #responsive{
+        display: flex !important;
+    }
+    .navbar-default {
+        
+        margin: 1rem 2rem;
+        background-color: white;
+        border-radius: 9rem;
+        align-items: center;
+        height: 60px;
+        position: fixed;
+        /* width: 90%; */
+        z-index: 3;
+        justify-content: center;
+    }
+    .logo-img,.navbar-brand{
+        height: 70px !important;
+        padding-bottom: 10px;
+    }
+    .container-fluid{
+        margin:0;
+        padding: 0;
+       
+    }
+    /*side menu*/
+    #sideMenuDisplayButton{
+        height: 30px;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    #closeSideMenuButton{
+        
+    }
+    #sideMenu{
+        position: fixed;
+        background-color: white;
+        height: 100%;
+        width: 70%;
+        z-index: 999;
+        display: flex !important;
+        justify-content: center;
+        left: -300px; /* Oculto inicialmente */
+    }
+    #s-menu-content{
+        margin-top: 9rem;
+       
+      
+    }
+    #s-menu-content>li>a{
+        color: #777;
+        font-size: 18px;
+        font-weight: bold;
+        margin-right: 20px;
+        text-decoration: none;
+      
+    }
+    #s-menu-content> li > a:hover{
+        transform: scale(1.1);
+        border:solid #777 2px ; 
+        border-radius:9rem ;
+        background-color: white;
+      
+      
+    }
   }
   @media (min-width: 280px) and (max-width:840px) {
 

@@ -192,3 +192,7 @@ a:hover{
 .min-height{
   min-height: 535px;
 }
+.js-center{
+ align-self: center;
+ display: flex;
+}

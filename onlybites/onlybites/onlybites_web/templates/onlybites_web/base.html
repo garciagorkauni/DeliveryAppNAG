@@ -53,6 +53,36 @@
            
         </div>
     </nav>
+    <nav class=" navbar navbar-default flex flex-center" id="responsive" style="display: none;">
+        <div class="container-fluid ">
+            <div class="navbar-header   " style="justify-content: space-between;margin: 0;">
+                <a class="navbar-brand  fl-jc-start" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites" class="logo-img"></a>
+                <div class="  fl-jc-end js-center"   id="sideMenuDisplayButton"><img src="{% static 'img/icons/Menu-Hamburger.svg' %}"></div>
+            </div>
+
+           
+        </div>
+    </nav>
+    <aside id="sideMenu" style="display: none;"  >
+        <div >
+            <a class="close-x" id="closeSideMenuButton" role="button">X</a>
+                
+            
+
+            <div class="nav navbar-nav flex fl-direc-colum " id="s-menu-content">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'menu' %}">Menu</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'cart' %}">Cart</a></li>
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="#" id="loginButton">Login</a></li>
+                    <li><a class="btn btn-register" href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+            </div>
+        </div>
+    </aside>
 
     <div id="loginPopup" class="popup shadow radius  ">
     </div>
