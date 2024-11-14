@@ -276,6 +276,7 @@ class Product(models.Model):
     celiac = models.BooleanField()
     calories = models.IntegerField()
     valoration_avg = models.FloatField()
+    product_image = models.ImageField(upload_to='images/')
     price = models.FloatField()
 
     def __str__(self):

@@ -3,6 +3,9 @@
 from django.urls import path
 from . import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     # admin
     path('stats/', views.stats_view, name='admin_stats'),
@@ -45,4 +48,4 @@ urlpatterns = [
     # Rest
     path('v1/product', views.Product_APIView.as_view()),
     path('v1/product/<int:pk>/', views.Product_APIView_Detail.as_view())
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

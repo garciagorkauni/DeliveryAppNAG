@@ -23,7 +23,7 @@
                 <!--   {% for image in images %}
                   <li> {{ image.path }} </li>
                   {% endfor %} -->
-                  <img id="pr-img" src="{% static 'img/boloñesa.png' %}" alt="{{image.alt}}">
+                  <img id="pr-img" src="{{ product.product_image.url }}">
             </div>
             <div class="flex fl-direc-colum " id="p-details" >
 
