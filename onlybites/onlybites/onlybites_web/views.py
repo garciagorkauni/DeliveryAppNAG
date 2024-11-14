@@ -18,6 +18,8 @@ from django.http import Http404
 from rest_framework.permissions import IsAdminUser
 from allauth.socialaccount.models import SocialAccount
 
+import pdb
+
 
 # View for home
 def home(request):
