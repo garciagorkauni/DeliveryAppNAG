@@ -1,0 +1,146 @@
+{% load static %}
+{% load i18n %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>OnlyBites</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home-style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu-style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cart-style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/add-rating.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default flex flex-center">
+        <div class="container-fluid ">
+            <div class="navbar-header ">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites" class="logo-img"></a>
+                <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'menu' %}">{% trans "Menu" %}</a></li>
+                    </ul>
+        
+                    <div class="nav navbar-nav flex fl-direc-row navbar-right jstcont-end">
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'cart' %}">{% trans "Cart" %}</a></li>
+                            <li><a href="{% url 'profile' %}">{% trans "Profile" %}</a></li>
+                            <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                        {% else %}
+                            <li><a href="#" id="loginButton">{% trans "Login" %}</a></li>
+                            <li><a class="btn btn-register" href="{% url 'register' %}">{% trans "Register" %}</a></li>
+                        {% endif %}
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <select name="language" id="l-select">
+                              <option value="es">ES</option>
+                              <option value="en">EN</option>
+                              <option value="eu">EU</option>
+                            </select>
+                            <button type="submit" class="btn change-l"><img id="radio-img" src="{% static 'img/icons/radio_button_checked.svg' %}"></button>
+                          </form>
+                    </div>
+                    
+                </div>
+            </div>           
+        </div>
+    </nav>
+    <nav class=" navbar navbar-default flex flex-center" id="responsive" style="display: none;">
+        <div class="container-fluid ">
+            <div class="navbar-header   " style="justify-content: space-between;margin: 0;">
+                <a class="navbar-brand  fl-jc-start" href="{% url 'home' %}"><img src="{% static 'img/LOGO-02.svg' %}" alt="logo image onlybites" class="logo-img"></a>
+                <div class="  fl-jc-end js-center"   id="sideMenuDisplayButton"><img src="{% static 'img/icons/Menu-Hamburger.svg' %}"></div>
+            </div>
+        </div>
+    </nav>
+    <aside id="sideMenu" style="display: none;"  >
+        <div >
+            <a class="close-x" id="closeSideMenuButton" role="button">X</a>
+                
+            <div class="nav navbar-nav flex fl-direc-colum " id="s-menu-content">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'menu' %}">{% trans "Menu" %}</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'cart' %}">{% trans "Cart" %}</a></li>
+                    <li><a href="{% url 'profile' %}">{% trans "Profile" %}</a></li>
+                    <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                {% else %}
+                    <li><a href="#" id="loginButton">{% trans "Login" %}</a></li>
+                    <li><a class="btn btn-register" href="{% url 'register' %}">{% trans "Register" %}</a></li>
+                {% endif %}
+                <form action="{% url 'set_language' %}" method="post">
+                  {% csrf_token %}
+                  <select name="language">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                    <option value="eu">EU</option>
+                  </select>
+                  <button type="submit" class="btn  change-l"><img id="radio-img" src="{% static 'img/icons/radio_button_checked.svg' %}"></button>
+                </form>
+            </div>
+        </div>
+    </aside>
+
+    <div id="loginPopup" class="popup shadow radius  ">
+    </div>
+
+    <div class="  container mb-5 ">
+        <div class="blank-space">
+        </div>
+        {% block content %} {% endblock %}
+    </div>
+
+<footer>
+    <div class="container center">
+        <div class="row mt-40">
+            <div class="col-lg-4 info">
+                <h4>{% trans "Gure bila etorri" %}</h4>
+                <p>tel: 943267802</p>
+                <p>Errebal Kalea 3, Eibar, Gipuzkoa 20600</p>
+            </div>
+            
+            <div class="col-lg-4 info">
+                <h4>{% trans "Gure ordutegia" %}</h4>
+                <p>{% trans "Astelenetik Ostiralera: 12:00-16:00 | 19:00-23:00" %}</p>
+                <p>{% trans "Larunbata eta igandea 12:00-16:00 | 19:00-00:00" %}</p>
+                <p>{% trans "Jai egunak 19:00-23:00" %}</p>
+            </div>
+            
+            <div class="col-lg-4 info">
+                <h4>{% trans "Jarraitu gure sozialetan" %}</h4>
+                <!--instagram-->
+                <a><img/></a>
+                <!--facebook-->
+                <a><img/></a>
+                <!--x-->
+                <a><img/></a>
+            </div>
+            
+        </div>
+
+    </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

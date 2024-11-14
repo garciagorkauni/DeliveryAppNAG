@@ -1,0 +1,37 @@
+{% load static %}
+{% load i18n %}
+
+
+<a class="close-x" id="closeLoginPopup" role="button">X</a>
+
+
+
+<div class="flex fl-direc-colum alg-it-center login m">
+    <div class="mb-2">
+        <h1>{% trans "Hasi saioa" %}</h1>
+    </div>
+   
+
+    <form method="post" class=" flex fl-direc-colum width"  action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="row flex mb-1 flex-center" >
+            <div class="col-lg-12">
+                <input class="mi-estilo-input " type="email" name="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="row flex mb-1 flex-center" >
+            <div class="col-lg-12">
+                <input class="mi-estilo-input" type="password" name="password" placeholder="Password">
+            </div>
+            
+        </div>
+        
+        <button class="btn btn-green submit-form" type="submit">{% trans "Login" %}</button>
+    </form>
+    
+    <p>{% trans "or" %}</p>
+    <a class=" alg-it-center flex flex-center " href="{% url 'social:begin' 'google-oauth2' %}"><img class="sig-google "  src="{% static 'img/icons/sing-google.svg' %}" ></a>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+</div>

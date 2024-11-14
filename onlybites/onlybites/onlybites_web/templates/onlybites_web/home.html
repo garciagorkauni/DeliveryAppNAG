@@ -1,0 +1,47 @@
+{% extends 'onlybites_web/base.html' %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+
+
+    <div class="row intro flex">
+        <div class="col-lg-7  home">
+            <h1>{% trans "Erraza, goxoa eta zuzenean zure mahira." %}</h1>
+            <h3>{% trans "Janari prestatu aberats eta osasungarria." %}</h3>
+        </div>
+        
+    </div>
+    <div  id="home-image">
+        <img src="{% static 'img/home-image.jpg' %}" >
+    </div>
+</div>
+
+<div class=" pink">
+    <div class=" container center flex">
+        <div class="blank-space">
+
+        </div>
+        <div class="rowflex-center mb-5">
+            <h2>{% trans "Bezeroen gustokoenak" %}</h2>
+        </div>
+        <div class="row flex-center">
+            <h3>{% trans "Aste honetan gure bezeroei gehien gustatuko baite-ak probatzera animatu:" %}</h3>
+        </div>
+        <!--platos mas gustados de la semana-->
+        <div class="row mt-10">
+            {% for product in best_rated_products%}
+            <div class="col-lg-3 col-md-6 col-6  flex flex-center">
+                <div class="popular-dish">
+                    <a id="dish-link" href="{% url 'product' product_id=product.product_id %}">
+                        <img clas="popular-dish-img" src="{{ product.product_image.url }}" />
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-40 flex-center" >
+            <div ><a class="btn btn-green" href="{% url 'menu' %}">{% trans "Ikusi plater guztiak" %}</a> </div>
+        </div>
+    </div>
+
+{% endblock %}

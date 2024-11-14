@@ -1,0 +1,243 @@
+/*home */
+@media (min-width: 280px) and (max-width:480px) {
+   /*delete home intro img*/
+   body, html {
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+   
+    padding: 0;
+    width: 100%;
+  }
+   nav{
+    display: none !important;
+   }
+   .intro {
+    max-width: 100% !important; 
+    padding: 0;
+ }
+    #home-image,
+    #home-image img {
+      display: none !important;
+      overflow-x: hidden; 
+    }
+   
+    .container {
+        max-width: 100% !important;
+        
+        padding: 0;
+        overflow-x: hidden;
+     }
+    h1{
+        font-size: 32px !important;
+    }
+    h3{
+        font-size: 20px !important;
+    }
+    h2{
+        font-size: 25px !important;
+    }
+    p{
+        font-size: 15px !important;
+    }
+    .blank-space {
+        padding-top: 10rem;
+    }
+    .row{
+        margin: 8px 0 5px 0   !important;
+    }
+    .pink{
+        padding: 5px !important;
+    }
+    footer{
+        max-width:  100% !important;
+        height: auto;
+    }
+    /*display most liked dish */
+    .popular-dish img {
+        width: 80%;
+        height: auto;
+        border-radius: 10px;
+    }
+    .popular-dish  {
+        width: 80%;
+        height: auto;   
+        
+    }
+    /* display de los datps en el perfil*/
+    .p-info{
+        width: auto !important;
+    }
+    .delete, .sortu{
+        margin-left: 2rem;
+    }
+    /*botoiak txikiagoak izateko*/
+    .btn-red, .btn-green, .btn-orange{
+        font-size: 15px;
+    }
+    /*address list*/
+   
+    #ad-list{
+        flex-direction: column;
+    }
+
+    /*mennu filters*/
+    .filter-item {
+        flex-direction: column;
+        
+    }
+    .dropdown{
+        margin-right: 2rem;
+    }
+    
+    /*carrito*/
+  .cart-img{
+        display: none !important;
+    }
+    .cart-btn{
+        transform: scale(0.5);
+    }
+    .cart-price{
+        font-size: 18px !important;
+        align-content: center;
+        margin-bottom: 0 !important;
+    }
+    .cart-product {
+        font-size: 18px !important;;
+    }
+    .min-height{
+        min-height: 300px !important;
+    }
+
+
+    /*product details page*/
+    #p-details-bloc{
+        flex-direction: column !important;
+        width: 310px !important;
+    }
+    #pr-img{
+        width: 310px;
+        height: auto;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+    
+    #p-details{
+        padding: 9px;
+        margin: 0 !important;
+    }
+
+    #val{
+       padding: 3rem;
+    }
+    /*valoracion boton*/
+#newValorationButton{
+    width: 106px;
+    margin: 2rem;
+  }
+
+    /*login*/
+    .form-width{
+        width: auto;
+    }
+    .register{
+        box-shadow: none !important;
+    }
+    .bottom-page-space{
+        padding-bottom: 0;
+    }
+    #back-page-botton {
+        margin-bottom: 10px;
+    }
+    
+    /*nav responsive*/
+    
+    #responsive{
+        display: flex !important;
+    }
+    .navbar-default {
+        
+        margin: 1rem 2rem;
+        background-color: white;
+        border-radius: 9rem;
+        align-items: center;
+        height: 60px;
+        position: fixed;
+        /* width: 90%; */
+        z-index: 3;
+        justify-content: center;
+    }
+    .logo-img,.navbar-brand{
+        height: 70px !important;
+        padding-bottom: 10px;
+    }
+    .container-fluid{
+        margin:0;
+        padding: 0;
+       
+    }
+    /*side menu*/
+    #sideMenuDisplayButton{
+        height: 30px !important;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    #closeSideMenuButton{
+        
+    }
+    #sideMenu{
+        position: fixed;
+        background-color: white;
+        height: 100%;
+        width: 70%;
+        z-index: 999;
+        display: flex !important;
+        justify-content: center;
+        left: -300px; /* Oculto inicialmente */
+    }
+    #s-menu-content{
+        margin-top: 9rem;
+       
+      
+    }
+    #s-menu-content>li>a{
+        color: #777;
+        font-size: 18px;
+        font-weight: bold;
+        margin-right: 20px;
+        text-decoration: none;
+      
+    }
+    #s-menu-content> li > a:hover{
+        transform: scale(1.1);
+        border:solid #777 2px ; 
+        border-radius:9rem ;
+        background-color: white;
+      
+      
+    }
+  }
+  @media (min-width: 280px) and (max-width:940px) {
+
+    #home-image,
+    #home-image img {
+      display: none !important;
+      overflow-x: hidden; 
+    }
+    nav{
+        display: none !important;
+       }
+          /*nav responsive*/
+    
+    #responsive{
+        display: flex !important;
+    }
+    #sideMenuDisplayButton{
+        height: 50px;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    #sideMenu{
+       
+        display: flex !important;
+     
+    }
+  }

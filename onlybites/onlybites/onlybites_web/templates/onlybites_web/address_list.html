@@ -1,0 +1,17 @@
+{% load i18n %}
+
+{% if addresses %}
+    {% for address in addresses %}
+    <div class="flex fl-direc-row fl-justcon-sbetw m" id="ad-list">
+        <p > {{ address }}</p>
+        <div >
+            <a class="btn  btn-orange editAddressButton" id="{{address.address_id}}" role="button">{% trans "Edit" %}</a>
+            <a class="btn  btn-red" href="{% url 'delete_address' address.address_id %}">{% trans "Eliminar Direccion" %}</a>
+        </div>
+        
+       
+    </div>
+    {% endfor %}
+{% else %}
+    <h4>{% trans "Oraindik ez duzu helbiderik gehitu..." %}</h4>
+{% endif %}

@@ -1,0 +1,56 @@
+{% load static %}
+{% load i18n %}
+
+
+{% if carts %}
+{% get_current_language as LANGUAGE_CODE %}
+{% for cart in carts %}
+<div id="producto-carrito" class="flex fl-justcon-sbetw alg-it-center wid-90 " >
+    <div class="flex alg-it-center " >
+        <!--product img-->
+        <div >
+            <img src="{{ cart.product.product_image.url }}" class="cart-img" >
+        </div>
+    <!--product name-->
+        <div class="flex fl-direc-colum ml-20 height-120 fl-justcon-sbetw">
+            {% if LANGUAGE_CODE == 'en' %}
+            <h3 class="cart-product ">{{ cart.product.name_en }}</h3>
+            {% elif LANGUAGE_CODE == 'es' %}
+            <h3 class="cart-product ">{{ cart.product.name_es }}</h3>
+            {% elif LANGUAGE_CODE == 'eu' %}
+            <h3 class="cart-product ">{{ cart.product.name_eu }}</h3>
+            {% endif %}
+        <!--product price-->
+        <div class="flex flfl-direc-colum fl-justcon-sbetw">
+            <p class="f-w-bold playfair cart-price">{{ cart.product.price }}€</p>
+
+            <div>
+                <a class="deleteCartButton" id="{{ cart.id }}">
+                    <img class="cart-btn" id="delete-btn" src="{% static 'img/icons/delete-btn.svg' %}"/>
+                </a>
+            </div>
+        </div>
+            
+        </div>
+    </div>
+
+    <div  class="flex alg-it-center" >
+        <div>
+            <a class="reduceCartButton" id="{{ cart.product.product_id }}">
+                <img class="cart-btn" id="minus-button" src="{% static 'img/icons/Minus-circle.svg' %}"/>
+            </a>
+        </div>
+        <!--product amount-->
+        <div><span class="f-w-bold f-zie-18" id="cart-quantity">{{cart.quantity}}</span></div>
+        <div>
+            <a class="incrementCartButton" id="{{ cart.product.product_id }}">
+                <img class="cart-btn" id="minus-button" src="{% static 'img/icons/Plus-circle.svg' %}"/>
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<a class=" m btn btn-orange wid-20" id="paymentButton"><strong>{% trans "Ordaindu" %}</strong></a>
+{% else %}
+<h4>{% trans "Oraindik ez duzu produkturik gehitu zure saskira..." %}</h4>
+{% endif %}

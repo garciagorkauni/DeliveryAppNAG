@@ -1,0 +1,20 @@
+{% load i18n %}
+
+{% load static %}
+<a class="close-x" id="closePaymentFormButton" role="button">X</a>
+
+<div class="flex fl-direc-colum alg-it-center m ">
+    <div class="m ">
+        <h1>{% trans "Complete Payment" %}</h1>
+    </div>
+</div>
+
+<h3 class="m">{% trans "Total: " %} {{ total }}€</h3>
+<form method="post"  class="flex fl-direc-colum width2" action="{% url 'payment' %}">
+    {% csrf_token %}
+    <div class="flex fl-direc-row flex-center">
+        {{ form.as_p }}
+    </div>
+   
+    <button type="submit" class=" save btn btn-green  mb-2 submit-form">{% trans "Confirm Purchase" %}</button>
+</form>
