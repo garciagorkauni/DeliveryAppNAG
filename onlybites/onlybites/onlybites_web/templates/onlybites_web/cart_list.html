@@ -9,7 +9,7 @@
     <div class="flex alg-it-center " >
         <!--product img-->
         <div >
-            <img src="{% static 'img/boloñesa.png' %}" alt="Pasta bolognese"class="cart-img" >
+            <img src="{{ cart.product.product_image.url }}" class="cart-img" >
         </div>
     <!--product name-->
         <div class="flex fl-direc-colum ml-20 height-120 fl-justcon-sbetw">

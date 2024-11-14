@@ -17,7 +17,7 @@
                 <a href="{% url 'product' product_id=product.product_id %}" class="flex fl-direc-colum" > 
                     <!--imagen del producto -->
                     <div  class="product-img-container">
-                        <img class="product-img" src="{% static 'img/boloñesa.png' %}" alt="pasta de spaguetis a la boloñesa">
+                        <img class="product-img" src="{{ product.product_image.url }}">
                     </div>
                     <!--nombre del producto-->
                     <div class="product-name  f-zie-18 padd-10">
